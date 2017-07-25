@@ -9,6 +9,7 @@ const URL = '/api/';
 })
 export class AppComponent {
 
+
   fileChanged(e: Event) {
     var target: HTMLInputElement = e.target as HTMLInputElement;
     for(var i=0;i < target.files.length; i++) {

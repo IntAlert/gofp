@@ -4,6 +4,22 @@
     #GunsOutForPeace Prototype
   </h1>
 </div>
+
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>GunsOutForPeace</md-card-title>
+    <md-card-subtitle>Fuel the campaign</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="/assets/suns_out_guns_out.jpg">
+  <md-card-content>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio debitis esse assumenda, eaque velit accusantium voluptatem mollitia! Sequi sunt beatae voluptas, dolore molestiae in provident quae soluta rem ut repudiandae.
+    </p>
+  </md-card-content>
+</md-card>
+
+
 <h2>1. Upload your guns</h2>
 
 
@@ -11,8 +27,13 @@
 
 <h2>2. Preview your guns</h2>
 
-
+<app-social-preview>
+    
+</app-social-preview>
 
 <h2>3. Share</h2>
 
-
+<md-checkbox 
+    [(ngModel)]="checked"
+    class="example-margin"
+>Checked</md-checkbox>
