@@ -1,4 +1,4 @@
-<form [formGroup]="uploadForm" (ngSubmit)="submitForm(complexForm.value)">
+<form [formGroup]="uploadForm" (ngSubmit)="submitForm(uploadForm.value)">
 
   <div class="file-chooser">
     <input type="file" (change)="fileChange($event)" name="file" id="file" accept="image/*" #fileInput>

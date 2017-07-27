@@ -1,13 +1,15 @@
-<div class="social-actions">
+<div class="social-actions" *ngIf="ready">
 
   <div class="twitter">
-     <button md-button class="md-raised md-primary">
+     <button md-button class="md-raised" (click)="startTwitterShare()">
+       <i class="fa fa-twitter-square fa-2x" aria-hidden="true"> </i> 
       Share to Twitter
     </button> 
   </div>
 
   <div class="facebook">
-    <button md-button>
+    <button md-button class="md-raised" (click)="startFacebookShare()">
+      <i class="fa fa-facebook-square fa-2x" aria-hidden="true"> </i> 
       Share to Facebook
     </button>
   </div>

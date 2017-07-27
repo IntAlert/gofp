@@ -1,4 +1,14 @@
-# MyApp
+# #GunsOutForPeace
+
+
+# TODO:
+- Hook up Twitter flow
+- Hook up Facebook flow
+- Create Service for upload API
+- Create Service for Prize Draw
+- Desktop view
+- Deploy
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
 

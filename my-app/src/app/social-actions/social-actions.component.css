@@ -6,3 +6,6 @@
 .social-actions>div {
   flex:1
 }
+.social-actions>div>button {
+  width: 100%;
+}

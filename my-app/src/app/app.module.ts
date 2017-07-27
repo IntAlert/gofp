@@ -12,6 +12,7 @@ import { SocialPreviewComponent } from './social-preview/social-preview.componen
 import { SocialActionsComponent } from './social-actions/social-actions.component';
 import { EmailCollectorComponent } from './email-collector/email-collector.component';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
+import { BadgeBuilderService } from './badge-builder.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ImageUploaderComponent } from './image-uploader/image-uploader.componen
     MdInputModule,
     MdToolbarModule
   ],
-  providers: [],
+  providers: [BadgeBuilderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
