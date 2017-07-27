@@ -1,0 +1,14 @@
+
+.submit {
+  display: flex;
+  margin-bottom:1em;
+}
+
+.submit>div {
+  flex:1
+}
+
+.full-width {
+  width: 100%;
+}
+

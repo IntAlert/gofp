@@ -1,0 +1,11 @@
+<form [formGroup]="uploadForm" (ngSubmit)="submitForm(complexForm.value)">
+
+  <div class="file-chooser">
+    <input type="file" (change)="fileChange($event)" name="file" id="file" accept="image/*" #fileInput>
+  </div>
+
+  <button md-button [disabled]="!fileChosen" class="full-width md-raised" type="button" type="submit">
+    Upload Your Guns
+  </button>
+
+</form>

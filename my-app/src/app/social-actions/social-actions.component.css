@@ -1,0 +1,8 @@
+.social-actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.social-actions>div {
+  flex:1
+}
