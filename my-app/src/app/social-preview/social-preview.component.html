@@ -1,3 +1,23 @@
-<div class="preview" *ngIf="ready">
-  <img src="/assets/preview.png" alt="Preview">
+<div *ngIf=" mode == 'initial' ">
+  
+  <!-- Empty when initial -->
+
+</div>
+
+<div *ngIf=" mode == 'downloading' ">
+
+  <h2>Downloading your badge</h2>
+  
+  <md-progress-bar
+    [color]="'primary'"
+    [mode]="'determinate'"
+    [value]="badgeDownloadProgressPercentage">
+  </md-progress-bar>
+  
+</div>
+
+<div *ngIf=" mode == 'ready' ">
+  
+  <img src="{{url}}" alt="Peace Badge">
+  
 </div>

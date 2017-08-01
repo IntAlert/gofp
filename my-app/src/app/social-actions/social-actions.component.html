@@ -1,10 +1,16 @@
-<div class="social-actions" *ngIf="true || ready">
+<div *ngIf=" mode == 'initial' ">
+
+  <!-- Empty when initial -->
+
+</div>
+
+<div class="social-actions" *ngIf=" mode == 'ready' ">
 
   <div class="twitter">
-     <button ceiboShare [twitter]="{url:url, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
+    <button ceiboShare [twitter]="{url:url, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
        <i class="fa fa-twitter-square fa-2x" aria-hidden="true"> </i> 
       Share to Twitter
-    </button> 
+    </button>
   </div>
 
   <div class="facebook">
@@ -13,4 +19,5 @@
       Share to Facebook
     </button>
   </div>
+
 </div>

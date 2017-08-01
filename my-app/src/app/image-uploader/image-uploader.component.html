@@ -1,7 +1,7 @@
 <form [formGroup]="uploadForm" (ngSubmit)="submitForm(uploadForm.value)">
 
-  <div *ngIf="mode == 'choose'">
-    
+  <div *ngIf=" mode == 'choose' ">
+
     <div class="file-chooser">
       <input type="file" (change)="fileChange($event)" name="file" id="file" accept="image/*" #fileInput>
     </div>
@@ -11,7 +11,7 @@
     </button>
   </div>
 
-  <div *ngIf="mode == 'uploading'">
+  <div *ngIf=" mode == 'uploading' ">
     
     <h2>Uploading</h2>
     
@@ -27,7 +27,7 @@
 
   </div>
 
-  <div *ngIf="mode == 'complete'">
+  <div *ngIf=" mode == 'complete' ">
     
     <h2>Upload Complete!</h2>
 

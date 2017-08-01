@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BadgeBuilderService } from '../badge-builder.service';
-
+import { SocialBadge } from '../social-badge';
 
 @Component({
   selector: 'app-social-actions',
@@ -13,27 +13,25 @@ export class SocialActionsComponent {
 
 
   // UI state
-  ready: Boolean = false;
-  loading: Boolean = false;
+  mode = 'initial'; // [initial | ready ]
 
 
   // social details
-  public url: String = 'http://www.international-alert.org';
+  public badge: SocialBadge;
   public tweetText: String = 'Some Tweet Text';
 
 
   constructor(service: BadgeBuilderService) {
 
     // show loading until ready
-    service.onUploadStart.subscribe(stage => {
-      this.ready = false;
-      this.loading = true;
+    service.onUploadStart.subscribe(() => {
+      this.mode = 'initial';
     });
 
     // show preview when ready
-    service.onPreviewReady.subscribe(stage => {
-      this.ready = true;
-      this.loading = false;
+    service.onBadgeDownloadComplete.subscribe(badge => {
+      this.mode = 'ready';
+      this.badge = badge;
     });
 
     this.service = service;

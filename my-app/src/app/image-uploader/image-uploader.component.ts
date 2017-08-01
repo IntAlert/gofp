@@ -21,7 +21,6 @@ export class ImageUploaderComponent {
 
   @ViewChild('fileInput') fileInput;
 
-
    // We are passing an instance of the FormBuilder to our constructor
   constructor(fb: FormBuilder, service: BadgeBuilderService) {
     // Here we are using the FormBuilder to build out our form.

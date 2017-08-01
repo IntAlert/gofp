@@ -1,15 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Headers, Response} from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
+import { SocialBadge } from './social-badge';
 
-// import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class BadgeBuilderService {
 
   // public
-  public opengraph: String;
-  public image: String;
+  public badge: SocialBadge;
 
 
   // private
@@ -18,7 +17,7 @@ export class BadgeBuilderService {
     enter: '/api/enterPrizeDraw'
   };
 
-  private headers: Headers = new Headers({'Content-Type': 'application/json'});
+  private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: Http, private httpClient: HttpClient) { }
 
@@ -34,7 +33,6 @@ export class BadgeBuilderService {
   public onBadgeDownloadStart = new EventEmitter();
   public onBadgeDownloadProgress = new EventEmitter();
   public onBadgeDownloadComplete = new EventEmitter();
-  public onPreviewReady = new EventEmitter();
   public onShare = new EventEmitter();
   public onPrizeEntry = new EventEmitter();
 
@@ -65,11 +63,7 @@ export class BadgeBuilderService {
   }
 
   public registerBadgeDownloadComplete = () => {
-    this.onBadgeDownloadComplete.emit();
-  }
-
-  public registerPreviewReady = () => {
-    this.onPreviewReady.emit();
+    this.onBadgeDownloadComplete.emit(this.badge);
   }
 
   public registerShare = () => {
@@ -92,8 +86,9 @@ export class BadgeBuilderService {
     this.registerUploadStart();
     this.registerUploadProgress(0);
     return this.httpClient
-      .request(req)
+      .request<SocialBadge>(req)
       .subscribe(event => {
+
         // Via this API, you get access to the raw event stream.
         // Look for upload progress events.
         if (event.type === HttpEventType.UploadProgress) {
@@ -103,28 +98,23 @@ export class BadgeBuilderService {
           console.log(`File is ${percentDone}% uploaded.`);
         } else if (event instanceof HttpResponse) {
           console.log('File is completely uploaded!');
+          this.badge = event.body;
           this.registerUploadComplete();
+
+          // start downloading badge
+          this.preloadBadgeImage();
+
         }
-      });
-
-  }
-
-  enterPrizeDraw(email: string, festival_news: string) {
-
-    return this.http
-      .post(this.urls.enter, JSON.stringify({email, festival_news}), {headers: this.headers})
-      .subscribe(data => {
-        // TODO: redirect ot further actions
-        console.log(data);
-      },
-      err => {
+      }, err => {
+        // TODO: handle
         console.error(err);
       });
 
   }
 
-  preloadBadgeImage(imageUrl: string) {
-    const req = new HttpRequest('GET', imageUrl, null, {
+  // Preload Badge Image
+  preloadBadgeImage() {
+    const req = new HttpRequest('GET', this.badge.image, null, {
       reportProgress: true,
     });
 
@@ -139,12 +129,29 @@ export class BadgeBuilderService {
           // This is an upload progress event. Compute and show the % done:
           const percentDone = Math.round(100 * event.loaded / event.total);
           this.registerBadgeDownloadProgress(percentDone);
-          console.log(`File is ${percentDone}% uploaded.`);
+          console.log(`File is ${percentDone}% downloaded.`);
         } else if (event instanceof HttpResponse) {
-          console.log('File is completely uploaded!');
+          console.log('File is completely downloaded!');
           this.registerBadgeDownloadComplete();
         }
+      }, err => {
+        console.error(err);
       });
+  }
+
+
+  enterPrizeDraw(email: string, festival_news: string) {
+
+    return this.http
+      .post(this.urls.enter, JSON.stringify({ email, festival_news }), { headers: this.headers })
+      .subscribe(data => {
+        // TODO: redirect ot further actions
+        console.log(data);
+      },
+      err => {
+        console.error(err);
+      });
+
   }
 
 }
