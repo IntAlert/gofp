@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdToolbarModule } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdToolbarModule, MdProgressBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import 'hammerjs';
@@ -13,6 +15,7 @@ import { SocialActionsComponent } from './social-actions/social-actions.componen
 import { EmailCollectorComponent } from './email-collector/email-collector.component';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { BadgeBuilderService } from './badge-builder.service';
+import { CeiboShare } from 'ng2-social-share';
 
 @NgModule({
   declarations: [
@@ -20,19 +23,23 @@ import { BadgeBuilderService } from './badge-builder.service';
     SocialPreviewComponent,
     SocialActionsComponent,
     EmailCollectorComponent,
-    ImageUploaderComponent
+    ImageUploaderComponent,
+    CeiboShare
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    // Angular Material
     MdCardModule,
     MdButtonModule,
     MdCheckboxModule,
     MdInputModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdProgressBarModule
   ],
   providers: [BadgeBuilderService],
   bootstrap: [AppComponent]

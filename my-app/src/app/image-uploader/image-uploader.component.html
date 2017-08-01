@@ -1,11 +1,48 @@
 <form [formGroup]="uploadForm" (ngSubmit)="submitForm(uploadForm.value)">
 
-  <div class="file-chooser">
-    <input type="file" (change)="fileChange($event)" name="file" id="file" accept="image/*" #fileInput>
+  <div *ngIf="mode == 'choose'">
+    
+    <div class="file-chooser">
+      <input type="file" (change)="fileChange($event)" name="file" id="file" accept="image/*" #fileInput>
+    </div>
+
+    <button md-button [disabled]="!fileChosen" class="full-width md-raised" type="button" type="submit">
+      Upload Your Guns
+    </button>
   </div>
 
-  <button md-button [disabled]="!fileChosen" class="full-width md-raised" type="button" type="submit">
-    Upload Your Guns
-  </button>
+  <div *ngIf="mode == 'uploading'">
+    
+    <h2>Uploading</h2>
+    
+    <md-progress-bar
+        [color]="'primary'"
+        [mode]="'determinate'"
+        [value]="uploadProgressPercentage">
+    </md-progress-bar>
+
+    <button md-button class="md-raised" (click)="reset()">
+      Choose another image
+    </button>
+
+  </div>
+
+  <div *ngIf="mode == 'complete'">
+    
+    <h2>Upload Complete!</h2>
+
+    <p>Now share your #GunsOutForPeace Badge</p>
+
+    <button md-button class="md-raised" (click)="reset()">
+      Choose another image
+    </button>
+    
+    <md-progress-bar
+        [color]="'primary'"
+        [mode]="'determinate'"
+        [value]="uploadProgressPercentage">
+    </md-progress-bar>
+      
+  </div>
 
 </form>

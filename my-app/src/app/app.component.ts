@@ -8,8 +8,6 @@ import { BadgeBuilderService } from './badge-builder.service';
 })
 export class AppComponent {
 
-  constructor(service: BadgeBuilderService) {
-    
-  }
+  constructor(service: BadgeBuilderService) {}
 
 }
