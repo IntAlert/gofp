@@ -1,8 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
-import { SocialBadge } from './social-badge';
+// import { SocialBadge } from './social-badge';
 
+// don't know why
+ class SocialBadge {
+  ok: boolean;
+  image: string;
+  opengraph: string;
+}
 
 @Injectable()
 export class BadgeBuilderService {

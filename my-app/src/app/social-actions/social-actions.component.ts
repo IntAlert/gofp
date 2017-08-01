@@ -11,10 +11,8 @@ export class SocialActionsComponent {
 
   service: BadgeBuilderService;
 
-
   // UI state
   mode = 'initial'; // [initial | ready ]
-
 
   // social details
   public badge: SocialBadge;
