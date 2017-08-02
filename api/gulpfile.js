@@ -22,7 +22,7 @@ gulp.task('default', function (cb) {
 
 
   // run NG build process
-  execSync('./node_modules/.bin/ng build -prod --aot=false', {
+  execSync(path.join(__dirname, '..', 'my-app', 'node_modules', '.bin', 'ng') + ' build -prod --aot=false', {
     cwd: path.join(__dirname, '..', 'my-app')
   }, function (err, stdout, stderr) {
     console.log(stdout);
