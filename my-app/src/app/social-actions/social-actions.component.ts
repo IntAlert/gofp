@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BadgeBuilderService } from '../badge-builder.service';
 import { SocialBadge } from '../social-badge';
 
+
 @Component({
   selector: 'app-social-actions',
   templateUrl: './social-actions.component.html',

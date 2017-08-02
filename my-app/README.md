@@ -10,6 +10,34 @@
 - Deploy
 
 
+
+# Development
+0. Clone this repo
+1. `npm install`
+2. `npm run build`
+3. `npm start`
+
+# Deployment
+1. `az login`
+2. `ng build -prod --aot=false`
+3. `cd ..`
+3. `git add .`
+4. `git commit -m ...`
+5. `git push azure master`
+
+# Setting up the Azure Environment
+cf. https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs
+1. `az login`
+2. Configure a deployment user: `az appservice web deployment user set --user-name ***`
+3. Enter deployment user password
+4. Create a resource group: `az group create --name GOFP_RG --location westeurope`
+5. Create FREE Azure App Service plan: `az appservice plan create --name quickStartPlan --resource-group GOFP_RG --sku FREE`
+6. Create a web app: `az appservice web create --name GOFP --resource-group GOFP_RG --plan quickStartPlan`
+7. Configure local Git deployment: `az appservice web source-control config-local-git --name GOFP --resource-group GOFP_RG --query url --output tsv`
+8. Add Git Remote: `git remote add azure https://GOFP@GOFP.scm.azurewebsites.net/GOFP.git`
+9. Update Application Settings: `az appservice web config appsettings update --name GOFP --resource-group GOFP_RG --settings NODE_ENV=production`
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
 
 ## Development server
