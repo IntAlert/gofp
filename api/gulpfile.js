@@ -1,13 +1,31 @@
 var gulp = require('gulp');
 var path = require('path');
-var exec = require('child_process').exec;
+var execSync = require('child_process').execSync;
 
 gulp.task('default', function (cb) {
-  exec('ng build -prod --aot=false', {
+
+  // install production dependencies
+  execSync('npm install --production', {
     cwd: path.join(__dirname, '..', 'my-app')
   }, function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
-    cb(err);
+  });
+
+  // install dev dependencies
+  execSync('npm install --only=dev', {
+    cwd: path.join(__dirname, '..', 'my-app')
+  }, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
+
+
+  // run NG build process
+  execSync('ng build -prod --aot=false', {
+    cwd: path.join(__dirname, '..', 'my-app')
+  }, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
   });
 })
