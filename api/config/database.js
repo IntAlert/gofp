@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config();
+
 var config = {
   "development": {
     "username": process.env.RDS_USERNAME,
