@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const models  = require('../models');
 const multer = require('multer');
 const upload = multer({ 
   dest: 'uploads/',
@@ -18,6 +19,32 @@ console.log('here')
     image: '/images/some-image.png',
     opengraph: 'http://www.google.co.uk/',
   });
+
+  // get record
+  models.Upload.create({
+    user_id,
+    key
+  })
+
+  // create badge
+  .then(upload => {
+
+    
+
+
+
+  })
+
+  // return badge details
+  .then(badge => {
+
+
+
+
+    
+  })
+
+
 
 });
 
