@@ -10,7 +10,7 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
   styleUrls: ['./email-collector.component.css']
 })
 export class EmailCollectorComponent {
-
+ 
 
   service: BadgeBuilderService;
   // The FormGroup object as you may remember from the simple

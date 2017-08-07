@@ -7,17 +7,17 @@
 <div class="social-actions" *ngIf=" mode == 'ready' ">
 
   <div class="twitter">
-    <button ceiboShare [twitter]="{url:badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
+     <button ceiboShare [twitter]="{url:badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
        <i class="fa fa-twitter-square fa-2x" aria-hidden="true"> </i> 
       Share to Twitter
-    </button>
+    </button> 
   </div>
 
   <div class="facebook">
-    <button ceiboShare [facebook]="{u: badge.opengraph}" md-button class="md-raised" (click)="startFacebookShare()">
+     <button ceiboShare [facebook]="{u: badge.opengraph}" md-button class="md-raised" (click)="startFacebookShare()">
       <i class="fa fa-facebook-square fa-2x" aria-hidden="true"> </i> 
       Share to Facebook
-    </button>
+    </button> 
   </div>
 
 </div>

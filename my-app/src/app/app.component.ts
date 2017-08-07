@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BadgeBuilderService } from './badge-builder.service';
+// import { BadgeBuilderService } from './badge-builder.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,6 @@ import { BadgeBuilderService } from './badge-builder.service';
 })
 export class AppComponent {
 
-  constructor(service: BadgeBuilderService) {}
+  constructor() {}
 
 }
