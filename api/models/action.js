@@ -1,10 +1,8 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Badge = sequelize.define('Badge', {
-    action_id: DataTypes.INTEGER,
-    upload_id: DataTypes.INTEGER,
+  var Action = sequelize.define('Action', {
     image: DataTypes.TEXT,
-    opengraph: DataTypes.TEXT
+    description: DataTypes.TEXT
   }, {
     classMethods: {
       associate: function(models) {
@@ -12,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Badge;
+  return Action;
 };
