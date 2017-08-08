@@ -4,8 +4,28 @@ var execSync = require('child_process').execSync;
 
 gulp.task('default', function (cb) {
 
-  // install production dependencies
+  
+  // FRONTEND
+
+  // install production dependencies for frontend
   execSync('npm install --production', {
+    cwd: path.join(__dirname, '..', 'my-app')
+  }, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
+
+
+  // install dev dependencies for Frontend
+  execSync('npm install --only=dev', {
+    cwd: path.join(__dirname, '..', 'my-app')
+  }, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
+
+  // run NG build process
+  execSync(path.join(__dirname, '..', 'my-app', 'node_modules', '.bin', 'ng') + ' build -prod --aot=false', {
     cwd: path.join(__dirname, '..', 'my-app')
   }, function (err, stdout, stderr) {
     console.log(stdout);
@@ -32,21 +52,4 @@ gulp.task('default', function (cb) {
   });
 
 
-  // FRONTEND
-
-  // install dev dependencies for Frontend
-  execSync('npm install --only=dev', {
-    cwd: path.join(__dirname, '..', 'my-app')
-  }, function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-  });
-
-  // run NG build process
-  execSync(path.join(__dirname, '..', 'my-app', 'node_modules', '.bin', 'ng') + ' build -prod --aot=false', {
-    cwd: path.join(__dirname, '..', 'my-app')
-  }, function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-  });
 })
