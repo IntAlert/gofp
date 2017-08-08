@@ -1,11 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
+// import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Injectable()
 export class ActionService {
-
-
+  
   public onActionsLoaded = new EventEmitter();
   
 
@@ -19,6 +18,7 @@ export class ActionService {
   };
 
   constructor(private http: Http) {
+    console.log('load actions')
     this.loadActions()
   }
 
@@ -31,11 +31,9 @@ export class ActionService {
     if (actionFound) {
       return Promise.resolve(actionFound)
     } else {
-      return Promise.reject("Actin not found")
+      return Promise.reject("Action not found")
     }
   }
-
-  
 
 
   private loadActions() {

@@ -12,8 +12,18 @@ import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 
 // imports
-import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdToolbarModule, MdProgressBarModule } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { 
+  MdButtonModule,
+  MdCheckboxModule,
+  MdCardModule,
+  MdInputModule,
+  MdToolbarModule,
+  MdProgressBarModule,
+  MdListModule,
+  MdTabsModule
+} from '@angular/material';
+
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { HomeComponent } from './home/home.component';
@@ -23,6 +33,7 @@ import { ActionsComponent } from './actions/actions.component';
 // Services
 import { ActionService } from './action.service';
 import { BadgeBuilderService } from './badge-builder/badge-builder.service';
+import { BadgeService } from './badge.service';
 
 // Directives
 import { CeiboShare } from 'ng2-social-share';
@@ -63,6 +74,8 @@ import { ImageUploaderComponent } from './badge-builder/image-uploader/image-upl
     MdInputModule,
     MdToolbarModule,
     MdProgressBarModule,
+    MdListModule,
+    MdTabsModule
 
     
     
@@ -70,7 +83,8 @@ import { ImageUploaderComponent } from './badge-builder/image-uploader/image-upl
   bootstrap: [AppComponent],
   providers: [ 
     ActionService,
-    BadgeBuilderService
+    BadgeBuilderService,
+    BadgeService
   ]
 })
 export class AppModule { }

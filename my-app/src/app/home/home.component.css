@@ -1,0 +1,7 @@
+.action-count {
+  margin:1em 0;
+}
+.action-count md-card-content p{
+  font-size:4em;
+  text-align: center;
+}

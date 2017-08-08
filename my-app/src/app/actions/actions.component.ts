@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionService } from '../action.service';
 
 @Component({
   selector: 'app-actions',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionsComponent implements OnInit {
 
-  constructor() { 
-    console.log('constructor');
+  actions: any;
+
+  constructor(private actionService: ActionService) { 
   }
 
   ngOnInit() {
-    console.log('ngOnInit');
+    this.actions = this.actionService.actions
+    this.actionService.onActionsLoaded.subscribe(() => {
+      this.actions = this.actionService.actions
+    })
   }
 
 }

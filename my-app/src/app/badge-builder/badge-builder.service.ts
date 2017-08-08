@@ -18,6 +18,7 @@ export class BadgeBuilderService {
 
 
   // private
+  private selectedActionId: any
   private urls = {
     upload: '/api/uploadProfilePic',
     enter: '/api/enterPrizeDraw'
@@ -26,8 +27,6 @@ export class BadgeBuilderService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: Http, private httpClient: HttpClient) { }
-
-
 
 
   // emitters
@@ -81,9 +80,17 @@ export class BadgeBuilderService {
   }
 
   // Public methods
+
+
+  public setActionId = (action_id) => {
+    console.log(action_id)
+    this.selectedActionId = action_id
+  }
+
   public uploadProfilePic = (img) => {
     const formData: FormData = new FormData();
     formData.append('image', img, img.name);
+    formData.append('action_id', this.selectedActionId);
 
     const req = new HttpRequest('POST', this.urls.upload, formData, {
       reportProgress: true,
@@ -149,7 +156,11 @@ export class BadgeBuilderService {
   enterPrizeDraw(email: string, festival_news: string) {
 
     return this.http
-      .post(this.urls.enter, JSON.stringify({ email, festival_news }), { headers: this.headers })
+      .post(this.urls.enter, JSON.stringify({ 
+        action_id: this.selectedActionId,
+        email, 
+        festival_news 
+      }), { headers: this.headers })
       .subscribe(data => {
         // TODO: redirect ot further actions
         console.log(data);

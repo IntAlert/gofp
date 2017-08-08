@@ -1,2 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-Actions List Component 
+
+<h1>Pick an Every Day Peace Action</h1>
+<md-list>
+  <md-list-item *ngFor="let action of actions" routerLink="/badgeBuilder/{{action.id}}">
+    <img md-list-avatar src="{{action.image}}" alt="{{action.title}}">
+    <button md-button class="md-raised md-primary" routerLink="/badgeBuilder/{{action.id}}">Find out more &rarr;</button>
+    <h3 md-line> {{action.title}} </h3>
+    <p md-line>
+      <span> {{action.description}} </span>
+      <span class="demo-2"> --  </span>
+      
+    </p>
+  </md-list-item>
+</md-list>

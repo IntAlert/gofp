@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 const getActions = require('./routes/getActions');
 const uploadProfilePic = require('./routes/uploadProfilePic');
 const enterPrizeDraw = require('./routes/enterPrizeDraw');
+const getBadgeCount = require('./routes/getBadgeCount');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public', 'build')));
 app.use('/api/getActions', getActions);
 app.use('/api/uploadProfilePic', uploadProfilePic);
 app.use('/api/enterPrizeDraw', enterPrizeDraw);
+app.use('/api/getBadgeCount', getBadgeCount);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

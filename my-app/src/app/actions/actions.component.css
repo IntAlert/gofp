@@ -1,0 +1,10 @@
+.mat-list .mat-list-item{
+  background:#ccc;
+}
+.mat-list .mat-list-item:nth-child(2n+1) {
+  background:#eee;
+}
+
+.mat-list button {
+  float:right;
+}

@@ -1,3 +1,51 @@
+
+<h1>Let's build peace, one action at a time</h1>
+
+<!-- Primary card  -->
+<md-card>
+  <img md-card-image src="/assets/iscreamforpeace.png">
+  <md-card-content>
+    <p>
+      Make your own Shout out for Peace and win a chance for a year's 
+      supply of Ben &amp; Jerry's Ice Cream
+    </p>
+  </md-card-content>
+  <md-card-actions layout-align="center center">
+    <button md-button md-raised-button color="primary" routerLink="/badgeBuilder/1">
+      Shout Out for Peace (and ice cream)
+      
+    </button>
+  </md-card-actions>
+</md-card>
+
+<!-- Action Count -->
+<md-card class="action-count">
+  <md-card-content>
+    <p>{{badgeCount}} actions taken so far</p>
+  </md-card-content>
+</md-card>
+
+<!-- Further actions -->
+<h2>More Peacebuilding actions</h2>
+<p>Each action increases your chance of free ice cream</p>
+<md-list>
+  <md-list-item *ngFor="let action of actions" routerLink="/badgeBuilder/{{action.id}}">
+    <img md-list-avatar src="{{action.image}}" alt="{{action.title}}">
+    <button md-button md-raised-button color="secondary" routerLink="/badgeBuilder/{{action.id}}">
+      Do it!
+    </button>
+    <h3 md-line> {{action.title}} </h3>
+    <p md-line>
+      <span> {{action.description}} </span>
+      
+    </p>
+  </md-list-item>
+</md-list>
+
+<!-- What is Peacebuilding -->
+<h2>What is Peacebuilding?</h2>
 <p>
-  home works!
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis numquam maiores temporibus totam provident, delectus voluptatem, expedita voluptatibus illum magni pariatur, amet laborum nihil consequuntur sint labore repellat libero maxime!
+
+
 </p>

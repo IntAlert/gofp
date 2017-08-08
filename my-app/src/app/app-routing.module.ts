@@ -8,7 +8,8 @@ import { ActionsComponent } from './actions/actions.component';
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            { path: '',  component: HomeComponent,  pathMatch: 'full'},
+            { path: '',  component: HomeComponent},
+            { path: 'home',  component: HomeComponent},
             { path: 'badgeBuilder/:action_id', component: BadgeBuilderComponent },
             { path: 'actions',     component: ActionsComponent }
         ])
