@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionService } from '../action.service';
 import { BadgeService } from '../badge.service'
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
