@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BadgeBuilderService } from './badge-builder.service';
+// import { BadgeBuilderService } from './badge-builder.service';
+import { ActionService } from '../../action.service';
 
 @Component({
   selector: 'app-action-detail',
@@ -8,9 +9,15 @@ import { BadgeBuilderService } from './badge-builder.service';
 })
 export class ActionDetailComponent implements OnInit {
 
-  constructor(service: BadgeBuilderService) { }
+  constructor(private actionService: ActionService) {
+    console.log('constructor') 
+  }
+
+
 
   ngOnInit() {
+    this.actionService.loadActions()
+    console.log('ngOnInit')
   }
 
 }

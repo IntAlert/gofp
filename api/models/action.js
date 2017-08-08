@@ -2,6 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Action = sequelize.define('Action', {
     image: DataTypes.TEXT,
+    title: DataTypes.TEXT,
     description: DataTypes.TEXT
   }, {
     classMethods: {

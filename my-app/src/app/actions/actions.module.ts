@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // imports
-import { ActionsRoutingModule } from './actions-routing.module';
 import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdToolbarModule, MdProgressBarModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -16,12 +15,12 @@ import { EmailCollectorComponent } from './action-detail/email-collector/email-c
 import { ImageUploaderComponent } from './action-detail/image-uploader/image-uploader.component';
 import { BadgeBuilderService } from './action-detail/badge-builder.service';
 import { CeiboShare } from 'ng2-social-share';
+import { ActionService } from '../action.service';
 
 @NgModule({
 
   imports: [
     CommonModule,
-    ActionsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
 
@@ -45,6 +44,6 @@ import { CeiboShare } from 'ng2-social-share';
     CeiboShare,
     
   ],
-  providers: [BadgeBuilderService],
+  providers: [BadgeBuilderService, ActionService],
 })
 export class ActionsModule { }

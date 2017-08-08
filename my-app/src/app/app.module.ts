@@ -8,12 +8,42 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import 'hammerjs';
 
+// Routing
 import { AppRoutingModule } from './app-routing.module';
 
+// imports
+import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdToolbarModule, MdProgressBarModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Components
+import { HomeComponent } from './home/home.component';
+import { BadgeBuilderComponent } from './badge-builder/badge-builder.component';
+import { ActionsComponent } from './actions/actions.component';
+
+// Services
+import { ActionService } from './action.service';
+import { BadgeBuilderService } from './badge-builder/badge-builder.service';
+
+// Directives
+import { CeiboShare } from 'ng2-social-share';
+import { SocialPreviewComponent } from './badge-builder/social-preview/social-preview.component';
+import { SocialActionsComponent } from './badge-builder/social-actions/social-actions.component';
+import { EmailCollectorComponent } from './badge-builder/email-collector/email-collector.component';
+import { ImageUploaderComponent } from './badge-builder/image-uploader/image-uploader.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ActionsComponent,
+    BadgeBuilderComponent,
+
+    // Directives
+    SocialPreviewComponent,
+    SocialActionsComponent,
+    EmailCollectorComponent,
+    ImageUploaderComponent,
+    CeiboShare,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +51,26 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
+
+    // Forms 
+    FormsModule,
+    ReactiveFormsModule,
+
+    // Angular Material
+    MdCardModule,
+    MdButtonModule,
+    MdCheckboxModule,
+    MdInputModule,
+    MdToolbarModule,
+    MdProgressBarModule,
+
+    
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [ 
+    ActionService,
+    BadgeBuilderService
+  ]
 })
 export class AppModule { }

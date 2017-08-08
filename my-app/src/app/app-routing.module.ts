@@ -1,12 +1,16 @@
 import {NgModule}     from '@angular/core';
 import {RouterModule} from '@angular/router';
 
+import { HomeComponent } from './home/home.component';
+import { BadgeBuilderComponent } from './badge-builder/badge-builder.component';
+import { ActionsComponent } from './actions/actions.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {path: '', redirectTo: '/actions', pathMatch: 'full'},
-            {path: 'actions', loadChildren: 'app/actions/actions.module#ActionsModule'}
+            { path: '',  component: HomeComponent,  pathMatch: 'full'},
+            { path: 'badgeBuilder/:action_id', component: BadgeBuilderComponent },
+            { path: 'actions',     component: ActionsComponent }
         ])
     ],
     exports: [

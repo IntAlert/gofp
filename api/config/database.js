@@ -1,4 +1,4 @@
-
+require('dotenv').config();  // this line is important!
 var config = {
   "development": {
     "username": process.env.RDS_USERNAME,
