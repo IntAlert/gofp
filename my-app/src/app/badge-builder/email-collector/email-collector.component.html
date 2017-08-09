@@ -1,6 +1,6 @@
 
 <div class="email-collector" *ngIf="ready">
-  <form [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
+  <form *ngIf="!complete" [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
     <md-input-container class="full-width">
 
       <!-- <input mdInput placeholder="Email" [(ngModel)]="model.email" name="email"> -->
@@ -30,4 +30,15 @@
     </div>
 
   </form>
+
+  <div class="next-steps" *ngIf="complete">
+    <h2>Thank you!</h2>
+    
+    <p>Take more actions to increase your chance of ice cream</p>
+    
+    <button class="full-width" routerLink="/actions" md-raised-button>Take more actions</button>
+  </div>
+  
+
+
 </div>

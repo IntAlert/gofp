@@ -18,6 +18,7 @@ export class EmailCollectorComponent {
   complexForm: FormGroup;
 
   ready: Boolean = false;
+  complete: Boolean = false;
 
   // We are passing an instance of the FormBuilder to our constructor
   constructor(fb: FormBuilder, service: BadgeBuilderService){
@@ -45,7 +46,13 @@ export class EmailCollectorComponent {
 
   submitForm(value: any): void {
 
-    this.service.enterPrizeDraw(value.email, value.festival_news);
+    this.service.enterPrizeDraw(value.email, value.festival_news)
+      .subscribe(data => {
+        this.complete = true;
+      },
+      err => {
+        console.error(err);
+      });
   }
 
 

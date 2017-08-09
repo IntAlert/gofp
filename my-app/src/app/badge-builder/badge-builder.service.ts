@@ -161,13 +161,6 @@ export class BadgeBuilderService {
         email, 
         festival_news 
       }), { headers: this.headers })
-      .subscribe(data => {
-        // TODO: redirect ot further actions
-        console.log(data);
-      },
-      err => {
-        console.error(err);
-      });
 
   }
 
