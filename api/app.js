@@ -40,12 +40,19 @@ app.use('/api/uploadProfilePic', uploadProfilePic);
 app.use('/api/enterPrizeDraw', enterPrizeDraw);
 app.use('/api/getBadgeCount', getBadgeCount);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// all unfound routes to be sent 
+if (app.get('env') !== 'development') {
+  app.use(function(req, res, next) {
+    res.sendFile(path.join(__dirname, 'public', 'build', 'index.html'));
+  });
+} else {
+  // unless we're in dev, then just show the 404
+  app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+  });
+}
 
 // error handlers
 
