@@ -16,6 +16,7 @@
 1. `npm install`
 2. `npm run build`
 3. `npm start`
+4. Visit http://127.0.0.1:4200/
 
 # Deployment
 1. `az login`
