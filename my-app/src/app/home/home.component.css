@@ -34,22 +34,6 @@
 /* .recent-activity h2 {
 
 } */
-.completed-action-card  {
-  background:lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height:500px;
-}
-.completed-action-card  .content {
-  width: 80%;
-  color:#fff;
-}
-
-.completed-action-card .title {
-  font-weight: 400;
-  font-size: 1.5em;
-}
 
 .recent-activity a.more {
   display: block;
@@ -61,6 +45,47 @@
   padding:0.5em;
 }
 
+/* Promoted Actions */
+.promoted-actions {
+  text-align: center;
+  background:#eee;
+  padding:1em 10px;
+}
+
+/* Action CTAs */
+.card-action-cta {
+  margin:0 0 16px;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+   background: #aaa; 
+}
+.card-action-cta img {
+  max-width: 100%;
+}
+.card-action-cta .title {
+  margin: 1em 0.5em 0.5em;
+  font-size:1.5em;
+  color:#fff;
+}
+.card-action-cta button {
+  text-transform: uppercase;
+  cursor:pointer;
+  border:none;
+  background:#fff;
+  padding:8px 1.5em;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+/* Colours */
+/* .card-action-cta:first-child {
+  background: #fdc300;
+} */
+
+
+/* Peacebuilding */
 .peace-building {
   background:#fdc300;
 }

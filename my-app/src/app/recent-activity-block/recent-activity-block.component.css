@@ -1,0 +1,43 @@
+.recent-activity-block  {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height:500px;
+}
+.recent-activity-block .content {
+  color:#fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex:4;
+}
+
+.recent-activity-block .title {
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+.recent-activity-block .credits {
+  display: flex;
+  flex:1;
+}
+.recent-activity-block .actor {
+  flex:1;
+}
+
+.recent-activity-block .when {
+  flex:1;
+}
+
+.class-1 {
+  background:lightblue;
+}
+
+.class-2 {
+  background:red;
+}
+
+.class-3 {
+  background:blue;
+}

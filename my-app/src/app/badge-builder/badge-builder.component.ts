@@ -20,13 +20,12 @@ export class BadgeBuilderComponent implements OnInit, OnDestroy {
     // wait for param and then wait for onActionsLoaded
     this.routeSub = this.route.params.subscribe(params => {
       if (this.actionService.actionsLoaded) {
-        this.delayedInit(params['action_id'])
+        this.delayedInit(params['action_id']);
       } else {
         this.actionService.onActionsLoaded.subscribe(() => {
-          this.delayedInit(params['action_id'])
-        })
+          this.delayedInit(params['action_id']);
+        });
       }
-      
     });
 
     // set action id
@@ -34,11 +33,11 @@ export class BadgeBuilderComponent implements OnInit, OnDestroy {
 
   delayedInit(action_id) {
     this.actionService.getAction(action_id).then(action => {
-      this.action = action
-      this.badgeBuilderService.setActionId(action_id)
+      this.action = action;
+      this.badgeBuilderService.setActionId(action_id);
     }).catch(() => {
-      console.log("action not found")
-    })
+      console.log("action not found");
+    });
   }
 
   ngOnDestroy() {

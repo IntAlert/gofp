@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { BadgeBuilderService } from './badge-builder.service';
 
 @Component({
   selector: 'app-root',
