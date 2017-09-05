@@ -31,10 +31,6 @@
 .recent-activity {
   text-align: center;
 }
-/* .recent-activity h2 {
-
-} */
-
 .recent-activity a.more {
   display: block;
   text-transform: uppercase;
@@ -52,93 +48,12 @@
   padding:1em 10px;
 }
 
-/* Action CTAs */
-.card-action-cta {
-  margin:0 0 16px;
-  max-width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-   background: #aaa; 
-}
-.card-action-cta img {
-  max-width: 100%;
-}
-.card-action-cta .title {
-  margin: 1em 0.5em 0.5em;
-  font-size:1.5em;
-  color:#fff;
-}
-.card-action-cta button {
-  text-transform: uppercase;
-  cursor:pointer;
-  border:none;
-  background:#fff;
-  padding:8px 1.5em;
-  font-weight: 400;
-  font-size: 1.2em;
-  margin-bottom: 1em;
-}
-
-/* Colours */
-/* .card-action-cta:first-child {
-  background: #fdc300;
-} */
-
-
-/* Peacebuilding */
-.peace-building {
-  background:#fdc300;
-}
-
-.peace-building img.header {
-  width:100%;
-}
-
-.peace-building .content {
-  padding:2em;
-}
-.peace-building h2 {
-  font-size:2em;
-}
-
-.peace-building a.more {
+.promoted-actions a.more {
   display: block;
   text-transform: uppercase;
   text-decoration: none;
-  color:#fff;
+  color:#000;
   font-weight: 400;
   font-size: 1.4em;
+  padding:0.5em;
 }
-
-/* Footer */
-.footer {
-  background:#fdc300;
-  padding: 1em 1em 2em;
-  text-align: center; 
-  font-size: 0.8em;
-}
-.footer ul {
-  list-style: none;
-  margin:0 0 0.5em;
-  padding:0;
-}
-
-.footer li {
-  display: inline;
-  
-}
-.footer li:not(:last-child):after {
-  content: " | "
-}
-.footer a {
-  padding:0.3em;
-  color:#000;
-}
-
-/* .action-count {
-  margin:1em 0;
-}
-.action-count md-card-content p{
-  font-size:4em;
-  text-align: center;
-} */

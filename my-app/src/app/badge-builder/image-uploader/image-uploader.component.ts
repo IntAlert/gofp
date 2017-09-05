@@ -17,7 +17,7 @@ export class ImageUploaderComponent {
 
   fileChosen: Boolean = false;
   uploadProgressPercentage: Number = 0;
-  mode: String = 'choose'; // [choose || uploading || complete]
+  mode: String = 'initial'; // [initial || uploading || complete]
 
   @ViewChild('fileInput') fileInput;
 
@@ -32,6 +32,10 @@ export class ImageUploaderComponent {
 
     this.service = service;
 
+    // subscribe to UX start
+    this.service.onStart.subscribe(() => {
+      this.mode = 'choose';
+    });
 
     // subscribe to upload events
     this.service.onUploadStart.subscribe(() => {

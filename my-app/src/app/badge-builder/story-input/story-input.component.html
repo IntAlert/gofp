@@ -1,0 +1,18 @@
+<div *ngIf=" mode == 'submit' ">
+  <form [formGroup]="storyInputForm" (ngSubmit)="submitForm(storyInputForm.value)">
+
+    <div>
+      <textarea name="story" id="story" cols="30" rows="10"></textarea>
+    </div>
+
+    <button 
+      md-button 
+      class="full-width md-raised"
+      type="button"
+      type="submit"
+    >
+      Submit
+    </button>
+
+  </form>
+</div>

@@ -1,0 +1,25 @@
+
+/* Footer */
+.footer {
+  background:#fdc300;
+  padding: 1em 1em 2em;
+  text-align: center; 
+  font-size: 0.8em;
+}
+.footer ul {
+  list-style: none;
+  margin:0 0 0.5em;
+  padding:0;
+}
+
+.footer li {
+  display: inline;
+  
+}
+.footer li:not(:last-child):after {
+  content: " | "
+}
+.footer a {
+  padding:0.3em;
+  color:#000;
+}

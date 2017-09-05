@@ -9,7 +9,7 @@ import { SocialBadge } from '../social-badge';
 })
 export class SocialPreviewComponent implements OnInit {
 
-  mode = 'initial'; // [initial | downloading | ready ]
+  mode = 'ready'; // [initial | ready ]
   badgeDownloadProgressPercentage = 0;
   badge: SocialBadge;
 

@@ -16,6 +16,8 @@ export class BadgeBuilderService {
   // public
   public badge: SocialBadge;
 
+  public store: Object = {};
+
 
   // private
   private selectedActionId: any
@@ -30,16 +32,27 @@ export class BadgeBuilderService {
 
 
   // emitters
-  // public currentStage = new EventEmitter();
+  public onStart = new EventEmitter();
   public onFileChosen = new EventEmitter();
   public onUploadStart = new EventEmitter();
   public onUploadProgress = new EventEmitter();
   public onUploadComplete = new EventEmitter();
+  public onStorySubmit = new EventEmitter();
   public onBadgeDownloadStart = new EventEmitter();
   public onBadgeDownloadProgress = new EventEmitter();
   public onBadgeDownloadComplete = new EventEmitter();
   public onShare = new EventEmitter();
   public onPrizeEntry = new EventEmitter();
+
+  public write = (thing) => {
+    console.log('was ' + this.store);
+    this.store = thing;
+    console.log('now ' + thing);
+  }
+
+  public registerStart = () => {
+    this.onStart.emit();
+  }
 
   public registerFileChosen = () => {
     this.onFileChosen.emit();
@@ -56,6 +69,11 @@ export class BadgeBuilderService {
 
   public registerUploadComplete = () => {
     this.onUploadComplete.emit();
+  }
+
+  // Story Input
+  public registerStorySubmitted = () => {
+    this.onStorySubmit.emit();
   }
 
   // Badge Download
@@ -156,11 +174,11 @@ export class BadgeBuilderService {
   enterPrizeDraw(email: string, festival_news: string) {
 
     return this.http
-      .post(this.urls.enter, JSON.stringify({ 
+      .post(this.urls.enter, JSON.stringify({
         action_id: this.selectedActionId,
-        email, 
-        festival_news 
-      }), { headers: this.headers })
+        email,
+        festival_news,
+      }), { headers: this.headers });
 
   }
 

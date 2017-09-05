@@ -1,0 +1,28 @@
+
+/* Action CTAs */
+.card-action-cta {
+  text-align: center;
+  margin:0 0 16px;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+   background: #aaa; 
+}
+.card-action-cta img {
+  max-width: 100%;
+}
+.card-action-cta .title {
+  margin: 1em 0.5em 0.5em;
+  font-size:1.5em;
+  color:#fff;
+}
+.card-action-cta button {
+  text-transform: uppercase;
+  cursor:pointer;
+  border:none;
+  background:#fff;
+  padding:8px 1.5em;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}

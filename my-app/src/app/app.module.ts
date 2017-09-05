@@ -44,6 +44,14 @@ import { ImageUploaderComponent } from './badge-builder/image-uploader/image-upl
 import { RecentActivityComponent } from './recent-activity/recent-activity.component';
 import { BadgeComponent } from './badge/badge.component';
 import { RecentActivityBlockComponent } from './recent-activity-block/recent-activity-block.component';
+import { FooterPeaceBuildingComponent } from './footer-peace-building/footer-peace-building.component';
+import { FooterCommonComponent } from './footer-common/footer-common.component';
+import { CompetitionBannerComponent } from './competition-banner/competition-banner.component';
+import { ActionCtaComponent } from './action-cta/action-cta.component';
+import { WhyComponent } from './badge-builder/why/why.component';
+import { StoryInputComponent } from './badge-builder/story-input/story-input.component';
+import { BadgeBuilderCardComponent } from './badge-builder/badge-builder-card/badge-builder-card.component';
+import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-complete/badge-builder-complete.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +69,14 @@ import { RecentActivityBlockComponent } from './recent-activity-block/recent-act
     RecentActivityComponent,
     BadgeComponent,
     RecentActivityBlockComponent,
+    FooterPeaceBuildingComponent,
+    FooterCommonComponent,
+    CompetitionBannerComponent,
+    ActionCtaComponent,
+    WhyComponent,
+    StoryInputComponent,
+    BadgeBuilderCardComponent,
+    BadgeBuilderCompleteComponent,
   ],
   imports: [
     BrowserModule,

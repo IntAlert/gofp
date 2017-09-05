@@ -6,7 +6,7 @@ export class BadgeService {
 
   public onCountLoaded = new EventEmitter();
   public countLoaded = false;
-  public count: Number
+  public count: Number;
 
   // private
   private urls = {
@@ -14,9 +14,8 @@ export class BadgeService {
   };
 
   constructor(private http: Http) {
-    console.log('load actions')
-    this.loadCount()
-
+    console.log('load actions');
+    this.loadCount();
   }
 
   private loadCount() {
@@ -25,10 +24,8 @@ export class BadgeService {
       // Read the result field from the JSON response.
       // this.actions.push(data);// = data;
       this.count = response.json().count;
-      
-      this.countLoaded = true
+      this.countLoaded = true;
       this.onCountLoaded.emit();
-      
     }, err => {
       // TODO: handle
       console.error(err);

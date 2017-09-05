@@ -1,9 +1,18 @@
 
-<div class="email-collector" *ngIf="ready">
+<app-badge-builder-card>
   <form *ngIf="!complete" [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
     <md-input-container class="full-width">
 
-      <!-- <input mdInput placeholder="Email" [(ngModel)]="model.email" name="email"> -->
+      <input type="text" mdInput value="" placeholder="Name" name="name" [formControl]="complexForm.controls['name']">
+
+      <md-error *ngIf="complexForm.controls['name'].hasError('required')">
+        Name is <strong>required</strong>
+      </md-error>
+
+    </md-input-container>
+
+    <md-input-container class="full-width">
+
       <input type="email" mdInput value="" placeholder="Enter your email address" name="email" [formControl]="complexForm.controls['email']">
 
       <md-error *ngIf="complexForm.controls['email'].hasError('pattern')">
@@ -16,29 +25,14 @@
 
     </md-input-container>
 
-    <div class="submit">
+    <md-checkbox value="" name="festival_news" [formControl]="complexForm.controls['festival_news']">
+      Yes, Please I want to receive information about the Peacebuilding Festival
+    </md-checkbox>
 
-      <div>
-        <md-checkbox value="" name="festival_news" [formControl]="complexForm.controls['festival_news']">
-          Sign up for festival news?
-        </md-checkbox>
-      </div>
+    <button class="full-width" type="submit" [disabled]="!complexForm.valid" md-raised-button>Enter Prize Draw</button>
 
-      <div>
-        <button class="full-width" type="submit" [disabled]="!complexForm.valid" md-raised-button>Enter Prize Draw</button>
-      </div>
-    </div>
+    <a routerLink="/badgeBuilder/1/complete">Skip this step</a>
 
   </form>
 
-  <div class="next-steps" *ngIf="complete">
-    <h2>Thank you!</h2>
-    
-    <p>Take more actions to increase your chance of ice cream</p>
-    
-    <button class="full-width" routerLink="/actions" md-raised-button>Take more actions</button>
-  </div>
-  
-
-
-</div>
+</app-badge-builder-card>
