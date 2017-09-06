@@ -29,23 +29,33 @@ router.post('/', upload.single('image'), function(req, res, next) {
     res.status(400).json({ok:false, err:'No file uploaded'})
   }
 
-  // create record of upload
+  // get record
   models.Upload.create({
     path: payload.blobName,
     url: payload.url
   })
 
-  // return record details 
+  // create badge
   .then(upload => {
     
-		upload_id = upload.id;
-		res.json({
-			upload: {
-				id: upload.id,
-				url: upload.url,
-			}
-		});
+    upload_id = upload.id
+    return reflix.generate(upload.url)
 
+  })
+
+  // return badge details
+  .then(badge => {
+
+    return models.Badge.create({
+      upload_id,
+      image: badge.image,
+      opengraph: badge.opengraph
+    })
+    
+
+  })
+  .then(badgeRecord => {
+    res.json(badgeRecord.get())
   })
 
 

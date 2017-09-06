@@ -21,7 +21,7 @@ export class BadgeBuilderComponent implements OnInit {
 
     // set current action
     this.action = this.route.snapshot.data.action;
-    // this.badgeBuilderService.setCurrentAction(this.action);
+    this.badgeBuilderService.setCurrentAction(this.action);
 
   }
 

@@ -14,7 +14,7 @@ import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/c
 export class BadgeBuilderService {
 
   // public
-  public badge: SocialBadge;
+  public badge: any;
 
   // badge details, keyed by action_id
   public store: Object = {};
@@ -25,6 +25,7 @@ export class BadgeBuilderService {
   private selectedActionId: any;
   private urls = {
     upload: '/api/uploadProfilePic',
+    generate: '/api/generateBadge',
     enter: '/api/enterPrizeDraw'
   };
 
@@ -34,27 +35,22 @@ export class BadgeBuilderService {
 
 
   // emitters
-  public onStart = new EventEmitter();
+  // public onStart = new EventEmitter();
   public onFileChosen = new EventEmitter();
   public onUploadStart = new EventEmitter();
   public onUploadProgress = new EventEmitter();
   public onUploadComplete = new EventEmitter();
-  public onStorySubmit = new EventEmitter();
+  // public onStorySubmit = new EventEmitter();
   public onBadgeDownloadStart = new EventEmitter();
   public onBadgeDownloadProgress = new EventEmitter();
   public onBadgeDownloadComplete = new EventEmitter();
   public onShare = new EventEmitter();
   public onPrizeEntry = new EventEmitter();
 
-  public write = (thing) => {
-    console.log('was ' + this.store);
-    this.store = thing;
-    console.log('now ' + thing);
-  }
 
-  public registerStart = () => {
-    this.onStart.emit();
-  }
+  // public registerStart = () => {
+  //   this.onStart.emit();
+  // }
 
   public registerFileChosen = () => {
     this.onFileChosen.emit();
@@ -74,9 +70,9 @@ export class BadgeBuilderService {
   }
 
   // Story Input
-  public registerStorySubmitted = () => {
-    this.onStorySubmit.emit();
-  }
+  // public registerStorySubmitted = () => {
+  //   this.onStorySubmit.emit();
+  // }
 
   // Badge Download
   public registerBadgeDownloadStart = () => {
@@ -100,9 +96,9 @@ export class BadgeBuilderService {
   }
 
   // Public methods
-  public setActionId = (action_id) => {
-    this.selectedActionId = action_id;
-  }
+  // public setActionId = (action_id) => {
+  //   this.selectedActionId = action_id;
+  // }
 
   public setCurrentAction = (action) => {
     this.currentAction = action;
@@ -110,9 +106,32 @@ export class BadgeBuilderService {
     // store badge building details to be shared
     // across routes
     if (!this.store[this.currentAction.id]) {
-      this.store[this.currentAction.id] = {};
+      this.store[this.currentAction.id] = {
+        upload: false,
+        story: '',
+        opengraph: {}
+      };
     }
   }
+
+  public setUpload = (upload) => {
+    this.store[this.currentAction.id].upload = upload;
+  }
+
+  public setStory = (story) => {
+    this.store[this.currentAction.id].story = story;
+  }
+
+  public setOpengraph = (opengraph) => {
+    this.store[this.currentAction.id].opengraph = opengraph;
+  }
+
+  public getCurrentBadge = () => {
+    return this.store[this.currentAction.id];
+  }
+
+
+
 
   public uploadProfilePic = (img) => {
     const formData: FormData = new FormData();
@@ -126,7 +145,7 @@ export class BadgeBuilderService {
     this.registerUploadStart();
     this.registerUploadProgress(0);
     return this.httpClient
-      .request<SocialBadge>(req)
+      .request<any>(req)
       .subscribe(event => {
 
         // Via this API, you get access to the raw event stream.
@@ -138,11 +157,13 @@ export class BadgeBuilderService {
           console.log(`File is ${percentDone}% uploaded.`);
         } else if (event instanceof HttpResponse) {
           console.log('File is completely uploaded!');
-          this.badge = event.body;
+
+          // save profile pic details for current action
+          this.setUpload(event.body.upload);
           this.registerUploadComplete();
 
           // start downloading badge
-          this.preloadBadgeImage();
+          // this.preloadBadgeImage();
 
         }
       }, err => {
@@ -150,6 +171,31 @@ export class BadgeBuilderService {
         console.error(err);
       });
 
+  }
+
+  // Generate Badge
+  generateBadge() {
+
+    const badgeDetails = this.getCurrentBadge();
+
+    console.log(badgeDetails);
+
+    const payload = {
+      story: badgeDetails.story,
+    };
+
+    if (badgeDetails.upload) {
+      payload['upload_id'] = badgeDetails.upload.id;
+    }
+
+    return this.http
+      .post(this.urls.generate, JSON.stringify(payload), { headers: this.headers }).toPromise()
+      .then((response) => {
+        console.log(response);
+        this.badge = response.json();
+        this.preloadBadgeImage();
+      })
+      ;
   }
 
   // Preload Badge Image
@@ -169,6 +215,7 @@ export class BadgeBuilderService {
           // This is an upload progress event. Compute and show the % done:
           const percentDone = Math.round(100 * event.loaded / event.total);
           this.registerBadgeDownloadProgress(percentDone);
+          console.log(percentDone);
           console.log(`File is ${percentDone}% downloaded.`);
         } else if (event instanceof HttpResponse) {
           console.log('File is completely downloaded!');

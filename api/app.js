@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 const getAction = require('./routes/getAction');
 const getActions = require('./routes/getActions');
 const uploadProfilePic = require('./routes/uploadProfilePic');
+const generateBadge = require('./routes/generateBadge');
 const enterPrizeDraw = require('./routes/enterPrizeDraw');
 const getBadgeCount = require('./routes/getBadgeCount');
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public', 'build')));
 app.use('/api/getAction', getAction);
 app.use('/api/getActions', getActions);
 app.use('/api/uploadProfilePic', uploadProfilePic);
+app.use('/api/generateBadge', generateBadge);
 app.use('/api/enterPrizeDraw', enterPrizeDraw);
 app.use('/api/getBadgeCount', getBadgeCount);
 

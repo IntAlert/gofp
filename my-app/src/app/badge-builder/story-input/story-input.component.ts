@@ -23,6 +23,7 @@ constructor(
     this.storyInputForm = fb.group({
       'story' : [null, Validators.compose([Validators.required])]
     });
+
   }
 
   ngOnInit() {
@@ -30,7 +31,13 @@ constructor(
   }
 
   submitForm(value): void {
-    console.log(value);
+    
+    this.service.setStory(value.story);
+
+    // badgebuilder download events will trigger
+    this.service.generateBadge();
+
+    // move user to preview page
     this.router.navigate(['/badgeBuilder/' + this.action.id + '/preview']);
   }
 

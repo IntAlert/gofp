@@ -33,9 +33,4 @@ export class HomeComponent implements OnInit {
       this.badgeCount = this.badgeService.count;
     });
   }
-
-  storeSomething() {
-    this.badgeBuilderService.write('123');
-  }
-
 }

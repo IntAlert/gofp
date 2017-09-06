@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SocialPreviewComponent implements OnInit {
 
-  mode = 'ready'; // [initial | downloading | ready ]
+  mode = 'initial'; // [initial | downloading | ready ]
   badgeDownloadProgressPercentage = 0;
   badge: SocialBadge;
   action: any;
@@ -20,18 +20,9 @@ export class SocialPreviewComponent implements OnInit {
     private service: BadgeBuilderService
   ) {
 
-    // show loading until ready
-    service.onUploadStart.subscribe(() => {
-      this.mode = 'initial';
-    });
-
-    // start downloading
-    service.onBadgeDownloadStart.subscribe(() => {
-      this.mode = 'downloading';
-    });
-
     // show download progress
     service.onBadgeDownloadProgress.subscribe(percentage => {
+      console.log(percentage)
       this.badgeDownloadProgressPercentage = percentage;
     });
 
