@@ -16,11 +16,13 @@ export class BadgeBuilderService {
   // public
   public badge: SocialBadge;
 
+  // badge details, keyed by action_id
   public store: Object = {};
 
 
   // private
-  private selectedActionId: any
+  private currentAction: any;
+  private selectedActionId: any;
   private urls = {
     upload: '/api/uploadProfilePic',
     enter: '/api/enterPrizeDraw'
@@ -98,11 +100,18 @@ export class BadgeBuilderService {
   }
 
   // Public methods
-
-
   public setActionId = (action_id) => {
-    console.log(action_id)
-    this.selectedActionId = action_id
+    this.selectedActionId = action_id;
+  }
+
+  public setCurrentAction = (action) => {
+    this.currentAction = action;
+
+    // store badge building details to be shared
+    // across routes
+    if (!this.store[this.currentAction.id]) {
+      this.store[this.currentAction.id] = {};
+    }
   }
 
   public uploadProfilePic = (img) => {

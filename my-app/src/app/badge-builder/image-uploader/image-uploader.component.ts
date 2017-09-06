@@ -17,7 +17,7 @@ export class ImageUploaderComponent {
 
   fileChosen: Boolean = false;
   uploadProgressPercentage: Number = 0;
-  mode: String = 'initial'; // [initial || uploading || complete]
+  mode: String = 'initial'; // [initial || uploading]
 
   @ViewChild('fileInput') fileInput;
 
@@ -76,8 +76,8 @@ export class ImageUploaderComponent {
     // then, events will be triggered and published in the service
   }
 
-  reset() {
-    this.mode = 'choose';
+  cancelUpload() {
+    this.mode = 'initial';
   }
 
 }

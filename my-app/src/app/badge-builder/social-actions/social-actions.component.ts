@@ -12,9 +12,6 @@ export class SocialActionsComponent {
 
   service: BadgeBuilderService;
 
-  // UI state
-  mode = 'initial'; // [initial | ready ]
-
   // social details
   public badge: SocialBadge;
   public tweetText: String = 'Some Tweet Text';
@@ -24,12 +21,10 @@ export class SocialActionsComponent {
 
     // show loading until ready
     service.onUploadStart.subscribe(() => {
-      this.mode = 'initial';
     });
 
     // show preview when ready
     service.onBadgeDownloadComplete.subscribe(badge => {
-      this.mode = 'ready';
       this.badge = badge;
     });
 

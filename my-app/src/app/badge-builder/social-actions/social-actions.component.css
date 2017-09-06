@@ -1,3 +1,6 @@
+.preview img {
+  max-width: 100%;
+}
 .social-actions {
   display: flex;
   flex-direction: row;

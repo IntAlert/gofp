@@ -34,7 +34,7 @@ import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-com
             { path: 'badgeBuilder/:action_id/upload', component: ImageUploaderComponent },
             { path: 'badgeBuilder/:action_id/story', component: StoryInputComponent },
             { path: 'badgeBuilder/:action_id/preview', component: SocialPreviewComponent },
-            { path: 'badgeBuilder/:action_id/social', component: SocialActionsComponent },
+            { path: 'badgeBuilder/:action_id/share', component: SocialActionsComponent },
             { path: 'badgeBuilder/:action_id/prize', component: EmailCollectorComponent },
             { path: 'badgeBuilder/:action_id/complete', component: BadgeBuilderCompleteComponent },
         ])

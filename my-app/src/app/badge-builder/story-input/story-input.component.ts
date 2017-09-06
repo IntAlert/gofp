@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-story-input',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoryInputComponent implements OnInit {
 
-  mode: String = 'initial'; // [initial || submit || complete]
+  storyInputForm: FormGroup;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+    this.storyInputForm = fb.group({
+      'story' : [null, Validators.required]
+    });
+  }
 
   ngOnInit() {
   }

@@ -52,6 +52,7 @@ import { WhyComponent } from './badge-builder/why/why.component';
 import { StoryInputComponent } from './badge-builder/story-input/story-input.component';
 import { BadgeBuilderCardComponent } from './badge-builder/badge-builder-card/badge-builder-card.component';
 import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-complete/badge-builder-complete.component';
+import { ActionDetailResolverComponent } from './badge-builder/action-detail-resolver/action-detail-resolver.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-com
     StoryInputComponent,
     BadgeBuilderCardComponent,
     BadgeBuilderCompleteComponent,
+    ActionDetailResolverComponent,
   ],
   imports: [
     BrowserModule,

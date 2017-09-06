@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // routes
+const getAction = require('./routes/getAction');
 const getActions = require('./routes/getActions');
 const uploadProfilePic = require('./routes/uploadProfilePic');
 const enterPrizeDraw = require('./routes/enterPrizeDraw');
@@ -35,6 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public', 'build')));
 
+app.use('/api/getAction', getAction);
 app.use('/api/getActions', getActions);
 app.use('/api/uploadProfilePic', uploadProfilePic);
 app.use('/api/enterPrizeDraw', enterPrizeDraw);

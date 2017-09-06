@@ -3,18 +3,25 @@
 
     <div *ngIf=" mode == 'initial' ">
 
+      <div class="placeholder">
+        <img src="http://via.placeholder.com/500x250" alt="Peace Badge" class="full-width" /> 
+      </div>
+
       <div class="file-chooser">
         <input type="file" (change)="fileChange($event)" name="file" id="file" accept="image/*" #fileInput>
       </div>
 
       <button md-button [disabled]="!fileChosen" class="full-width md-raised" type="button" type="submit">
-        Submit
+        Upload
       </button>
+
+      <a routerLink="/badgeBuilder/1/story">Skip this step</a>
+
     </div>
 
     <div *ngIf=" mode == 'uploading' ">
       
-      <h2>Uploading</h2>
+      <h2>Uploading&hellip;</h2>
       
       <md-progress-bar
           [color]="'primary'"
@@ -22,28 +29,10 @@
           [value]="uploadProgressPercentage">
       </md-progress-bar>
 
-      <button md-button class="md-raised" (click)="reset()">
-        Choose another image
+      <button md-button class="md-raised" (click)="cancelUpload()">
+        Cancel
       </button>
 
-    </div>
-
-    <div *ngIf=" mode == 'complete' ">
-      
-      <h2>Upload Complete!</h2>
-
-      <p>Now share your #EverydayPeace Badge</p>
-
-      <button md-button class="md-raised" (click)="reset()">
-        Choose another image
-      </button>
-      
-      <md-progress-bar
-          [color]="'primary'"
-          [mode]="'determinate'"
-          [value]="uploadProgressPercentage">
-      </md-progress-bar>
-        
     </div>
 
   </form>

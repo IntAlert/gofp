@@ -1,7 +1,14 @@
 import { Component, OnInit, OnDestroy  } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+
 import { ActionService } from '../action.service';
 import { BadgeBuilderService } from './badge-builder.service';
+
+
+import { ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+
 
 @Component({
   selector: 'app-badge-builder',
@@ -13,7 +20,13 @@ export class BadgeBuilderComponent implements OnInit, OnDestroy {
   action: any;
   private routeSub: any;
 
-  constructor(private route: ActivatedRoute, private actionService: ActionService, private badgeBuilderService: BadgeBuilderService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private actionService: ActionService,
+    private badgeBuilderService: BadgeBuilderService
+  ) {
+
+  }
 
   ngOnInit() {
 

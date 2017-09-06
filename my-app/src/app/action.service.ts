@@ -1,5 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+
 // import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Injectable()
@@ -33,6 +35,10 @@ export class ActionService {
     } else {
       return Promise.reject("Action not found")
     }
+  }
+
+  public loadActionById(action_id) {
+    return this.http.get('/api/getAction/' + action_id).toPromise();
   }
 
 
