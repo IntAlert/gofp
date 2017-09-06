@@ -52,7 +52,9 @@ import { WhyComponent } from './badge-builder/why/why.component';
 import { StoryInputComponent } from './badge-builder/story-input/story-input.component';
 import { BadgeBuilderCardComponent } from './badge-builder/badge-builder-card/badge-builder-card.component';
 import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-complete/badge-builder-complete.component';
-import { ActionDetailResolverComponent } from './badge-builder/action-detail-resolver/action-detail-resolver.component';
+
+
+import { ActionResolverModule } from './resolvers/action-resolver/action-resolver.module';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,6 @@ import { ActionDetailResolverComponent } from './badge-builder/action-detail-res
     StoryInputComponent,
     BadgeBuilderCardComponent,
     BadgeBuilderCompleteComponent,
-    ActionDetailResolverComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +107,8 @@ import { ActionDetailResolverComponent } from './badge-builder/action-detail-res
   providers: [
     ActionService,
     BadgeBuilderService,
-    BadgeService
+    BadgeService,
+    ActionResolverModule
   ]
 })
 export class AppModule { }

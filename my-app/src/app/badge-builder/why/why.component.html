@@ -5,7 +5,5 @@
 
 	<p>{{action?.description}}</p>
 
-
-
-	<button (click)="registerStart()">Create your story</button>
+	<button routerLink="/badgeBuilder/{{action.id}}/upload">Create your story</button>
 </app-badge-builder-card>

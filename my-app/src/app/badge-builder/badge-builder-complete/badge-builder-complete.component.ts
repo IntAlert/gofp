@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BadgeBuilderService } from '../badge-builder.service';
 
 @Component({
   selector: 'app-badge-builder-complete',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BadgeBuilderCompleteComponent implements OnInit {
 
-  constructor() { }
+  action: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    service: BadgeBuilderService
+  ) { }
 
   ngOnInit() {
+    this.action = this.route.parent.snapshot.data.action;
   }
 
 }

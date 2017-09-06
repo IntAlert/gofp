@@ -6,14 +6,33 @@
 
     <md-form-field class="full-width">
       <textarea
+        name="story"
+        [formControl]="storyInputForm.controls['story']"
         class="full-width"
         mdInput
+        minlength="10"
+        maxlength="120"
         placeholder="Your Story"></textarea>
+
+       <md-error *ngIf="storyInputForm.controls['story'].hasError('required')">
+        Please tell us about your peaceful action
+      </md-error> 
+
+      <md-error *ngIf="storyInputForm.controls['story'].hasError('minlength')">
+        Please write at least 10 characters
+      </md-error> 
+      
+      <md-error *ngIf="storyInputForm.controls['story'].hasError('maxlength')">
+        Please write no more than 100 characters
+      </md-error> 
+
+
     </md-form-field>
 
     
     <button 
       md-button 
+      [disabled]="!storyInputForm.valid"
       class="full-width md-raised"
       type="button"
       type="submit"

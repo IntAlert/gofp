@@ -21,25 +21,29 @@ export class ActionService {
 
   constructor(private http: Http) {
     console.log('load actions')
-    this.loadActions()
+    this.loadActions();
   }
 
   // this function should only be called after onActionsLoaded has fired
-  public getAction(action_id: number) {
-    let actionFound = this.actions.find((action) => {
-      return action.id == action_id
-    })
+  public getActionById(action_id: number) {
+    // const actionFound = this.actions.find((action) => {
+    //   return action.id == action_id;
+    // });
 
-    if (actionFound) {
-      return Promise.resolve(actionFound)
-    } else {
-      return Promise.reject("Action not found")
-    }
+    // if (actionFound) {
+    //   return Promise.resolve(actionFound);
+    // } else {
+    //   return Promise.reject("Action not found");
+    // }
+    return this.http.get('/api/getAction/' + action_id).toPromise()
+      .then(response => {
+        return response.json().action;
+      })
+      .catch(err => {
+        throw(err);
+      });
   }
 
-  public loadActionById(action_id) {
-    return this.http.get('/api/getAction/' + action_id).toPromise();
-  }
 
 
   private loadActions() {
@@ -48,8 +52,8 @@ export class ActionService {
       // Read the result field from the JSON response.
       // this.actions.push(data);// = data;
       this.actions = response.json().actions;
-      console.log(this.actions)
-      this.actionsLoaded = true
+      console.log(this.actions);
+      this.actionsLoaded = true;
       this.onActionsLoaded.emit();
       
     }, err => {

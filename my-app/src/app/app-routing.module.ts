@@ -8,6 +8,7 @@ import { RecentActivityComponent } from './recent-activity/recent-activity.compo
 import { BadgeComponent } from './badge/badge.component';
 
 // badge building
+import { ActionResolverModule } from './resolvers/action-resolver/action-resolver.module';
 import { BadgeBuilderComponent } from './badge-builder/badge-builder.component';
 import { WhyComponent } from './badge-builder/why/why.component';
 import { ImageUploaderComponent } from './badge-builder/image-uploader/image-uploader.component';
@@ -30,18 +31,24 @@ import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-com
             { path: 'badge/:badge_id', component: BadgeComponent },
 
             // badge building
-            { path: 'badgeBuilder/:action_id/why', component: WhyComponent },
-            { path: 'badgeBuilder/:action_id/upload', component: ImageUploaderComponent },
-            { path: 'badgeBuilder/:action_id/story', component: StoryInputComponent },
-            { path: 'badgeBuilder/:action_id/preview', component: SocialPreviewComponent },
-            { path: 'badgeBuilder/:action_id/share', component: SocialActionsComponent },
-            { path: 'badgeBuilder/:action_id/prize', component: EmailCollectorComponent },
-            { path: 'badgeBuilder/:action_id/complete', component: BadgeBuilderCompleteComponent },
+            { path: 'badgeBuilder/:action_id',  component: BadgeBuilderComponent,
+                resolve: {
+                    action: ActionResolverModule
+                },
+                children: [
+                    { path: '', redirectTo: 'why', pathMatch: 'full' },
+                    { path: 'why', component: WhyComponent },
+                    { path: 'upload', component: ImageUploaderComponent },
+                    { path: 'story', component: StoryInputComponent },
+                    { path: 'preview', component: SocialPreviewComponent },
+                    { path: 'share', component: SocialActionsComponent },
+                    { path: 'prize', component: EmailCollectorComponent },
+                    { path: 'complete', component: BadgeBuilderCompleteComponent },
+                ]
+            },
         ])
     ],
-    exports: [
-        RouterModule
-    ]
+    exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

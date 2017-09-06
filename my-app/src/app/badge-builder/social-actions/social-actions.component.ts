@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BadgeBuilderService } from '../badge-builder.service';
 import { SocialBadge } from '../social-badge';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -8,16 +9,20 @@ import { SocialBadge } from '../social-badge';
   templateUrl: './social-actions.component.html',
   styleUrls: ['./social-actions.component.css']
 })
-export class SocialActionsComponent {
+export class SocialActionsComponent implements OnInit {
 
   service: BadgeBuilderService;
 
   // social details
   public badge: SocialBadge;
   public tweetText: String = 'Some Tweet Text';
+  action: any;
 
 
-  constructor(service: BadgeBuilderService) {
+  constructor(
+    private route: ActivatedRoute,
+    service: BadgeBuilderService
+  ) {
 
     // show loading until ready
     service.onUploadStart.subscribe(() => {
@@ -30,6 +35,10 @@ export class SocialActionsComponent {
 
     this.service = service;
 
+  }
+
+  ngOnInit() {
+    this.action = this.route.parent.snapshot.data.action;
   }
 
   startFacebookShare = () => {

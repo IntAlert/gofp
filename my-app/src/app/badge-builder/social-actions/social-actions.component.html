@@ -12,7 +12,7 @@
     Do you want to share it on social media?
   </p>
 
-  <div class="social-actions">
+  <div class="social-actions" *ngIf="badge">
     <div class="twitter">
       <button ceiboShare [twitter]="{url:badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
         <i class="fa fa-twitter-square fa-2x" aria-hidden="true"> </i> 
@@ -29,6 +29,6 @@
 
   </div>
 
-  <a routerLink="/badgeBuilder/1/prize">Skip this step</a>
+  <a routerLink="/badgeBuilder/{{action.id}}/prize">Skip this step</a>
 
 </app-badge-builder-card>

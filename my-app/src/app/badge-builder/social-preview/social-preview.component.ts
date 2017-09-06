@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BadgeBuilderService } from '../badge-builder.service';
 import { SocialBadge } from '../social-badge';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-social-preview',
@@ -9,11 +10,15 @@ import { SocialBadge } from '../social-badge';
 })
 export class SocialPreviewComponent implements OnInit {
 
-  mode = 'ready'; // [initial | ready ]
+  mode = 'ready'; // [initial | downloading | ready ]
   badgeDownloadProgressPercentage = 0;
   badge: SocialBadge;
+  action: any;
 
-  constructor(service: BadgeBuilderService) {
+  constructor(
+    private route: ActivatedRoute,
+    private service: BadgeBuilderService
+  ) {
 
     // show loading until ready
     service.onUploadStart.subscribe(() => {
@@ -39,6 +44,7 @@ export class SocialPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.action = this.route.parent.snapshot.data.action;
   }
 
 }

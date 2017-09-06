@@ -11,7 +11,7 @@ export class ItemComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.data.item);
+    console.log(this.route.snapshot.data);
   }
 
 }
