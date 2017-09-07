@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BadgeService } from '../badge.service';
 
 @Component({
   selector: 'app-recent-activity',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecentActivityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private badgeService: BadgeService) { }
 
   ngOnInit() {
-    
+    this.badgeService.loadRecentBadges();
   }
 
 }

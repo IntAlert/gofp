@@ -1,19 +1,19 @@
 
 <div class="recent-activity-block {{parentClass}}">
-  <div class="content">
+   <div class="content">
     <div class="title">
-      {{title}}
+      {{badge.Action.title}}
     </div>
     <p class="description">
-      {{description}}
+      {{badge.story}}
     </p>
   </div>
   <div class="credits">
     <span class="actor">
-      {{actor}}
+      {{badge.PrizeEntry?.name || "Anonymous"}}
     </span>
     <span class="when">
-      {{when}}
+      {{badge.createdAt}}
     </span>
-  </div>
+  </div> 
 </div>

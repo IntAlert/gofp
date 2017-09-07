@@ -3,7 +3,10 @@ module.exports = function(sequelize, DataTypes) {
   var Action = sequelize.define('Action', {
     image: DataTypes.TEXT,
     title: DataTypes.TEXT,
-    description: DataTypes.TEXT
+    description: DataTypes.TEXT,
+    priority: DataTypes.INTEGER,
+    promoted: DataTypes.BOOLEAN,
+    promoted_priority: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

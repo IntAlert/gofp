@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class ActionService {
 
   public actions = [];
+  public promotedActions = [];
 
 
   // private
@@ -49,6 +50,7 @@ export class ActionService {
     this.http.get(this.urls.getActions).subscribe(response => {
       // Read the result field from the JSON response.
       this.actions = response.json().actions;
+      this.updatePromotedActions();
     }, err => {
       // TODO: handle
       console.error(err);
@@ -56,4 +58,23 @@ export class ActionService {
 
   }
 
+  private updatePromotedActions() {
+
+    // sift
+    const promotedActionsUnordered = this.actions.filter(action => {
+      return action.promoted;
+    });
+
+    // reorder
+    this.promotedActions = promotedActionsUnordered.sort((a1, a2) => {
+      if (a1.promoted_priority > a2.promoted_priority) {
+        return 1;
+      } else if (a1.promoted_priority < a2.promoted_priority) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
+  }
 }

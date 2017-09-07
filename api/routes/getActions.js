@@ -5,8 +5,10 @@ const models  = require('../models');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  // create record
-  models.Action.findAll()
+  // get all actions, in order
+  models.Action.findAll({
+    order: [['priority', 'ASC']]
+  })
     .then(actions => {
       res.json({actions})
     })

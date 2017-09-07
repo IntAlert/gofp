@@ -2,10 +2,9 @@
 
 
 # TODO:
-- Hook up Twitter flow
-- Hook up Facebook flow
-- Create Service for upload API
-- Create Service for Prize Draw
+- Facebook Share?
+- Badge Landing Page
+- Mobile view
 - Desktop view
 - Deploy
 

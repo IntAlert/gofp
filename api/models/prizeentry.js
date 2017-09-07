@@ -6,12 +6,6 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.TEXT,
     email: DataTypes.TEXT,
     festival_news: DataTypes.BOOLEAN
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
   return PrizeEntry;
 };

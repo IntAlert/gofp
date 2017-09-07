@@ -16,15 +16,9 @@ export class HomeComponent implements OnInit {
   constructor(
     private actionService: ActionService,
     private badgeService: BadgeService,
-    private badgeBuilderService: BadgeBuilderService) {}
+    private badgeBuilderService: BadgeBuilderService
+  ) {}
 
 
-  ngOnInit() {
-
-    // load count
-    this.badgeCount = this.badgeService.count;
-    this.badgeService.onCountLoaded.subscribe(() => {
-      this.badgeCount = this.badgeService.count;
-    });
-  }
+  ngOnInit() {}
 }

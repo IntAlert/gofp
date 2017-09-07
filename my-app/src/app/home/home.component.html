@@ -5,8 +5,8 @@
   
   <h1>Let's build peace, one action at a time</h1>
 
-  <div class="action-totaliser">
-    <div class="count">{{badgeCount}}</div>
+  <div class="action-totaliser" *ngIf="badgeService.count">
+    <div class="count">{{badgeService.count}}</div>
     <div class="copy">actions<br>taken so far</div>
   </div>
 
@@ -17,10 +17,8 @@
   <h2>Recent activity</h2>
 
   <app-recent-activity-block 
-    title="123" 
-    description="'123'"
-    actor="person"
-    when="a while ago"
+    *ngFor="let badge of badgeService.promotedBadges"
+    [badge]=badge
     ordinal=1
   ></app-recent-activity-block>
 
@@ -33,7 +31,7 @@
 <!-- Promoted Actions -->
 <div class="promoted-actions">
   <h2>Start building<br>peace now!</h2>
-  <app-action-cta *ngFor="let action of actionService.actions" [action]=action></app-action-cta>
+  <app-action-cta *ngFor="let action of actionService.promotedActions" [action]=action></app-action-cta>
   <a class="more" routerLink="/actions">
     View All &rarr;
   </a>

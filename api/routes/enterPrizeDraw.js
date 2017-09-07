@@ -5,6 +5,10 @@ const models  = require('../models');
 /* GET home page. */
 router.post('/', function(req, res, next) {
 
+
+  // TODO: find or create
+
+
   // create record
   models.PrizeEntry.create({
     action_id: req.body.action_id,

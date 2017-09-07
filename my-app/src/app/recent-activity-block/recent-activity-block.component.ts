@@ -7,11 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecentActivityBlockComponent implements OnInit {
 
-  @Input('title') title: string;
-  @Input('description') description: string;
-  @Input('actor') actor: string;
-  @Input('when') when: string;
-  @Input('ordinal') ordinal = 1;
+  @Input('badge') badge: any;
+  @Input('ordinal') ordinal = 0;
 
   public parentClass: string;
 
@@ -24,7 +21,7 @@ export class RecentActivityBlockComponent implements OnInit {
       'class-2',
       'class-3',
     ];
-    this.parentClass = parentClasses[(this.ordinal - 1) % parentClasses.length];
+    this.parentClass = parentClasses[(this.ordinal) % parentClasses.length];
   }
 
 }
