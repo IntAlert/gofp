@@ -3,9 +3,12 @@
 
     <div *ngIf=" mode == 'initial' ">
 
-      <div class="placeholder">
-        <img src="http://via.placeholder.com/500x250" alt="Peace Badge" class="full-width" /> 
+      <div class="image">
+        <img src="{{action.image}}" alt="Action showing {{action.title}}" class="full-width" /> 
       </div>
+
+      <h2>{{action.title}}</h2>
+      <p>Upload a photo of you doing this action</p>
 
       <div class="file-chooser">
         <input type="file" (change)="fileChange($event)" name="file" id="file" accept="image/*" #fileInput>

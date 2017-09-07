@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 
     setTimeout(() => {
       res.json(badgeRecord.get())
-    }, 3000)
+    }, 30)
     
   })
 

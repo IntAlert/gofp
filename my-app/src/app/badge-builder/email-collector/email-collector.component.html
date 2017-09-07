@@ -1,5 +1,19 @@
 <app-badge-builder-card>
-  <form *ngIf="!complete" [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
+
+  <div *ngIf="mode== 'uploading'">
+
+    <h2>Entering you in the prize draw</h2>
+    
+    <md-progress-bar
+      [color]="'primary'"
+      [mode]="'indeterminate'">
+    </md-progress-bar>
+
+  </div>
+
+
+
+  <form *ngIf="mode == 'initial' " [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
     <md-input-container class="full-width">
 
       <input type="text" mdInput value="" placeholder="Name" name="name" [formControl]="complexForm.controls['name']">

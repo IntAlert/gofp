@@ -14,10 +14,9 @@ import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/c
 export class BadgeBuilderService {
 
   // public
-  public badge: any;
 
   // badge details, keyed by action_id
-  public store: Object = {};
+  public store: Object;
 
 
   // private
@@ -31,7 +30,15 @@ export class BadgeBuilderService {
 
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
 
-  constructor(private http: Http, private httpClient: HttpClient) { }
+  constructor(private http: Http, private httpClient: HttpClient) {
+
+    // bootstrap local store
+    const sessionStoreJSON = localStorage.getItem('badge-builder-store');
+    this.store =  sessionStoreJSON ? JSON.parse(sessionStoreJSON) : {};
+
+    console.log(this.store);
+
+   }
 
 
   // emitters
@@ -45,7 +52,8 @@ export class BadgeBuilderService {
   public onBadgeDownloadProgress = new EventEmitter();
   public onBadgeDownloadComplete = new EventEmitter();
   public onShare = new EventEmitter();
-  public onPrizeEntry = new EventEmitter();
+  public onPrizeEntryStart = new EventEmitter();
+  public onPrizeEntryComplete = new EventEmitter();
 
 
   // public registerStart = () => {
@@ -84,15 +92,19 @@ export class BadgeBuilderService {
   }
 
   public registerBadgeDownloadComplete = () => {
-    this.onBadgeDownloadComplete.emit(this.badge);
+    this.onBadgeDownloadComplete.emit();
   }
 
   public registerShare = () => {
     this.onShare.emit();
   }
 
-  public registerPrizeEntry = () => {
-    this.onPrizeEntry.emit();
+  public registerPrizeEntryStart = () => {
+    this.onPrizeEntryStart.emit();
+  }
+
+  public registerPrizeEntryComplete = () => {
+    this.onPrizeEntryComplete.emit();
   }
 
   // Public methods
@@ -109,25 +121,37 @@ export class BadgeBuilderService {
       this.store[this.currentAction.id] = {
         upload: false,
         story: '',
-        opengraph: {}
+        badge: {
+          opengraph: '',
+          image: ''
+        }
       };
     }
   }
 
   public setUpload = (upload) => {
     this.store[this.currentAction.id].upload = upload;
+    this.saveSession();
   }
 
   public setStory = (story) => {
     this.store[this.currentAction.id].story = story;
+    this.saveSession();
   }
 
-  public setOpengraph = (opengraph) => {
-    this.store[this.currentAction.id].opengraph = opengraph;
+  public setBadge = (badge) => {
+    this.store[this.currentAction.id].badge = badge;
+    this.saveSession();
   }
 
-  public getCurrentBadge = () => {
-    return this.store[this.currentAction.id];
+  public saveSession = () => {
+    localStorage.setItem('badge-builder-store', JSON.stringify(this.store));
+  }
+
+  public getCurrentActionUserData = () => {
+    const store = this.store[this.currentAction.id];
+    console.log(store);
+    return store;
   }
 
 
@@ -176,23 +200,22 @@ export class BadgeBuilderService {
   // Generate Badge
   generateBadge() {
 
-    const badgeDetails = this.getCurrentBadge();
+    const actionUserData = this.getCurrentActionUserData();
 
-    console.log(badgeDetails);
+    console.log(actionUserData);
 
     const payload = {
-      story: badgeDetails.story,
+      story: actionUserData.story,
     };
 
-    if (badgeDetails.upload) {
-      payload['upload_id'] = badgeDetails.upload.id;
+    if (actionUserData.upload) {
+      payload['upload_id'] = actionUserData.upload.id;
     }
 
     return this.http
       .post(this.urls.generate, JSON.stringify(payload), { headers: this.headers }).toPromise()
       .then((response) => {
-        console.log(response);
-        this.badge = response.json();
+        this.setBadge(response.json());
         this.preloadBadgeImage();
       })
       ;
@@ -200,7 +223,10 @@ export class BadgeBuilderService {
 
   // Preload Badge Image
   preloadBadgeImage() {
-    const req = new HttpRequest('GET', this.badge.image, null, {
+
+    const actionUserData = this.getCurrentActionUserData();
+
+    const req = new HttpRequest('GET', actionUserData.badge.image, null, {
       reportProgress: true,
     });
 
@@ -227,14 +253,21 @@ export class BadgeBuilderService {
   }
 
 
-  enterPrizeDraw(email: string, festival_news: string) {
+  enterPrizeDraw(email: string, name: string, festival_news: string) {
+
+    this.registerPrizeEntryStart();
 
     return this.http
       .post(this.urls.enter, JSON.stringify({
-        action_id: this.selectedActionId,
+        action_id: this.currentAction.id,
+        badge_id: this.getCurrentActionUserData().badge.id,
+        name,
         email,
         festival_news,
-      }), { headers: this.headers });
+      }), { headers: this.headers }).toPromise()
+      .then(response => {
+        this.registerPrizeEntryComplete();
+      });
 
   }
 

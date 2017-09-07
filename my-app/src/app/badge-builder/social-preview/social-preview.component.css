@@ -1,3 +1,7 @@
 .full-width{
-  max-width: 100%
+  width: 100%;
+}
+
+.downloading {
+  padding: 50px 0;
 }

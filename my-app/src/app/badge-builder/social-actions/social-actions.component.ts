@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BadgeBuilderService } from '../badge-builder.service';
-import { SocialBadge } from '../social-badge';
+// import { SocialBadge } from '../social-badge';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -11,34 +11,36 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SocialActionsComponent implements OnInit {
 
-  service: BadgeBuilderService;
-
   // social details
-  public badge: SocialBadge;
+  actionUserData: any;
   public tweetText: String = 'Some Tweet Text';
   action: any;
 
-
   constructor(
     private route: ActivatedRoute,
-    service: BadgeBuilderService
+    private service: BadgeBuilderService
   ) {
 
-    // show loading until ready
-    service.onUploadStart.subscribe(() => {
-    });
+    // // show loading until ready
+    // service.onUploadStart.subscribe(() => {
+    // });
 
-    // show preview when ready
-    service.onBadgeDownloadComplete.subscribe(badge => {
-      this.badge = badge;
-    });
 
-    this.service = service;
+    // // show preview when ready
+    // service.onBadgeDownloadComplete.subscribe(badge => {
+    //   console.log(badge);
+    //   this.badge = badge;
+    // });
 
   }
 
   ngOnInit() {
+
+    // get current action
     this.action = this.route.parent.snapshot.data.action;
+
+    // get current badge
+    this.actionUserData = this.service.getCurrentActionUserData();
   }
 
   startFacebookShare = () => {

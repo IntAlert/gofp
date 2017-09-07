@@ -16,16 +16,6 @@
 <div class="recent-activity">
   <h2>Recent activity</h2>
 
-  <!-- <div class="card-action-completed">
-    <div class="content">
-      <div class="title">
-        Donate food to a food bank
-      </div>
-      <p class="description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus eum velit explicabo itaque nostrum veritatis voluptatibus expedita voluptas.
-      </p>
-    </div>
-  </div> -->
   <app-recent-activity-block 
     title="123" 
     description="'123'"
@@ -43,7 +33,7 @@
 <!-- Promoted Actions -->
 <div class="promoted-actions">
   <h2>Start building<br>peace now!</h2>
-  <app-action-cta *ngFor="let action of actions" [action]=action></app-action-cta>
+  <app-action-cta *ngFor="let action of actionService.actions" [action]=action></app-action-cta>
   <a class="more" routerLink="/actions">
     View All &rarr;
   </a>

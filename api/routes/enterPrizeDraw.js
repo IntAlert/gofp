@@ -7,7 +7,9 @@ router.post('/', function(req, res, next) {
 
   // create record
   models.PrizeEntry.create({
+    action_id: req.body.action_id,
     badge_id: req.body.badge_id,
+    name: req.body.name,
     email: req.body.email,
     festival_news: req.body.festival_news
   })
@@ -15,10 +17,13 @@ router.post('/', function(req, res, next) {
   // respond with results
   .then(prizeentry => {
 
-    res.json({
-      ok: true,
-      prizeentry: prizeentry.get()
-    });
+    setTimeout(() => {
+      res.json({
+        ok: true,
+        prizeentry: prizeentry.get()
+      });
+    }, 3);
+    
 
   }).catch(err => {
     res.json({

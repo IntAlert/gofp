@@ -1,9 +1,21 @@
 <app-badge-builder-card>
-	<img src="http://via.placeholder.com/150x150" alt="Alert Logo" />
+	
+	<div class="image">
+		<img src="{{action.image}}" alt="Action showing {{action.title}}" class="full-width" /> 
+	</div>
 
-	<h3>Why {{action?.title}}</h3>
+	<h2>{{action.title}}</h2>
 
-	<p>{{action?.description}}</p>
+	<h3>Why do it?</h3>
+	<p>{{action.description}}</p>
 
-	<button routerLink="/badgeBuilder/{{action.id}}/upload">Create your story</button>
+	<button 
+      md-button 
+      routerLink="/badgeBuilder/{{action.id}}/upload"
+      class="full-width md-raised"
+    >
+      Create your story
+		</button>
+		
+
 </app-badge-builder-card>

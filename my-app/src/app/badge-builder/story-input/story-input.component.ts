@@ -13,6 +13,7 @@ export class StoryInputComponent implements OnInit {
 
   storyInputForm: FormGroup;
   action: any;
+  actionUserData: any;
 
 constructor(
     fb: FormBuilder,
@@ -28,6 +29,7 @@ constructor(
 
   ngOnInit() {
     this.action = this.route.parent.snapshot.data.action;
+    this.actionUserData = this.service.getCurrentActionUserData();
   }
 
   submitForm(value): void {

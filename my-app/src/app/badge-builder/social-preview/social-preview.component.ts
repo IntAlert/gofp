@@ -12,7 +12,7 @@ export class SocialPreviewComponent implements OnInit {
 
   mode = 'initial'; // [initial | downloading | ready ]
   badgeDownloadProgressPercentage = 0;
-  badge: SocialBadge;
+  actionUserData: any;
   action: any;
 
   constructor(
@@ -22,20 +22,26 @@ export class SocialPreviewComponent implements OnInit {
 
     // show download progress
     service.onBadgeDownloadProgress.subscribe(percentage => {
-      console.log(percentage)
+      console.log(percentage);
       this.badgeDownloadProgressPercentage = percentage;
     });
 
     // show preview when ready
-    service.onBadgeDownloadComplete.subscribe(badge => {
+    service.onBadgeDownloadComplete.subscribe(() => {
+      this.actionUserData = this.service.getCurrentActionUserData();
       this.mode = 'ready';
-      this.badge = badge;
     });
 
   }
 
   ngOnInit() {
     this.action = this.route.parent.snapshot.data.action;
+    this.actionUserData = this.service.getCurrentActionUserData();
+
+    // has the user refreshed this page?
+    if (this.actionUserData.badge.image) {
+      this.mode = 'ready';
+    }
   }
 
 }

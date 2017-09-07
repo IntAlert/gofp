@@ -10,14 +10,8 @@ export class ActionsComponent implements OnInit {
 
   actions: any;
 
-  constructor(private actionService: ActionService) { 
-  }
+  constructor(private actionService: ActionService) {}
 
-  ngOnInit() {
-    this.actions = this.actionService.actions
-    this.actionService.onActionsLoaded.subscribe(() => {
-      this.actions = this.actionService.actions
-    })
-  }
+  ngOnInit() {}
 
 }

@@ -21,12 +21,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    // load actions
-    this.actions = this.actionService.actions;
-    this.actionService.onActionsLoaded.subscribe(() => {
-      this.actions = this.actionService.actions;
-    });
-
     // load count
     this.badgeCount = this.badgeService.count;
     this.badgeService.onCountLoaded.subscribe(() => {

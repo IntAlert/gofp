@@ -1,5 +1,5 @@
 <app-badge-builder-card>
-  <div *ngIf=" mode == 'initial' ">
+  <div class="downloading" *ngIf=" mode == 'initial' ">
 
     <h2>Downloading your badge</h2>
     
@@ -13,18 +13,25 @@
 
   <div *ngIf=" mode == 'ready' ">
 
-    <h2>Why donate food to a food bank?</h2>
+    <h2>{{action.title}}</h2>
     
-    <!-- <img src="{{badge.image}}" alt="Peace Badge" class="full-width"> -->
-     <img src="{{badge.image}}" alt="Peace Badge" class="full-width" /> 
+     <img src="{{actionUserData.badge.image}}" alt="Peace Badge" class="full-width" /> 
 
-     <a routerLink="/badgeBuilder/{{action.id}}/social">Change your picture</a>
+     <a href="javascript:window.history.go(-2)">Change your picture</a>
 
-     <div class="story">
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore voluptatem nulla, numquam. Et laborum neque consequuntur molestiae inventore laudantium tenetur impedit saepe quia quae delectus, doloribus similique. Iure ad, velit!
-     </div>
+     
 
-     <button routerLink="/badgeBuilder/{{action.id}}/share">Submit</button>
+     <p class="story">
+        {{actionUserData.story}}
+     </p>
+
+     <button 
+      md-button 
+      routerLink="/badgeBuilder/{{action.id}}/share"
+      class="full-width md-raised"
+    >
+      Next
+		</button>
     
   </div>
 

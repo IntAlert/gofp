@@ -1,7 +1,7 @@
 <app-badge-builder-card headerText="Share it!">
 
   <div class="preview">
-    <img src="http://via.placeholder.com/500x250" />
+    <img src="{{actionUserData.badge.image}}" />
   </div>
 
   <h2>
@@ -12,16 +12,16 @@
     Do you want to share it on social media?
   </p>
 
-  <div class="social-actions" *ngIf="badge">
+  <div class="social-actions" *ngIf="actionUserData.badge.opengraph">
     <div class="twitter">
-      <button ceiboShare [twitter]="{url:badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
+      <button ceiboShare [twitter]="{url:actionUserData.badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
         <i class="fa fa-twitter-square fa-2x" aria-hidden="true"> </i> 
         Share to Twitter
       </button> 
     </div>
 
     <div class="facebook">
-      <button ceiboShare [facebook]="{u: badge.opengraph}" md-button class="md-raised" (click)="startFacebookShare()">
+      <button ceiboShare [facebook]="{u: actionUserData.badge.opengraph}" md-button class="md-raised" (click)="startFacebookShare()">
         <i class="fa fa-facebook-square fa-2x" aria-hidden="true"> </i> 
         Share to Facebook
       </button> 
