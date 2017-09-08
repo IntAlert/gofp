@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { HttpRequest, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
+import { Subscription } from 'rxjs/Subscription';
 // import { SocialBadge } from './social-badge';
 
 // don't know why
@@ -29,6 +30,8 @@ export class BadgeBuilderService {
   };
 
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+
+  private uploadRequest: Subscription;
 
   constructor(private http: Http, private httpClient: HttpClient) {
 
@@ -168,7 +171,8 @@ export class BadgeBuilderService {
 
     this.registerUploadStart();
     this.registerUploadProgress(0);
-    return this.httpClient
+
+    this.uploadRequest = this.httpClient
       .request<any>(req)
       .subscribe(event => {
 
@@ -195,6 +199,10 @@ export class BadgeBuilderService {
         console.error(err);
       });
 
+  }
+
+  public cancelUploadProfilePic() {
+    this.uploadRequest.unsubscribe();
   }
 
   public removeUpload() {

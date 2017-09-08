@@ -43,7 +43,7 @@ export class ImageUploaderComponent implements OnInit {
     });
 
     this.service.onUploadComplete.subscribe(() => {
-      this.mode = 'initial'; // neccess?
+      // this.mode = 'initial'; // neccess?
       this.router.navigate(['/badgeBuilder/' + this.action.id + '/story']);
     });
 
@@ -80,6 +80,7 @@ export class ImageUploaderComponent implements OnInit {
   }
 
   cancelUpload() {
+    this.service.cancelUploadProfilePic();
     this.mode = 'initial';
   }
 
