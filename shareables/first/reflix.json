@@ -1,0 +1,58 @@
+{
+	"id": 56,
+	"key": "370",
+	"image": {
+		"width": 1200,
+		"height": 630
+	},
+	"redirect": "",
+	"opengraph": {
+		"title": "Hello World",
+		"description": "Description",
+		"site_name": "Hello World",
+		"type": "article",
+		"facebook": {
+			"app_id": "",
+			"admins": ""
+		},
+		"twitter": {
+			"card": "summary_large_image",
+			"hashtags": "#HelloWorld",
+			"handle": "@reflix",
+			"id": "123"
+		}
+	},
+	"tests": [
+		{
+			"redirect": "http://www.reflix.co/",
+			"opengraph": {
+				"title": "Hello, world!",
+				"description": "Example of Reflix turning data into shareable images"
+			},
+			"content": {
+				"who": "World!"
+			}
+		},
+		{
+			"redirect": "http://www.reflix.co/",
+			"opengraph": {
+				"title": "Hello you!",
+				"description": "Example of Reflix turning data into shareable images"
+			},
+			"content": {
+				"who": "A really long name.... so long this name!"
+			}
+		},
+		{
+			"redirect": "http://www.reflix.co/",
+			"opengraph": {
+				"title": "Hello me!",
+				"description": "Example of Reflix turning data into shareable images"
+			},
+			"content": {
+				"who": "me"
+			}
+		}
+	],
+	"generate_token": "e304b6d64fe9ac5b88ed3fc37a7093b2"
+}

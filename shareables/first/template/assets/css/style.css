@@ -1,0 +1,44 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@font-face {
+    font-family: FoundersGroteskWeb-Regular;
+    src: url(../fonts/FoundersGroteskWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: FoundersGroteskWeb-Semibold;
+    src: url(../fonts/FoundersGroteskWeb-Semibold.ttf);
+}
+
+body {
+  padding:0;
+  margin:0;
+  background:black;
+}
+
+.container {
+  position: relative;
+  background: white;
+  top:0;
+  left:0;
+  width:1200px;
+  height:630px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  display: table;
+}
+
+
+p {
+  font-size:55px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
