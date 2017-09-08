@@ -13,19 +13,34 @@
   </p>
 
   <div class="social-actions" *ngIf="actionUserData.badge.opengraph">
+
+
+
+    <div class="whatsapp">
+      <a href="whatsapp://send?text={{actionUserData.badge.opengraph}}">
+        <i class="fa fa-whatsapp fa-2x" aria-hidden="true"> </i> 
+      </a> 
+    </div>
+
+
     <div class="twitter">
       <button ceiboShare [twitter]="{url:actionUserData.badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
         <i class="fa fa-twitter-square fa-2x" aria-hidden="true"> </i> 
-        Share to Twitter
       </button> 
     </div>
 
     <div class="facebook">
       <button ceiboShare [facebook]="{u: actionUserData.badge.opengraph}" md-button class="md-raised" (click)="startFacebookShare()">
         <i class="fa fa-facebook-square fa-2x" aria-hidden="true"> </i> 
-        Share to Facebook
       </button> 
     </div>
+
+    <div class="linkedin">
+      <button ceiboShare [linkedIn]="{u: actionUserData.badge.opengraph}" md-button class="md-raised" (click)="startLinkedInShare()">
+        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"> </i> 
+      </button> 
+    </div>
+
 
   </div>
 

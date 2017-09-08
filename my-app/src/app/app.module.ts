@@ -56,8 +56,10 @@ import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-com
 
 // Resolvers
 import { ActionResolverModule } from './resolvers/action-resolver/action-resolver.module';
-
 import { BadgeResolverModule } from './resolvers/badge-resolver/badge-resolver.module';
+
+// Third Party
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -103,7 +105,10 @@ import { BadgeResolverModule } from './resolvers/badge-resolver/badge-resolver.m
     MdToolbarModule,
     MdProgressBarModule,
     MdListModule,
-    MdTabsModule
+    MdTabsModule,
+
+    // Third Party
+    MomentModule,
 
   ],
   bootstrap: [AppComponent],
