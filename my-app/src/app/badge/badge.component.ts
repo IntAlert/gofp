@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-badge',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BadgeComponent implements OnInit {
 
-  constructor() { }
+  badge: any;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // set current action
+    this.badge = this.route.snapshot.data.action;
   }
 
 }

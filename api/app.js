@@ -12,10 +12,11 @@ const getActions = require('./routes/getActions');
 const uploadProfilePic = require('./routes/uploadProfilePic');
 const generateBadge = require('./routes/generateBadge');
 const enterPrizeDraw = require('./routes/enterPrizeDraw');
+
 const getBadgeCount = require('./routes/getBadgeCount');
 const getPromotedBadges = require('./routes/getPromotedBadges');
 const getRecentBadges = require('./routes/getRecentBadges');
-
+const getBadge = require('./routes/getBadge');
 
 var app = express();
 
@@ -48,7 +49,7 @@ app.use('/api/enterPrizeDraw', enterPrizeDraw);
 app.use('/api/getBadgeCount', getBadgeCount);
 app.use('/api/getPromotedBadges', getPromotedBadges);
 app.use('/api/getRecentBadges', getRecentBadges);
-
+app.use('/api/getBadge', getBadge);
 
 // all unfound routes to be sent 
 if (app.get('env') !== 'development') {

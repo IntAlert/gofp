@@ -5,7 +5,11 @@ import { HomeComponent } from './home/home.component';
 
 import { ActionsComponent } from './actions/actions.component';
 import { RecentActivityComponent } from './recent-activity/recent-activity.component';
+
+
+// Badge Landing Page
 import { BadgeComponent } from './badge/badge.component';
+import { BadgeResolverModule } from './resolvers/badge-resolver/badge-resolver.module';
 
 // badge building
 import { ActionResolverModule } from './resolvers/action-resolver/action-resolver.module';
@@ -28,7 +32,16 @@ import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-com
             { path: 'recent-activity',  component: RecentActivityComponent},
             { path: 'badgeBuilder/:action_id', component: BadgeBuilderComponent },
             { path: 'actions',     component: ActionsComponent },
-            { path: 'badge/:badge_id', component: BadgeComponent },
+
+
+            // badge landing page
+            {
+                path: 'badge/:badge_id',
+                component: BadgeComponent,
+                resolve: {
+                    badge: BadgeResolverModule
+                },
+            }
 
             // badge building
             { path: 'badgeBuilder/:action_id',  component: BadgeBuilderComponent,

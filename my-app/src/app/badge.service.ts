@@ -24,7 +24,6 @@ export class BadgeService {
 
     this.http.get(this.urls.getBadgeCount).subscribe(response => {
       // Read the result field from the JSON response.
-      // this.actions.push(data);// = data;
       this.count = response.json().count;
     }, err => {
       // TODO: handle
@@ -33,11 +32,21 @@ export class BadgeService {
 
   }
 
+  public getBadgeById(badge_id: number) {
+
+    return this.http.get('/api/getBadge/' + badge_id).toPromise()
+      .then(response => {
+        return response.json().badge;
+      })
+      .catch(err => {
+        throw(err);
+      });
+  }
+
   private loadPromotedBadges() {
 
     this.http.get(this.urls.getPromotedBadges).subscribe(response => {
       // Read the result field from the JSON response.
-      // this.actions.push(data);// = data;
       this.promotedBadges = response.json().badges;
     }, err => {
       // TODO: handle
