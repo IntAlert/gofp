@@ -41,7 +41,7 @@ import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-com
                 resolve: {
                     badge: BadgeResolverModule
                 },
-            }
+            },
 
             // badge building
             { path: 'badgeBuilder/:action_id',  component: BadgeBuilderComponent,

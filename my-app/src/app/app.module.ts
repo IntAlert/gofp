@@ -54,7 +54,10 @@ import { BadgeBuilderCardComponent } from './badge-builder/badge-builder-card/ba
 import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-complete/badge-builder-complete.component';
 
 
+// Resolvers
 import { ActionResolverModule } from './resolvers/action-resolver/action-resolver.module';
+
+import { BadgeResolverModule } from './resolvers/badge-resolver/badge-resolver.module';
 
 @NgModule({
   declarations: [
@@ -108,7 +111,8 @@ import { ActionResolverModule } from './resolvers/action-resolver/action-resolve
     ActionService,
     BadgeBuilderService,
     BadgeService,
-    ActionResolverModule
+    ActionResolverModule,
+    BadgeResolverModule
   ]
 })
 export class AppModule { }

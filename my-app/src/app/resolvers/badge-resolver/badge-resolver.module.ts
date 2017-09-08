@@ -11,7 +11,7 @@ export class BadgeResolverModule implements Resolve<any> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Promise<any> {
-		return this.badgeService.getBadgeById(route.params.action_id)
+		return this.badgeService.getBadgeById(route.params.badge_id)
 			.then(badge => {
 				console.log(badge);
 				return badge;

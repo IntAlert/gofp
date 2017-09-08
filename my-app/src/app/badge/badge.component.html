@@ -1,3 +1,18 @@
-<p>
-  badge works!
-</p>
+
+<h1>
+  Your friend contributed to everyday peace.
+</h1>
+
+<app-recent-activity-block 
+	[badge]=badge
+	[ordinal]=1
+></app-recent-activity-block>
+
+
+<h2>
+  You can contribute too.
+</h2>
+
+<button routerLink="/badgeBuilder/{{badge.Action.id}}">
+  Get started
+</button>
