@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BadgeBuilderService } from '../badge-builder.service';
 // import { SocialBadge } from '../social-badge';
 import { ActivatedRoute, Router } from '@angular/router';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+
 
 
 @Component({
@@ -15,24 +17,13 @@ export class SocialActionsComponent implements OnInit {
   actionUserData: any;
   public tweetText: String = 'Some Tweet Text';
   action: any;
+  sanitizedWhatsappUrl: SafeUrl;
 
   constructor(
     private route: ActivatedRoute,
-    private service: BadgeBuilderService
-  ) {
-
-    // // show loading until ready
-    // service.onUploadStart.subscribe(() => {
-    // });
-
-
-    // // show preview when ready
-    // service.onBadgeDownloadComplete.subscribe(badge => {
-    //   console.log(badge);
-    //   this.badge = badge;
-    // });
-
-  }
+    private service: BadgeBuilderService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
 
@@ -41,6 +32,10 @@ export class SocialActionsComponent implements OnInit {
 
     // get current badge
     this.actionUserData = this.service.getCurrentActionUserData();
+
+    // set whatsapp URL
+    this.sanitizedWhatsappUrl = this.sanitizer.bypassSecurityTrustUrl('whatsapp://send?text=' + this.actionUserData.badge.opengraph);
+
   }
 
   startFacebookShare = () => {
@@ -48,6 +43,14 @@ export class SocialActionsComponent implements OnInit {
   }
 
   startTwitterShare = () => {
+    this.service.registerShare();
+  }
+
+  startWhatsappShare = () => {
+    this.service.registerShare();
+  }
+
+  startLinkedInShare = () => {
     this.service.registerShare();
   }
 

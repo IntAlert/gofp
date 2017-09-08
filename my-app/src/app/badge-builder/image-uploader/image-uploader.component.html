@@ -4,7 +4,27 @@
     <div *ngIf=" mode == 'initial' ">
 
       <div class="image">
-        <img src="{{action.image}}" alt="Action showing {{action.title}}" class="full-width" /> 
+        <!-- If upload has been made - only when they have hit back  -->
+        <img 
+          *ngIf="actionUserData.upload"
+          src="{{actionUserData.upload.url}}" 
+          alt="Action showing {{action.title}}" class="full-width" 
+        /> 
+
+        <a 
+          *ngIf="actionUserData.upload"
+          (click)="removeUpload()">
+          Remove Upload
+        </a>
+
+        <!-- If upload does not exist  -->
+        <img 
+          *ngIf="!actionUserData.upload"
+          src="{{action.image}}" 
+          alt="Action showing {{action.title}}" class="full-width" 
+        /> 
+
+        
       </div>
 
       <h2>{{action.title}}</h2>

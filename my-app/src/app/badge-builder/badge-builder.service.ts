@@ -197,6 +197,10 @@ export class BadgeBuilderService {
 
   }
 
+  public removeUpload() {
+    this.setUpload(false);
+  }
+
   // Generate Badge
   generateBadge() {
 

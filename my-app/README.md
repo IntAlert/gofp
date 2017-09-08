@@ -17,13 +17,18 @@
 3. `npm start`
 4. Visit http://127.0.0.1:4200/
 
+# Development On Mobile via Ngrok
+Start the NG server differently
+`ng serve --prod --host 0.0.0.0 --disable-host-check --proxy-config proxy.conf.json --aot=false`
+
+Start Ngrok
+`ngrok http 4200 -host-header="127.0.0.1:4200"`
+
+Might no be neccessary to set -host-header
+
 # Deployment
-1. `az login`
-2. `ng build -prod --aot=false`
-3. `cd ..`
-3. `git add .`
-4. `git commit -m ...`
-5. `git push azure master`
+Done via webhooks on Azure Continous Deployment. (master branch only)
+1. `git push`
 
 # Setting up the Azure Environment
 cf. https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs

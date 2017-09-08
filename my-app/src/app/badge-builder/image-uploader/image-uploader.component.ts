@@ -12,6 +12,7 @@ const URL = '/api/';
 })
 export class ImageUploaderComponent implements OnInit {
 
+  actionUserData: any;
   uploadForm: FormGroup;
   action: any;
   fileChosen: Boolean = false;
@@ -49,7 +50,17 @@ export class ImageUploaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // get current action
     this.action = this.route.parent.snapshot.data.action;
+
+    // get current badge (normally, empty unless they have hit the back button or are revisiting)
+    this.actionUserData = this.service.getCurrentActionUserData();
+  }
+
+  removeUpload() {
+    this.service.removeUpload();
+    this.actionUserData = this.service.getCurrentActionUserData();
   }
 
   fileChange(e: Event) {

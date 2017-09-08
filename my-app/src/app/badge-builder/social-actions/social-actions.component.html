@@ -17,11 +17,10 @@
 
 
     <div class="whatsapp">
-      <a href="whatsapp://send?text={{actionUserData.badge.opengraph}}">
+      <a (click)="startWhatsappShare()" [href]="sanitizedWhatsappUrl">
         <i class="fa fa-whatsapp fa-2x" aria-hidden="true"> </i> 
       </a> 
     </div>
-
 
     <div class="twitter">
       <button ceiboShare [twitter]="{url:actionUserData.badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
@@ -36,7 +35,7 @@
     </div>
 
     <div class="linkedin">
-      <button ceiboShare [linkedIn]="{u: actionUserData.badge.opengraph}" md-button class="md-raised" (click)="startLinkedInShare()">
+      <button ceiboShare [linkedIn]="{url: actionUserData.badge.opengraph}" md-button class="md-raised" (click)="startLinkedInShare()">
         <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"> </i> 
       </button> 
     </div>

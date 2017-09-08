@@ -60,6 +60,7 @@ import { BadgeResolverModule } from './resolvers/badge-resolver/badge-resolver.m
 
 // Third Party
 import { MomentModule } from 'angular2-moment';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { MomentModule } from 'angular2-moment';
     StoryInputComponent,
     BadgeBuilderCardComponent,
     BadgeBuilderCompleteComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
