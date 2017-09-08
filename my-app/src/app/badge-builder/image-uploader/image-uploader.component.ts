@@ -63,13 +63,13 @@ export class ImageUploaderComponent implements OnInit {
     this.actionUserData = this.service.getCurrentActionUserData();
   }
 
-  fileChange(e: Event) {
+  fileChange_old(e: Event) {
     const fi = this.fileInput.nativeElement;
     this.fileChosen = (fi.files && !!fi.files.length);
     this.service.registerFileChosen();
   }
 
-  submitForm(): void {
+  fileChange(): void {
     const fi = this.fileInput.nativeElement;
     if (fi.files && fi.files[0]) {
         const fileToUpload = fi.files[0];
