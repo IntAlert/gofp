@@ -30,27 +30,8 @@
 				"description": "Example of Reflix turning data into shareable images"
 			},
 			"content": {
-				"who": "World!"
-			}
-		},
-		{
-			"redirect": "http://www.reflix.co/",
-			"opengraph": {
-				"title": "Hello you!",
-				"description": "Example of Reflix turning data into shareable images"
-			},
-			"content": {
-				"who": "A really long name.... so long this name!"
-			}
-		},
-		{
-			"redirect": "http://www.reflix.co/",
-			"opengraph": {
-				"title": "Hello me!",
-				"description": "Example of Reflix turning data into shareable images"
-			},
-			"content": {
-				"who": "me"
+				"story": "story",
+				"image": "http://www.whatsappstatus77.in/wp-content/uploads/2015/07/awesome-boys-profile-photos-pics-for-facebook-wall-whatsapp-dp.jpg"
 			}
 		}
 	],

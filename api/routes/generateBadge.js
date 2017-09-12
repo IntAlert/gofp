@@ -14,26 +14,47 @@ router.post('/', function(req, res, next) {
 
     // upload may not exist, that's OK
 
-    return reflix.generate(upload, req.body.story);
-  })
+    // const redirect = 'http://gofp.azurewebsites.net/badges/' + upload.badge_id;
+    
 
-  // create and return badge details
-  .then(badge => {
-
+    // create badge record
     return models.Badge.create({
       upload_id: req.body.upload_id,
-      story: req.body.story,
-      image: badge.image,
-      opengraph: badge.opengraph
+      story: req.body.story
+    })
+    .then(badge => {
+      return {badge, upload};
     });
 
   })
-  .then(badgeRecord => {
 
-    setTimeout(() => {
-      res.json(badgeRecord.get())
-    }, 30)
-    
+  .then(records => {
+
+    const redirect = 'http://127.0.0.1:4200/badges/' + records.badge.id;
+    const title = "Title";
+    const description = "description";
+
+    return reflix.generate(records.upload.url, req.body.story, redirect, title, description)
+      .then((reflixResponse) =>{
+        console.log(reflixResponse);
+        return {
+          reflix: reflixResponse,
+          badge: records.badge
+        }
+      })
+  })
+
+  // update and return badge details
+  .then(({reflix, badge}) => {
+
+    return badge.update({
+      image: reflix.urls.image,
+      opengraph: reflix.urls.opengraph
+    });
+
+  })
+  .then(badge => {
+    res.json(badge.get())
   })
 
 

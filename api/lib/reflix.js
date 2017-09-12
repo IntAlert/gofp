@@ -2,31 +2,36 @@ const rp = require('request-promise');
 
 module.exports = {
 
-  // generate: (profilePicURL) => {
+  generate: (profilePicURL, story, redirect, title, description) => {
 
-  //   const options = {
-  //     method: 'POST',
-  //     uri: 'reflix.co/images/generate',
-  //     form: {
-  //       profilePicURL
-  //     }
-  //   }
 
-  //   return rp(options)
+    const payload = { 
+      "content": {
+        "story": story,
+        "image": profilePicURL
+      },
+      "opengraph": {
+        "title": title,
+        "description": description
+      },
+      "redirect": redirect
+    }
 
-  // }
+    console.log(payload)
 
-  generate: (upload, story) => {
+    const options = {
+      method: 'POST',
+      uri: 'http://go.reflix.co/images/generate/56',
+      body: payload,
+      headers: {
+        "content-type": "application/json",
+        token: "e304b6d64fe9ac5b88ed3fc37a7093b2"
+      },
+      json:true
+    }
 
-    const profilePicURL = upload ? upload.url : 'http://127.0.0.1:4200/assets/maxresdefault.jpg';
-
-    return Promise.resolve({
-      ok: true,
-      image: profilePicURL,
-      opengraph: 'http:/www.google.co.uk/'
-    })
+    return rp(options);
 
   }
-
   
 }
