@@ -17,8 +17,6 @@ module.exports = {
       "redirect": redirect
     }
 
-    console.log(payload)
-
     const options = {
       method: 'POST',
       uri: 'http://go.reflix.co/images/generate/56',

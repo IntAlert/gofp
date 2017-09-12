@@ -7,19 +7,15 @@ html {
 }
 
 @font-face {
-    font-family: FoundersGroteskWeb-Regular;
-    src: url(../fonts/FoundersGroteskWeb-Regular.ttf);
-}
-
-@font-face {
-    font-family: FoundersGroteskWeb-Semibold;
-    src: url(../fonts/FoundersGroteskWeb-Semibold.ttf);
+    font-family: Poppins;
+    src: url("../fonts/Poppins-Regular.ttf");
 }
 
 body {
   padding:0;
   margin:0;
   background:black;
+  font-family: Poppins;
 }
 
 .container {
@@ -32,13 +28,23 @@ body {
   /* display: flex;
   align-items: center;
   justify-content: center; */
-  display: table;
+  /* display: table; */
 }
 
+table {
+  width:1200px;
+  height:630px;
+}
+/* 
 
 p {
   font-size:55px;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+} */
+
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
