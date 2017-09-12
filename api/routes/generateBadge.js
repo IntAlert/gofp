@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const models  = require('../models');
 const reflix = require('../lib/reflix');
+const url = require('url');
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
@@ -30,9 +31,16 @@ router.post('/', function(req, res, next) {
 
   .then(records => {
 
-    const redirect = 'http://127.0.0.1:4200/badges/' + records.badge.id;
+    // construct Shareable URL
+		var redirect = url.format({
+			protocol: req.protocol,
+			port: process.env.NODE_ENV == 'development' ? 3000:null,
+			hostname: req.hostname,
+			pathname: 'badges/' + records.badge.id
+		})
+
     const title = "Title";
-    const description = "description";
+    const description = "Description";
 
     return reflix.generate(records.upload.url, req.body.story, redirect, title, description)
       .then((reflixResponse) =>{
