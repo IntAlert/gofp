@@ -217,6 +217,7 @@ export class BadgeBuilderService {
     // console.log(actionUserData);
 
     const payload = {
+      action_id: this.currentAction.id,
       story: actionUserData.story,
     };
 

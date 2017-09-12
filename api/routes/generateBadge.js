@@ -20,6 +20,7 @@ router.post('/', function(req, res, next) {
 
     // create badge record
     return models.Badge.create({
+      action_id: req.body.action_id,
       upload_id: req.body.upload_id,
       story: req.body.story
     })
@@ -34,9 +35,9 @@ router.post('/', function(req, res, next) {
     // construct Shareable URL
 		var redirect = url.format({
 			protocol: req.protocol,
-			port: process.env.NODE_ENV == 'development' ? 3000:null,
+			port: process.env.NODE_ENV == 'production' ? null:3000,
 			hostname: req.hostname,
-			pathname: 'badges/' + records.badge.id
+			pathname: 'badge/' + records.badge.id
 		})
 
     const title = "Title";

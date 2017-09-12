@@ -14,7 +14,6 @@ export class BadgeComponent implements OnInit {
 
   ngOnInit() {
     // set current action
-    console.log(this.route.snapshot.data)
     this.badge = this.route.snapshot.data.badge;
   }
 

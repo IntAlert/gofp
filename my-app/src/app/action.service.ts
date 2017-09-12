@@ -21,9 +21,9 @@ export class ActionService {
   }
 
   // this function should only be called after onActionsLoaded has fired
-  public getActionById(action_id: number) {
+  public getActionById(action_id) {
     const actionFound = this.actions.find((action) => {
-      return action.id === action_id;
+      return action.id === parseInt(action_id);
     });
 
     if (actionFound) {
@@ -31,6 +31,7 @@ export class ActionService {
     } else {
       console.log('actionFound=false for ' + action_id)
       console.log(this.actions)
+      console.log(actionFound)
     }
 
     // we are waiting for actions to be initialised
