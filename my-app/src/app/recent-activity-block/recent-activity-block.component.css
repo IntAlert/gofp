@@ -2,7 +2,6 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  height:500px;
 }
 .recent-activity-block .content {
   color:#fff;
@@ -10,17 +9,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex:4;
+  flex:3;
+  padding:145px 56px 56px;
 }
 
 .recent-activity-block .title {
   font-weight: 400;
-  font-size: 1.5em;
+  font-size: 24px;
+  line-height: 1.17;
+}
+
+.recent-activity-block .description {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 .recent-activity-block .credits {
   display: flex;
   flex:1;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  font-family: "Roboto";
+  font-size: 19px;
 }
 .recent-activity-block .actor {
   color:#fff;
@@ -32,7 +44,9 @@
   color:#fff;
   flex:1;
   text-align: left;
-  padding-left: 1em;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left:2px solid #fff;
 }
 
 .class-1 {

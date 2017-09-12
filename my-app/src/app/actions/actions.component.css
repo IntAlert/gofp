@@ -1,10 +1,18 @@
-.mat-list .mat-list-item{
-  background:#ccc;
+
+.logo {
+	text-align: center;
+	padding: 45px 0 47px;
 }
-.mat-list .mat-list-item:nth-child(2n+1) {
-  background:#eee;
+.logo img {
+  margin:7px;
+  width: 65.4px;
+  height: 107.6px;
+  object-fit: contain;
 }
 
-.mat-list button {
-  float:right;
+h2 {
+  font-size: 32px;
+  line-height: 0.9;
+  text-align: center;
+  color: #000000;
 }

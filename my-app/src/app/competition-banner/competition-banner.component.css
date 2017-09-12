@@ -1,3 +1,31 @@
 .competition-banner {
-	padding:1em;
+	padding: 52px 38px 58px 23px;
+	background: #ccc;
+}
+
+h2 {
+  font-size: 27.9px;
+  line-height: 1.16;
+  text-align: left;
+  color: #000000;
+}
+
+p {
+  font-family: Roboto;
+  font-size: 16.2px;
+  line-height: 1.28;
+  text-align: left;
+  color: #000000;
+}
+
+button {
+	border: none;
+	padding:12px;
+	width: 100%;
+  border-radius: 3.6px;
+	background-color: #58c0e8;
+  font-size: 15.3px;
+  line-height: 1.24;
+  text-align: center;
+  color: #ffffff;
 }

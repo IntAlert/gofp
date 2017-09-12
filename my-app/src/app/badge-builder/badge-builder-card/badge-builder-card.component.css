@@ -1,20 +1,42 @@
 .card-container {
-	background:#333;		
+	background:#333;
+	padding:30px 24px;
+}
+
+.back {
+	display: block;
+  width: 51px;
+  height: 50.9px;
+	background-color: #ffcd00;
+	border-radius: 25px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 43px;
+}
+
+.back img {
+  width: 16.4px;
+  height: 28.4px;
+  object-fit: contain;
 }
 
 .card {
 	background:#fff;
 	overflow:hidden;
-	border-radius: 10px;
-	margin:10px;
+	border-radius: 7px;
 	min-height: 400px;
 }
 
 h2 {
-	background:#eee;
-	padding:8px;
-	margin:0;
 	text-align: center;
+  background-color: #f4f5f0;
+  font-size: 18.2px;
+  font-weight: 600;
+	line-height: 1.69;
+	margin:0;
+	padding:15px 8px 8px;
 }
 
 .content {

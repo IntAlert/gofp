@@ -9,13 +9,11 @@
 	<h3>Why do it?</h3>
 	<p>{{action.description}}</p>
 
-	<button 
-      md-button 
-      routerLink="/badgeBuilder/{{action.id}}/upload"
-      class="full-width md-raised"
-    >
-      Create your story
-		</button>
+	<app-button 
+		routerLink="/badgeBuilder/{{action.id}}/upload"
+	>
+		Create your story
+	</app-button>
 		
 
 </app-badge-builder-card>

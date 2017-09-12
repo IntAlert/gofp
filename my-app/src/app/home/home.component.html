@@ -1,9 +1,11 @@
 <!-- Hero -->
 <div class="hero">
   
-  <img src="http://via.placeholder.com/150x150" alt="Alert Logo" />
+  <div class="logo">
+    <img src="assets/logo.svg" alt="International Alert">
+  </div>
   
-  <h1>Let's build peace, one action at a time</h1>
+  <h1>Let's build Peace<br>one action<br>at a time</h1>
 
   <div class="action-totaliser" *ngIf="badgeService.count">
     <div class="count">{{badgeService.count}}</div>
@@ -13,29 +15,37 @@
 </div>
 <!-- End Hero -->
 
+
+<!-- Recent activity -->
 <div class="recent-activity">
   <h2>Recent activity</h2>
 
   <app-recent-activity-block 
-    *ngFor="let badge of badgeService.promotedBadges"
+    *ngFor="let badge of badgeService.promotedBadges; let ordinal = index"
     [badge]=badge
-    ordinal=1
+    [ordinal]="ordinal"
   ></app-recent-activity-block>
 
-  <app-button routerLink="/recent-activity">
-    2View All &rarr;
-  </app-button>
+  <a class="more" routerLink="/recent-activity">
+    View All &rarr;
+  </a>
 
 </div>
 
 <!-- Promoted Actions -->
 <div class="promoted-actions">
   <h2>Start building<br>peace now!</h2>
-  <app-action-cta *ngFor="let action of actionService.promotedActions" [action]=action></app-action-cta>
+  <app-action-cta 
+    *ngFor="let action of actionService.promotedActions; let ordinal = index" 
+    [action]=action
+    [ordinal]="ordinal"
+  ></app-action-cta>
   <a class="more" routerLink="/actions">
     View All &rarr;
   </a>
 </div>
+
+
 
 <app-competition-banner></app-competition-banner>
 <app-footer-peace-building></app-footer-peace-building>

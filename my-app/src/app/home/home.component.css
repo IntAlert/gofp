@@ -1,9 +1,50 @@
+/* General */
+h2 {
+  font-size:32px;
+  line-height: 0.9;
+  font-weight: 600;
+  padding:35px;
+  margin:0;
+}
+
+a.more {
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color:#000;
+  background: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  padding:15px;
+  line-height: 1.05;
+  letter-spacing: 0.4px;
+  margin:0 -10px;
+}
+
 /* Hero */
 .hero {
   text-align: center;
-  background: #666;
-  padding:1em;
+  background:url("/assets/home/hero-bg.jpg");
+  padding:0 1em 1em;
   color:#fff;
+}
+
+.hero .logo {
+  background:#fff;
+  margin:0 auto 81px;
+  display: inline-block;
+}
+.hero .logo img {
+  margin:7px;
+  width: 65.4px;
+  height: 107.6px;
+  object-fit: contain;
+}
+
+.hero h1{
+  font-size: 38.4px;
+  line-height: 1.1;
+  margin: 0 0 80px;
 }
 
 .hero .action-totaliser {
@@ -16,7 +57,7 @@
   border-right:2px solid #fff;
   padding-right:10px;
   text-align: right;
-  font-size: 2.5em;
+  font-size: 48px;
   line-height: 1;
 }
 
@@ -24,36 +65,18 @@
   flex:1; 
   padding-left: 10px;
   text-align: left;
-  line-height: 1;
-  font-size: 1.25em;
+  line-height: 1.12;
+  font-size: 20.8px;
 }
+
 
 .recent-activity {
   text-align: center;
-}
-.recent-activity a.more {
-  display: block;
-  text-transform: uppercase;
-  text-decoration: none;
-  color:#000;
-  font-weight: 400;
-  font-size: 1.4em;
-  padding:0.5em;
 }
 
 /* Promoted Actions */
 .promoted-actions {
   text-align: center;
   background:#eee;
-  padding:1em 10px;
-}
-
-.promoted-actions a.more {
-  display: block;
-  text-transform: uppercase;
-  text-decoration: none;
-  color:#000;
-  font-weight: 400;
-  font-size: 1.4em;
-  padding:0.5em;
+  padding:0 10px;
 }
