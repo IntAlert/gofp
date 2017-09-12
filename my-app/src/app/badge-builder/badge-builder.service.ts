@@ -80,11 +80,6 @@ export class BadgeBuilderService {
     this.onUploadComplete.emit();
   }
 
-  // Story Input
-  // public registerStorySubmitted = () => {
-  //   this.onStorySubmit.emit();
-  // }
-
   // Badge Download
   public registerBadgeDownloadStart = () => {
     this.onBadgeDownloadStart.emit();
@@ -109,11 +104,6 @@ export class BadgeBuilderService {
   public registerPrizeEntryComplete = () => {
     this.onPrizeEntryComplete.emit();
   }
-
-  // Public methods
-  // public setActionId = (action_id) => {
-  //   this.selectedActionId = action_id;
-  // }
 
   public setCurrentAction = (action) => {
     this.currentAction = action;
@@ -169,6 +159,9 @@ export class BadgeBuilderService {
       reportProgress: true,
     });
 
+    // invalidate badge, as image is being changed
+    this.setBadge(false);
+
     this.registerUploadStart();
     this.registerUploadProgress(0);
 
@@ -207,10 +200,17 @@ export class BadgeBuilderService {
 
   public removeUpload() {
     this.setUpload(false);
+
+    // invalidate badge too
+    this.setBadge(false);
   }
 
   // Generate Badge
   generateBadge() {
+
+
+    // invalidate badge, before we start
+    this.setBadge(false);
 
     const actionUserData = this.getCurrentActionUserData();
 

@@ -22,7 +22,6 @@ export class SocialPreviewComponent implements OnInit {
 
     // show download progress
     service.onBadgeDownloadProgress.subscribe(percentage => {
-      console.log(percentage);
       this.badgeDownloadProgressPercentage = percentage;
     });
 
