@@ -28,6 +28,9 @@ export class ActionService {
 
     if (actionFound) {
       return Promise.resolve(actionFound);
+    } else {
+      console.log('actionFound=false for ' + action_id)
+      console.log(this.actions)
     }
 
     // we are waiting for actions to be initialised
