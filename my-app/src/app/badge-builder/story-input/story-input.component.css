@@ -1,3 +1,37 @@
 .full-width{
   width: 100%
 }
+
+h2 {
+  font-size: 25.2px;
+	line-height: 1.08;
+  text-align: center;
+  margin:2px 0 11px;
+}
+/* 
+p {
+  font-size:16px;
+  font-family: "Roboto";
+} */
+
+form {
+  padding-top:10px;
+}
+div.textarea {
+  border-radius: 5.6px;
+	background-color: #f7f7f7;
+  box-shadow: inset 0 1px 6px 0 rgba(0, 0, 0, 0.05);
+  padding:10px;
+  font-family: "Roboto";
+}
+textarea {
+  font-family: "Roboto";
+  font-size:13px;
+  height:4em;
+  margin:16px;
+  resize: none;
+}
+
+.mat-form-field {
+  margin-bottom:20px;
+}

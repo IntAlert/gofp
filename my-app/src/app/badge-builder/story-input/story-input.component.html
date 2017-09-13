@@ -1,5 +1,8 @@
 <app-badge-builder-card>
 
+
+  <h2>{{action.title}}</h2>
+
   <div class="image">
 
     <!-- If upload  -->
@@ -17,20 +20,18 @@
     /> 
 	</div>
 
-	<h2>{{action.title}}</h2>
-	<p>Tell us what you did. Tell us what it felt like.</p>
-
-  <form [formGroup]="storyInputForm" (ngSubmit)="submitForm(storyInputForm.value)">
+  <form class="story" [formGroup]="storyInputForm" (ngSubmit)="submitForm(storyInputForm.value)">
 
     <md-form-field class="full-width">
-      <textarea
-        name="story"
-        [formControl]="storyInputForm.controls['story']"
-        class="full-width"
-        mdInput
-        minlength="10"
-        maxlength="120"
-        placeholder="Your Story"></textarea>
+      <div class="textarea">
+        <textarea
+          name="story"
+          mdInput
+          [formControl]="storyInputForm.controls['story']"
+          minlength="10"
+          maxlength="120"
+          placeholder="Tell us what you did"></textarea>
+      </div>
 
        <md-error *ngIf="storyInputForm.controls['story'].hasError('required')">
         Please tell us about your peaceful action
@@ -44,15 +45,11 @@
     </md-form-field>
 
     
-    <button 
-      md-button 
+    <app-button 
       [disabled]="!storyInputForm.valid"
-      class="full-width md-raised"
-      type="button"
-      type="submit"
     >
       Submit
-    </button>
+    </app-button>
 
   </form>
 </app-badge-builder-card>

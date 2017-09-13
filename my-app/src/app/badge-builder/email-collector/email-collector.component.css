@@ -3,3 +3,22 @@
   width: 100%;
 }
 
+h2 {
+  font-size: 25.2px;
+  line-height: 1.08;
+  font-weight: 500;
+}
+
+p {
+  font-size: 12.6px;
+	line-height: 1.44;
+}
+
+md-checkbox {
+  font-size: 12px;
+}
+
+.checkbox-container {
+  margin-bottom: 1em;
+}
+

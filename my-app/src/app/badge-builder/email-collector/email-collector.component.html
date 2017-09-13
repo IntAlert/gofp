@@ -12,47 +12,54 @@
   </div>
 
 
+  <div *ngIf="mode == 'initial' ">
+    <h2>Enter prize draw for Ben &amp; Jerry's</h2>
 
-  <form *ngIf="mode == 'initial' " [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
-    <md-input-container class="full-width">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eveniet reiciendis ratione earum sed nam excepturi facere in ad?</p>
 
-      <input type="text" mdInput value="" placeholder="Name" name="name" [formControl]="complexForm.controls['name']">
+    <form [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
+      <md-input-container class="single-line-input">
 
-      <md-error *ngIf="complexForm.controls['name'].hasError('required')">
-        Name is <strong>required</strong>
-      </md-error>
+        <input type="text" mdInput value="" placeholder="Name" name="name" [formControl]="complexForm.controls['name']">
 
-    </md-input-container>
+        <md-error *ngIf="complexForm.controls['name'].hasError('required')">
+          Name is <strong>required</strong>
+        </md-error>
 
-    <md-input-container class="full-width">
+      </md-input-container>
 
-      <input
-        type="email"
-        mdInput
-        value=""
-        placeholder="Enter your email address"
-        name="email"
-        [formControl]="complexForm.controls['email']"
-      >
+      <md-input-container class="single-line-input">
 
-      <md-error *ngIf="complexForm.controls['email'].hasError('pattern')">
-        Please enter a valid email address
-      </md-error>
+        <input
+          type="email"
+          mdInput
+          value=""
+          placeholder="Enter your email address"
+          name="email"
+          [formControl]="complexForm.controls['email']"
+        >
 
-      <md-error *ngIf="complexForm.controls['email'].hasError('required')">
-        Email is <strong>required</strong>
-      </md-error>
+        <md-error *ngIf="complexForm.controls['email'].hasError('pattern')">
+          Please enter a valid email address
+        </md-error>
 
-    </md-input-container>
+        <md-error *ngIf="complexForm.controls['email'].hasError('required')">
+          Email is <strong>required</strong>
+        </md-error>
 
-    <md-checkbox value="" name="festival_news" [formControl]="complexForm.controls['festival_news']">
-      Yes, Please I want to receive information about the Peacebuilding Festival
-    </md-checkbox>
+      </md-input-container>
 
-    <button class="full-width" type="submit" [disabled]="!complexForm.valid" md-raised-button>Enter Prize Draw</button>
+      <div class="checkbox-container">
+        <md-checkbox value="" name="festival_news" [formControl]="complexForm.controls['festival_news']">
+          Yes, Please I want to receive information about the Peacebuilding Festival
+        </md-checkbox>
+      </div>
 
-    <a routerLink="/badgeBuilder/1/complete">Skip this step</a>
+      <app-button [disabled]="!complexForm.valid">Enter Prize Draw</app-button>
 
-  </form>
+      <a class="skip" routerLink="/badgeBuilder/1/complete">Skip this step &#x25B8;</a>
+
+    </form>
+  </div>
 
 </app-badge-builder-card>

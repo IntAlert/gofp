@@ -1,14 +1,46 @@
+h2 {
+	font-size: 25.2px;
+	line-height: 1.08;
+  text-align: left;
+  font-weight: 500;
+}
+
+p {
+	font-family: "Roboto";
+	font-size: 18.2px;
+	font-weight: 300;
+	line-height: 1.23;
+}
+
 .preview img {
   max-width: 100%;
 }
+
 .social-actions {
   display: flex;
   flex-direction: row;
+
 }
 
 .social-actions>div {
-  flex:1
+  width: 29.2px;
+  height: 29px;
+  margin-right:12px;
 }
-.social-actions>div>button {
-  width: 100%;
+
+img.social-icon {
+	width: 29.2px;
+	height: 29px;
+	object-fit: contain;
+}
+
+.whatsapp a {
+  display: block;
+  width: 29.2px;
+	height: 29px;
+}
+
+button {
+  background:none;
+  border:0;
 }

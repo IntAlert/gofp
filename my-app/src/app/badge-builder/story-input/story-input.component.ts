@@ -30,6 +30,9 @@ constructor(
   ngOnInit() {
     this.action = this.route.parent.snapshot.data.action;
     this.actionUserData = this.service.getCurrentActionUserData();
+    this.storyInputForm.setValue({
+      story: this.actionUserData.story
+    });
   }
 
   submitForm(value): void {

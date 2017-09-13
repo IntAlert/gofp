@@ -8,3 +8,57 @@ body {
   margin:0;
 }
 
+a, a:visited {
+  color: #58c0e8;
+  text-decoration: none;
+}
+
+
+/* Alter Material Textarea  */
+.story .mat-input-placeholder-wrapper label {
+  padding:16px;
+}
+.story .mat-form-field-float:not(.mat-form-field-empty),
+.story .mat-focused label {
+    margin-top:-12px; 
+}
+.mat-form-field-underline {
+  display: none;
+}
+
+/* Alter Material Text Input */
+.single-line-input {
+  width: 90%;
+}
+.single-line-input input {
+	border-radius: 4px;
+	background-color: #fbfbfb;
+  border: solid 1px #979797;
+  width: 100%;
+  color: #6cc04a;
+  padding:16px;
+}
+.single-line-input label{
+  padding:16px;
+}
+
+.single-line-input .mat-form-field-float:not(.mat-form-field-empty),
+.single-line-input.mat-focused label {
+    margin-top:-8px; 
+}
+
+/* Material Checkbox */
+.mat-checkbox-layout .mat-checkbox-label {
+  line-height: 1;
+}
+
+/* Skip Link */
+a.skip {
+  display: block;
+	font-family: "Roboto";
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.33;
+  text-align: right;
+  margin-top:20px;
+}

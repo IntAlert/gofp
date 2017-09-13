@@ -1,3 +1,25 @@
 .full-width{
   width: 100%
 }
+
+.logo {
+  margin:12px auto 15px;
+  text-align: center;
+}
+.logo img {
+  margin:7px;
+  width: 65.4px;
+  height: 107.6px;
+  object-fit: contain;
+}
+
+h2 {
+  font-size: 25px;
+  line-height: 1.08;
+}
+
+p {
+	font-family: "Roboto";
+  font-size: 12.6px;
+  line-height: 1.44;
+}

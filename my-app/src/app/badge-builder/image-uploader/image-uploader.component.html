@@ -1,33 +1,36 @@
 <app-badge-builder-card>
-  <form [formGroup]="uploadForm" (ngSubmit)="submitForm(uploadForm.value)">
+  <form [formGroup]="uploadForm">
 
     <div *ngIf=" mode == 'initial' ">
 
+      <h2>{{action.title}}</h2>
+
       <div class="image">
         <!-- If upload has been made - only when they have hit back  -->
-        <img 
-          *ngIf="actionUserData.upload"
-          src="{{actionUserData.upload.url}}" 
-          alt="Action showing {{action.title}}" class="full-width" 
-        /> 
-
-        <a 
-          *ngIf="actionUserData.upload"
-          (click)="removeUpload()">
-          Remove Upload
-        </a>
+        <div>
+          <img 
+            *ngIf="actionUserData.upload"
+            src="{{actionUserData.upload.url}}" 
+            alt="Action showing {{action.title}}"
+          /> 
+        </div>
 
         <!-- If upload does not exist  -->
-        <img 
-          *ngIf="!actionUserData.upload"
-          src="{{action.image}}" 
-          alt="Action showing {{action.title}}" class="full-width" 
-        /> 
+        <div class="no-upload" *ngIf="!actionUserData.upload">
 
+        </div>
         
       </div>
 
-      <h2>{{action.title}}</h2>
+      <!-- If upload has been made - only when they have hit back  -->
+      <a 
+        class="remove"
+        *ngIf="actionUserData.upload"
+        (click)="removeUpload()">
+        Remove Upload
+      </a>
+
+      
       <p>Upload a photo of you doing this action</p>
 
       <div class="file-chooser">
@@ -38,7 +41,13 @@
         Upload
       </button> -->
 
-      <a routerLink="/badgeBuilder/1/story">Skip this step</a>
+      <app-button (click)="fileInput.click()">
+        Choose Photo
+      </app-button>
+
+      <a class="skip" routerLink="/badgeBuilder/1/story">
+        Skip this step &#x25B8;
+      </a>
 
     </div>
 
@@ -52,9 +61,9 @@
           [value]="uploadProgressPercentage">
       </md-progress-bar>
 
-      <button md-button class="md-raised" (click)="cancelUpload()">
+      <app-button (click)="cancelUpload()">
         Cancel
-      </button>
+      </app-button>
 
     </div>
 

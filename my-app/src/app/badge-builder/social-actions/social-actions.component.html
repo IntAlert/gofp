@@ -14,35 +14,35 @@
 
   <div class="social-actions" *ngIf="actionUserData.badge.opengraph">
 
-
-
-    <div class="whatsapp">
-      <a (click)="startWhatsappShare()" [href]="sanitizedWhatsappUrl">
-        <i class="fa fa-whatsapp fa-2x" aria-hidden="true"> </i> 
-      </a> 
-    </div>
-
     <div class="twitter">
-      <button ceiboShare [twitter]="{url:actionUserData.badge.opengraph, text:tweetText}" md-button class="md-raised" (click)="startTwitterShare()">
-        <i class="fa fa-twitter-square fa-2x" aria-hidden="true"> </i> 
+      <button ceiboShare [twitter]="{url:actionUserData.badge.opengraph, text:tweetText}" class="md-raised" (click)="startTwitterShare()">
+        <img src="assets/badge-builder/tw.svg" class="social-icon">
       </button> 
     </div>
 
     <div class="facebook">
-      <button ceiboShare [facebook]="{u: actionUserData.badge.opengraph}" md-button class="md-raised" (click)="startFacebookShare()">
-        <i class="fa fa-facebook-square fa-2x" aria-hidden="true"> </i> 
+      <button ceiboShare [facebook]="{u: actionUserData.badge.opengraph}" class="md-raised" (click)="startFacebookShare()">
+        <img src="assets/badge-builder/fb.svg" class="social-icon">
       </button> 
     </div>
 
     <div class="linkedin">
-      <button ceiboShare [linkedIn]="{url: actionUserData.badge.opengraph}" md-button class="md-raised" (click)="startLinkedInShare()">
-        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"> </i> 
+      <button ceiboShare [linkedIn]="{url: actionUserData.badge.opengraph}" class="md-raised" (click)="startLinkedInShare()">
+        <img src="assets/badge-builder/linkedin.svg" class="social-icon">
       </button> 
     </div>
 
 
+    <div class="whatsapp">
+      <a (click)="startWhatsappShare()" [href]="sanitizedWhatsappUrl">
+        <img src="assets/badge-builder/whatsapp.svg" class="social-icon">
+      </a> 
+    </div>
+
+
+
   </div>
 
-  <a routerLink="/badgeBuilder/{{action.id}}/prize">Skip this step</a>
+  <a class="skip" routerLink="/badgeBuilder/{{action.id}}/prize">Skip this step &#x25B8;</a>
 
 </app-badge-builder-card>

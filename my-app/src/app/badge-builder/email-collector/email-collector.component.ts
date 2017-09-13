@@ -28,7 +28,10 @@ export class EmailCollectorComponent implements OnInit {
       // We can set default values by passing in the corresponding value or
       // leave blank if we wish to not set the value. For our example, we’ll default the gender to female.
       'name' : ['', Validators.compose([Validators.required])],
-      'email' : ['as.thomson@gmail.com', Validators.compose([Validators.required, Validators.pattern(EMAIL_REGEX)])],
+      'email' : ['as.thomson@gmail.com', Validators.compose([
+        Validators.required, 
+        Validators.pattern(EMAIL_REGEX),
+      ])],
       'festival_news': true,
     });
 
