@@ -16,3 +16,7 @@ h2 {
   text-align: center;
   color: #000000;
 }
+
+.actions {
+  padding:0 12px;
+}

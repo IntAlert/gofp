@@ -1,18 +1,25 @@
 
-<h1>
+<div class="logo">
+	<a routerLink="/">
+		<img src="assets/logo.svg" alt="International Alert">
+	</a>
+</div>
+
+<h2>
   Your friend contributed to everyday peace.
-</h1>
+</h2>
 
 <app-recent-activity-block 
 	[badge]=badge
 	[ordinal]=1
 ></app-recent-activity-block>
 
+<div class="cta">
+  <h2>
+    You can contribute too.
+  </h2>
 
-<h2>
-  You can contribute too.
-</h2>
-
-<button routerLink="/badgeBuilder/{{badge.Action.id}}/why">
-  Get started
-</button>
+  <app-button routerLink="/badgeBuilder/{{badge.Action.id}}/why">
+    Get started
+  </app-button>
+</div>
