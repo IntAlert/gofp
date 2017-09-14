@@ -29,14 +29,38 @@ body {
 }
 
 #image-placeholder {
-  width:1200px;
-  height:630px;
+  position: absolute;
+  
+  top:50px;
+  left:175px;
+  width:850px;
+  height:530px;
   background:no-repeat center center;
   background-size: contain;
+  /* background-color:red; */
+}
+
+#story-placeholder {
+  position: absolute;
+  top:50px;
+  left:175px;
+  width:850px;
+  height:530px;
+  /* background-color:red;  */
+   display: table;
+}
+
+#story-placeholder p {
+  font-family: Poppins;
+  display: table-cell;
+  vertical-align: middle;
+  font-size:40px;
+  text-align: center;
+
 }
 
 .logo {
-  background:#fff;
+  
   margin:0 auto 81px;
   display: inline-block;
   position: absolute;
@@ -57,8 +81,9 @@ h1 {
   background:#f6bc25;
   margin:0;
   padding:20px;
-  width:50%;
+   width:100%; 
   color:#000;
   font-family: Poppins; 
+  text-align: center;
   /* NB: must have unquoted URL and font must be applied to individual elements */
 }

@@ -27,8 +27,6 @@ export class EmailCollectorComponent implements OnInit {
   ) {
     // Here we are using the FormBuilder to build out our form.
     this.complexForm = fb.group({
-      // We can set default values by passing in the corresponding value or
-      // leave blank if we wish to not set the value. For our example, we’ll default the gender to female.
       'name' : ['', Validators.compose([Validators.required])],
       'email' : ['as.thomson@gmail.com', Validators.compose([
         Validators.required, 

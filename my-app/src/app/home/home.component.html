@@ -16,6 +16,21 @@
 <!-- End Hero -->
 
 
+<!-- Promoted Actions -->
+<div class="promoted-actions">
+  <h2>Start building<br>peace now!</h2>
+  <app-action-cta 
+    *ngFor="let action of actionService.promotedActions; let ordinal = index" 
+    [action]=action
+    [ordinal]="ordinal"
+  ></app-action-cta>
+  <a class="more" routerLink="/actions">
+    View All <span class="right-arrow">&#x25B8;</span>
+  </a>
+</div>
+
+
+
 <!-- Recent activity -->
 <div class="recent-activity">
   <h2>Peace in Action</h2>
@@ -30,19 +45,6 @@
     View All <span class="right-arrow">&#x25B8;</span>
   </a>
 
-</div>
-
-<!-- Promoted Actions -->
-<div class="promoted-actions">
-  <h2>Start building<br>peace now!</h2>
-  <app-action-cta 
-    *ngFor="let action of actionService.promotedActions; let ordinal = index" 
-    [action]=action
-    [ordinal]="ordinal"
-  ></app-action-cta>
-  <a class="more" routerLink="/actions">
-    View All <span class="right-arrow">&#x25B8;</span>
-  </a>
 </div>
 
 

@@ -4,16 +4,25 @@ const models  = require('../models');
 const reflix = require('../lib/reflix');
 const url = require('url');
 
+
+let action, upload;
+
 /* GET home page. */
 router.post('/', function(req, res, next) {
 
-	// get upload record
-  models.Upload.findById(req.body.upload_id)
+  // get upload record and action record
+  Promise.all([
+    models.Upload.findById(req.body.upload_id),
+    models.Action.findById(req.body.action_id),
+  ])
+  
 
   // create badge
-  .then(upload => {
+  .then(records => {
 
     // upload may not exist, that's OK
+    upload = records[0];
+    action = records[1];
 
     // const redirect = 'http://gofp.azurewebsites.net/badges/' + upload.badge_id;
     
@@ -24,31 +33,29 @@ router.post('/', function(req, res, next) {
       upload_id: req.body.upload_id,
       story: req.body.story
     })
-    .then(badge => {
-      return {badge, upload};
-    });
 
   })
 
-  .then(records => {
+  .then(badge => {
 
     // construct Shareable URL
 		var redirect = url.format({
 			protocol: req.protocol,
 			port: process.env.NODE_ENV == 'production' ? null:3000,
 			hostname: req.hostname,
-			pathname: 'badge/' + records.badge.id
+			pathname: 'badge/' + badge.id
 		})
 
     const title = "#Everydaypeace";
     const description = "Little Action! Big change! #Everydaypeace\nWe all have a part to play in building peace. Why not join in with your small everyday action now!";
 
-    return reflix.generate(records.upload.url, req.body.story, redirect, title, description)
+    const uploadURL = upload ? upload.url : false;
+
+    return reflix.generate(action.title, uploadURL, req.body.story, redirect, title, description)
       .then((reflixResponse) =>{
-        console.log(reflixResponse);
         return {
           reflix: reflixResponse,
-          badge: records.badge
+          badge
         }
       })
   })

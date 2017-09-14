@@ -2,11 +2,12 @@ const rp = require('request-promise');
 
 module.exports = {
 
-  generate: (profilePicURL, story, redirect, title, description) => {
+  generate: (action, profilePicURL, story, redirect, title, description) => {
 
 
     const payload = { 
       "content": {
+        "action": action,
         "story": story,
         "image": profilePicURL
       },

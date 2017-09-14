@@ -30,7 +30,18 @@
 				"description": "Example of Reflix turning data into shareable images"
 			},
 			"content": {
-				"story": "story",
+				"action": "Show us your place of peace",
+				"story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+			}
+		},
+		{
+			"redirect": "http://www.reflix.co/",
+			"opengraph": {
+				"title": "Hello, world!",
+				"description": "Example of Reflix turning data into shareable images"
+			},
+			"content": {
+				"action": "Show us your place of peace",
 				"image": "http://www.whatsappstatus77.in/wp-content/uploads/2015/07/awesome-boys-profile-photos-pics-for-facebook-wall-whatsapp-dp.jpg"
 			}
 		}

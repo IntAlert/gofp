@@ -14,14 +14,20 @@
           <img src="assets/images/logo.svg">
         </div>
 
+        
+{{#if image}}
         <div id="image-placeholder"></div>
-        <h1>#GunsOutForPeace</h1>
-
+        
         <style>
           #image-placeholder {
             background-image:url("{{image}}")
           }
-        </style>
+</style>
+{{else}}
+          <div id="story-placeholder"><p>{{story}}</p></div>
+{{/if}}
+
+        <h1>#EverydayPeace {{action}}</h1>
 
       </div>
 
