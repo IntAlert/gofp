@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 		include: [
 			{
 				model: models.Action,
-				attributes: ['id', 'title']
+				attributes: ['id', 'title', 'image']
 			},
 			{
 				model: models.PrizeEntry,

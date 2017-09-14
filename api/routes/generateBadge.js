@@ -40,8 +40,8 @@ router.post('/', function(req, res, next) {
 			pathname: 'badge/' + records.badge.id
 		})
 
-    const title = "Title";
-    const description = "Description";
+    const title = "#Everydaypeace";
+    const description = "Little Action! Big change! #Everydaypeace\nWe all have a part to play in building peace. Why not join in with your small everyday action now!";
 
     return reflix.generate(records.upload.url, req.body.story, redirect, title, description)
       .then((reflixResponse) =>{

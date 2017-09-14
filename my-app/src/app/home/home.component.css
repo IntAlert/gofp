@@ -13,7 +13,7 @@ a.more {
   text-decoration: none;
   color:#000;
   background: #fff;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 20px;
   padding:15px;
   line-height: 1.05;
@@ -79,4 +79,8 @@ a.more {
   text-align: center;
   background:#eee;
   padding:0 10px;
+}
+
+.right-arrow {
+  color: #ffcd00;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { BadgeBuilderService } from './badge-builder.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-badge-builder',
@@ -13,6 +13,7 @@ export class BadgeBuilderComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     // private actionService: ActionService,
     private badgeBuilderService: BadgeBuilderService
   ) {}
@@ -22,6 +23,14 @@ export class BadgeBuilderComponent implements OnInit {
     // set current action
     this.action = this.route.snapshot.data.action;
     this.badgeBuilderService.setCurrentAction(this.action);
+
+    // scroll to top, on nvaigate
+    this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        document.body.scrollTop = 0;
+    });
 
   }
 

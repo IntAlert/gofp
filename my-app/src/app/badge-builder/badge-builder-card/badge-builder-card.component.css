@@ -16,10 +16,16 @@
 	margin-bottom: 43px;
 }
 
+.back:hover {
+	cursor: pointer;
+	background-color: rgba(255, 205, 0, 0.8);
+}
+
 .back img {
   width: 16.4px;
   height: 28.4px;
-  object-fit: contain;
+	object-fit: contain;
+	margin-left:-5px;
 }
 
 .card {

@@ -25,14 +25,25 @@ export class RecentActivityBlockComponent implements OnInit {
       'class-4',
     ];
 
-    const backgroundImages = [
-      '/assets/lorempixel.jpg',
-      '/assets/lorempixel.jpg',
-      '/assets/lorempixel.jpg',
-    ];
+    const backgroundImageFilenames = {
+      1: '1.png',
+      2: '2.png',
+      3: '3.png',
+      4: '4.png',
+      5: '5.png',
+    };
     
+    // determine bg class, tied to ordinal
     this.parentClass = parentClasses[(this.ordinal) % parentClasses.length];
-    this.backgroundImage = this.sanitizer.bypassSecurityTrustStyle("url(" + backgroundImages[(this.ordinal) % backgroundImages.length] + ")");
+
+    // determine action bg image, tied to action id
+    const badgeFilename = this.badge.Action.image;
+    // if (backgroundImageFilenames[this.badge.Action.id]) {
+    //   badgeFilename = '/assets/actions/' + backgroundImageFilenames[this.badge.Action.id];
+    // } else {
+    //   badgeFilename = '/assets/actions/default.png';
+    // }
+    this.backgroundImage = this.sanitizer.bypassSecurityTrustStyle("url(" + badgeFilename + ")");
   }
 
 }

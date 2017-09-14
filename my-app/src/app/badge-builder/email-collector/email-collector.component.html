@@ -13,9 +13,11 @@
 
 
   <div *ngIf="mode == 'initial' ">
-    <h2>Enter prize draw for Ben &amp; Jerry's</h2>
+    <h2>Your #everydaypeace could win you a year’s supply of Ben &amp; Jerry's</h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eveniet reiciendis ratione earum sed nam excepturi facere in ad?</p>
+    <p>Thanks for sharing your everydaypeace! Why not enter to be included in our competition to win a year's supply of ice cream from our friends at Ben &amp; Jerry's?</p>
+
+    <p>Ice cream can only be for purchase in the UK.</p>
 
     <form [formGroup]="complexForm" class="email-collector-form" (ngSubmit)="submitForm(complexForm.value)">
       <md-input-container class="single-line-input">
@@ -51,7 +53,7 @@
 
       <div class="checkbox-container">
         <md-checkbox value="" name="festival_news" [formControl]="complexForm.controls['festival_news']">
-          Yes, Please I want to receive information about the Peacebuilding Festival
+          Yes, I want to hear more about International Alert and their peacebuilding work. (Tick to confirm)
         </md-checkbox>
       </div>
 

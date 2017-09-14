@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 		include: [
 			{
 				model: models.Action,
-				attributes: ['id', 'title']
+				attributes: ['id', 'title', 'image']
 			},
 			{
 				model: models.PrizeEntry,
@@ -24,7 +24,8 @@ router.get('/', function(req, res, next) {
 			'image',
 			'createdAt',
 		],
-		order: [['createdAt', 'DESC']]
+		order: [['createdAt', 'DESC']],
+		limit: 5
 	})
 	.then(badges => {
 		res.json({badges})

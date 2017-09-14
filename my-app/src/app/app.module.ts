@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {GoogleAnalyticsEventsService} from "./google-analytics-events.service";
 
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -119,7 +120,8 @@ import { ButtonComponent } from './button/button.component';
     BadgeBuilderService,
     BadgeService,
     ActionResolverModule,
-    BadgeResolverModule
+    BadgeResolverModule,
+    GoogleAnalyticsEventsService
   ]
 })
 export class AppModule { }

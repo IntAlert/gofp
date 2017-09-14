@@ -3,7 +3,7 @@ import { BadgeBuilderService } from '../badge-builder.service';
 // import { SocialBadge } from '../social-badge';
 import { ActivatedRoute, Router } from '@angular/router';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-
+import {GoogleAnalyticsEventsService} from "../../google-analytics-events.service";
 
 
 @Component({
@@ -22,7 +22,8 @@ export class SocialActionsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: BadgeBuilderService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private GA: GoogleAnalyticsEventsService
   ) {}
 
   ngOnInit() {
@@ -40,18 +41,22 @@ export class SocialActionsComponent implements OnInit {
 
   startFacebookShare = () => {
     this.service.registerShare();
+    this.GA.emitEvent("badge", "share", "facebook");
   }
 
   startTwitterShare = () => {
     this.service.registerShare();
+    this.GA.emitEvent("badge", "share", "twitter");
   }
 
   startWhatsappShare = () => {
     this.service.registerShare();
+    this.GA.emitEvent("badge", "share", "whatsapp");
   }
 
   startLinkedInShare = () => {
     this.service.registerShare();
+    this.GA.emitEvent("badge", "share", "whatsapp");
   }
 
 }

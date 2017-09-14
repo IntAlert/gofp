@@ -4,22 +4,34 @@
   background:#fdc300;
 }
 
-.peace-building img.header {
+img.header {
   width:100%;
 }
 
-.peace-building .content {
-  padding:2em;
-}
-.peace-building h2 {
-  font-size:2em;
+.content {
+  padding:47px 28px 18px;
 }
 
-.peace-building a.more {
+h2 {
+  font-size:31px;
+  line-height: 1.16;
+  margin:0;
+}
+
+p {
+  font-family: "Roboto";
+  font-size: 18px;
+  line-height: 1.28;
+}
+
+a {
+  color:#111;
+}
+
+a.more {
   display: block;
   text-transform: uppercase;
-  text-decoration: none;
-  color:#fff;
   font-weight: 400;
-  font-size: 1.4em;
+  font-size: 18px;
+  color:#fff;
 }
