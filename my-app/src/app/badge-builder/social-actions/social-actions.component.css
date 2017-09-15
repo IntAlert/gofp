@@ -34,10 +34,6 @@ img.social-icon {
 	object-fit: contain;
 }
 
-.whatsapp a {
-  display: block;
-}
-
 .whatsapp .social-icon {
   width: 50px;
   height: 50px;
@@ -48,4 +44,13 @@ img.social-icon {
 button {
   background:none;
   border:0;
+}
+
+
+/* non-mobile */
+@media only screen and (min-device-width : 768px) {
+
+  .whatsapp {
+     display: none; 
+  }
 }

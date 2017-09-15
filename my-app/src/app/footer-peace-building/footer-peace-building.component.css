@@ -4,8 +4,12 @@
   background:#fdc300;
 }
 
-img.header {
+.header img {
   width:100%;
+}
+
+.header img.dt {
+  display: none;
 }
 
 .content {
@@ -35,3 +39,46 @@ a.more {
   font-size: 18px;
   color:#fff;
 }
+
+.clearme {
+  clear: both;
+}
+
+
+/* non-mobile*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
+{
+  .header {
+    float:right;
+    width:40%;
+    margin-left:32px;
+    margin-bottom: 32px;
+  }
+
+  .further {
+    clear: both;
+  }
+}
+
+
+@media only screen and (min-device-width : 1025px)
+{
+  .header {
+    float:right;
+    width:40%;
+    margin-left:32px;
+    margin-bottom: 32px;
+  }
+
+  
+
+  .header img.mob {
+    display: none;
+  }
+  .header img.dt {
+    display: block;
+  }
+
+
+}
+

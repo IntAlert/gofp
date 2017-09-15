@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="16px" viewBox="0 0 26 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Triangle 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Header-1-Desktop" transform="translate(-707.000000, -574.000000)" stroke="#FFFFFF" stroke-width="6">
+            <g id="Group-4" transform="translate(0.000000, -132.000000)">
+                <polyline id="Triangle-2" transform="translate(720.000000, 714.000000) scale(1, -1) translate(-720.000000, -714.000000) " points="710 719 720 709 720 709 730 719"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

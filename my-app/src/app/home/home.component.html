@@ -12,18 +12,26 @@
     <div class="copy">actions<br>taken so far</div>
   </div>
 
+  <a pageScroll href="#promoted-actions" class="down-arrow">
+  </a>
+
 </div>
 <!-- End Hero -->
 
 
 <!-- Promoted Actions -->
-<div class="promoted-actions">
+<div class="promoted-actions" id="promoted-actions" smoothScroll>
+  
   <h2>Start building<br>peace now!</h2>
-  <app-action-cta 
-    *ngFor="let action of actionService.promotedActions; let ordinal = index" 
-    [action]=action
-    [ordinal]="ordinal"
-  ></app-action-cta>
+  
+  <div class="blocks">
+    <app-action-cta 
+      *ngFor="let action of actionService.promotedActions; let ordinal = index" 
+      [action]=action
+      [ordinal]="ordinal"
+    ></app-action-cta>
+  </div>
+
   <a class="more" routerLink="/actions">
     View All <span class="right-arrow">&#x25B8;</span>
   </a>
@@ -34,12 +42,14 @@
 <!-- Recent activity -->
 <div class="recent-activity">
   <h2>Peace in Action</h2>
-
-  <app-recent-activity-block 
-    *ngFor="let badge of badgeService.promotedBadges; let ordinal = index"
-    [badge]=badge
-    [ordinal]="ordinal"
-  ></app-recent-activity-block>
+  
+  <div class="blocks">
+    <app-recent-activity-block 
+      *ngFor="let badge of badgeService.promotedBadges; let ordinal = index"
+      [badge]=badge
+      [ordinal]="ordinal"
+    ></app-recent-activity-block>
+  </div>
 
   <a class="more" routerLink="/recent-activity">
     View All <span class="right-arrow">&#x25B8;</span>

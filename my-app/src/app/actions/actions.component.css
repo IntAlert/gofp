@@ -19,4 +19,11 @@ h2 {
 
 .actions {
   padding:0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+app-action-cta {
+  margin:0 10px;
 }

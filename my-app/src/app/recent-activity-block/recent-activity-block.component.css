@@ -3,6 +3,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  min-height:400px;
 }
 .recent-activity-block .content {
   position: relative;
@@ -38,6 +39,7 @@
   margin-bottom: 18px;
   font-family: "Roboto";
   font-size: 19px;
+  padding:0 12px;
 }
 .recent-activity-block .actor {
   color:#fff;
@@ -70,12 +72,6 @@
   background:#ffcd00
 }
 
-.my-container {
-    position: relative;
-    background: #5C97FF;
-    overflow: hidden;
-}
-/* You could use :after - it doesn't really matter */
 .recent-activity-block-bg {
     content: ' ';
     display: block;

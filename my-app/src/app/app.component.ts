@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {Router, NavigationEnd} from "@angular/router";
 import {GoogleAnalyticsEventsService} from "./google-analytics-events.service";
+import {PageScrollConfig, } from 'ng2-page-scroll';
+
+declare var ga: any;
 
 @Component({
   selector: 'app-root',
@@ -15,10 +18,20 @@ export class AppComponent {
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // ga('set', 'page', event.urlAfterRedirects);
-        // ga('send', 'pageview');
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
       }
     });
+
+    PageScrollConfig.defaultEasingLogic = {
+            ease: (t: number, b: number, c: number, d: number): number => {
+                // easeInOutExpo easing
+                if (t === 0) return b;
+                if (t === d) return b + c;
+                if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+                return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+            }
+        };
   }
 
 }

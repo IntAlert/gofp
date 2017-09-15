@@ -4,17 +4,17 @@
 		<img src="assets/logo.svg" alt="International Alert">
 	</a>
 </div>
-	
+
 <h2>
 	Recent Activity
 </h2>
-
-<app-recent-activity-block 
-	*ngFor="let badge of badgeService.recentBadges; let ordinal = index"
-	[badge]=badge
-	[ordinal]="ordinal"
-></app-recent-activity-block>
-
+<div class="blocks">
+	<app-recent-activity-block 
+		*ngFor="let badge of badgeService.recentBadges; let ordinal = index"
+		[badge]=badge
+		[ordinal]="ordinal"
+	></app-recent-activity-block>
+</div>
 <app-competition-banner></app-competition-banner>
 <app-footer-peace-building></app-footer-peace-building>
 <app-footer-common></app-footer-common>

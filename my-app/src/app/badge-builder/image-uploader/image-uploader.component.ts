@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BadgeBuilderService } from '../badge-builder.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {GoogleAnalyticsEventsService} from "../../google-analytics-events.service";
 
 const URL = '/api/';
 
@@ -26,7 +27,8 @@ export class ImageUploaderComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private service: BadgeBuilderService
+    private service: BadgeBuilderService,
+    private GA: GoogleAnalyticsEventsService
   ) {
 
     this.uploadForm = fb.group({
@@ -61,12 +63,7 @@ export class ImageUploaderComponent implements OnInit {
   removeUpload() {
     this.service.removeUpload();
     this.actionUserData = this.service.getCurrentActionUserData();
-  }
-
-  fileChange_old(e: Event) {
-    const fi = this.fileInput.nativeElement;
-    this.fileChosen = (fi.files && !!fi.files.length);
-    this.service.registerFileChosen();
+    this.GA.emitEvent("upload", "remove", this.action.title, this.action.id);
   }
 
   fileChange(): void {
@@ -74,6 +71,7 @@ export class ImageUploaderComponent implements OnInit {
     if (fi.files && fi.files[0]) {
         const fileToUpload = fi.files[0];
         this.service.uploadProfilePic(fileToUpload);
+        this.GA.emitEvent("upload", "start", this.action.title, this.action.id);
     } else {
       console.log('no files');
     }
@@ -82,6 +80,7 @@ export class ImageUploaderComponent implements OnInit {
   cancelUpload() {
     this.service.cancelUploadProfilePic();
     this.mode = 'initial';
+    this.GA.emitEvent("upload", "cancel", this.action.title, this.action.id);
   }
 
 }

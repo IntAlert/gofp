@@ -48,7 +48,7 @@ export class EmailCollectorComponent implements OnInit {
 
   submitForm(value: any): void {
 
-    this.GA.emitEvent("competition", "entry");
+    this.GA.emitEvent("competition", "entry", this.action.title, this.action.id);
 
     this.service.enterPrizeDraw(value.email, value.name, value.festival_news)
       .then(data => {

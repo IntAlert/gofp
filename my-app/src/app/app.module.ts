@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {GoogleAnalyticsEventsService} from "./google-analytics-events.service";
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -62,6 +63,7 @@ import { BadgeResolverModule } from './resolvers/badge-resolver/badge-resolver.m
 // Third Party
 import { MomentModule } from 'angular2-moment';
 import { ButtonComponent } from './button/button.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,7 @@ import { ButtonComponent } from './button/button.component';
     BadgeBuilderCardComponent,
     BadgeBuilderCompleteComponent,
     ButtonComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,6 +115,7 @@ import { ButtonComponent } from './button/button.component';
 
     // Third Party
     MomentModule,
+    Ng2PageScrollModule,
 
   ],
   bootstrap: [AppComponent],

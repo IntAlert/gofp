@@ -16,3 +16,26 @@ h2 {
   text-align: center;
   color: #000000;
 }
+
+.blocks {
+  display: flex;
+  flex-wrap: wrap;
+  margin:0 auto 32px;
+}
+
+app-recent-activity-block {
+   width:100%; 
+}
+
+
+/* non-mobile*/
+@media only screen and (min-device-width : 768px) {
+
+  .blocks {
+    justify-content: space-around;
+  }
+	app-recent-activity-block {
+    width:30%;
+    margin-bottom:20px;
+  }
+}

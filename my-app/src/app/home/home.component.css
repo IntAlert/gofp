@@ -50,6 +50,7 @@ a.more {
 .hero .action-totaliser {
   display: flex;
   font-weight: 400;
+  margin-bottom:36px;
 }
 
 .hero .action-totaliser .count {
@@ -69,9 +70,21 @@ a.more {
   font-size: 20.8px;
 }
 
+.down-arrow {
+  display: block;
+  margin:0 auto;
+	width: 26px;
+  height: 16px;
+  background: url("/assets/home/down-arrow.svg");
+}
 
 .recent-activity {
   text-align: center;
+}
+
+.recent-activity .blocks {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Promoted Actions */
@@ -81,6 +94,42 @@ a.more {
   padding:0 10px;
 }
 
+.promoted-actions .blocks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+app-action-cta {
+  margin:0 10px;
+}
+
 .right-arrow {
   color: #ffcd00;
+}
+
+app-recent-activity-block {
+   width:100%; 
+}
+
+
+/* tablet */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+  .recent-activity .blocks {
+    justify-content: space-around;
+  }
+	app-recent-activity-block {
+    width:50%;
+  }
+}
+
+@media only screen and (min-device-width : 1025px) {
+
+  .recent-activity .blocks {
+    justify-content: space-around;
+  }
+	app-recent-activity-block {
+    width:25%;
+  }
 }

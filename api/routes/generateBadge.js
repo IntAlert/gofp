@@ -47,7 +47,7 @@ router.post('/', function(req, res, next) {
 		})
 
     const title = "#Everydaypeace";
-    const description = "Little Action! Big change! #Everydaypeace\nWe all have a part to play in building peace. Why not join in with your small everyday action now!";
+    const description = "Little actions can bring big change. Here's how I'm adding to peace. Join me by creating your own & we can spread a little peace together";
 
     const uploadURL = upload ? upload.url : false;
 

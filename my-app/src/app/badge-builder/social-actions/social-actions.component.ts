@@ -15,7 +15,7 @@ export class SocialActionsComponent implements OnInit {
 
   // social details
   actionUserData: any;
-  public tweetText: String = 'Some Tweet Text';
+  public tweetText: String = 'Here\'s my #everydaypeace! We can spread a little peace together with @intalert & @benandjerrysUK. Join me';
   action: any;
   sanitizedWhatsappUrl: SafeUrl;
 
@@ -41,22 +41,22 @@ export class SocialActionsComponent implements OnInit {
 
   startFacebookShare = () => {
     this.service.registerShare();
-    this.GA.emitEvent("badge", "share", "facebook");
+    this.GA.emitEvent("badge-share", "facebook", this.action.title, this.action.id);
   }
 
   startTwitterShare = () => {
     this.service.registerShare();
-    this.GA.emitEvent("badge", "share", "twitter");
+    this.GA.emitEvent("badge-share", "twitter", this.action.title, this.action.id);
   }
 
   startWhatsappShare = () => {
     this.service.registerShare();
-    this.GA.emitEvent("badge", "share", "whatsapp");
+    this.GA.emitEvent("badge-share", "whatsapp", this.action.title, this.action.id);
   }
 
   startLinkedInShare = () => {
     this.service.registerShare();
-    this.GA.emitEvent("badge", "share", "whatsapp");
+    this.GA.emitEvent("badge-share", "whatsapp", this.action.title, this.action.id);
   }
 
 }

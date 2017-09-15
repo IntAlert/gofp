@@ -19,10 +19,10 @@ export class ActionsComponent implements OnInit {
   ngOnInit() {
     // scroll to top, on nvaigate
     this.router.events.subscribe((evt) => {
-        if (!(evt instanceof NavigationEnd)) {
-            return;
-        }
-        document.body.scrollTop = 0;
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      document.body.scrollTop = 0;
     });
   }
   

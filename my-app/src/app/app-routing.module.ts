@@ -21,6 +21,7 @@ import { SocialPreviewComponent } from './badge-builder/social-preview/social-pr
 import { SocialActionsComponent } from './badge-builder/social-actions/social-actions.component';
 import { EmailCollectorComponent } from './badge-builder/email-collector/email-collector.component';
 import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-complete/badge-builder-complete.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -59,6 +60,7 @@ import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-com
                     { path: 'complete', component: BadgeBuilderCompleteComponent },
                 ]
             },
+            { path: '**', component: NotFoundComponent }
         ])
     ],
     exports: [RouterModule]

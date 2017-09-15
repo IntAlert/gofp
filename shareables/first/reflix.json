@@ -30,6 +30,7 @@
 				"description": "Example of Reflix turning data into shareable images"
 			},
 			"content": {
+				"image": false,
 				"action": "Show us your place of peace",
 				"story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
 			}

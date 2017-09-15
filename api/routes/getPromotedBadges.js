@@ -27,7 +27,8 @@ router.get('/', function(req, res, next) {
 			'image',
 			'createdAt',
 		],
-		order: [['promoted_priority', 'ASC']]
+		order: [['promoted_priority', 'ASC']],
+		limit: 4
 	})
 	.then(badges => {
 		res.json({badges})

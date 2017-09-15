@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 			'createdAt',
 		],
 		order: [['createdAt', 'DESC']],
-		limit: 5
+		limit: 12
 	})
 	.then(badges => {
 		res.json({badges})

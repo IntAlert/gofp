@@ -3,34 +3,36 @@
 .card-action-cta {
   text-align: center;
   margin:0 0 19px;
-  max-width: 100%;
+  max-width: 348px;
+  min-height:400px;
   border-radius: 8px;
   overflow: hidden;
   background: #aaa; 
   padding:0 0 25px;
 }
-.card-action-cta.class-1 {
+.class-1 {
   background: #ffcd00;
 }
-.card-action-cta.class-2 {
+.class-2 {
   background: #6cc04a;
 }
-.card-action-cta.class-3 {
+.class-3 {
   background: #58c0e8;
 }
-.card-action-cta.class-4 {
+.class-4 {
   background: #f55097;
 }
 
-.card-action-cta img {
+img {
   width: 100%;
 }
-.card-action-cta .title {
+.title {
   margin: 1em 0.5em 0.5em;
   font-size:1.5em;
   color:#fff;
+  min-height: 72px;
 }
-.card-action-cta button {
+button {
   border-radius: 3.6px;
   text-transform: uppercase;
   cursor:pointer;
@@ -41,4 +43,9 @@
   font-size: 13.6px;
   line-height: 1.24;
   text-align: center;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.8);
 }
