@@ -44,12 +44,12 @@ gulp.task('default', function (cb) {
   });
 
   // run Database migration
-  execSync(path.join(__dirname, 'node_modules', '.bin', 'sequelize') + ' db:migrate', {
-    cwd: path.join(__dirname)
-  }, function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-  });
+  // execSync(path.join(__dirname, 'node_modules', '.bin', 'sequelize') + ' db:migrate', {
+  //   cwd: path.join(__dirname)
+  // }, function (err, stdout, stderr) {
+  //   console.log(stdout);
+  //   console.log(stderr);
+  // });
 
 
 })
