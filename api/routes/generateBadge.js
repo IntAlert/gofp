@@ -49,7 +49,19 @@ router.post('/', function(req, res, next) {
 
     const uploadURL = upload ? upload.url : false;
 
-    return reflix.generate(action.title_for_badge, uploadURL, req.body.story, redirect, title, description)
+    let storyClass;
+    
+    if (req.body.story.length < 20) {
+      storyClass = 'xx-large';
+    } else if (req.body.story.length < 80) {
+      storyClass = 'x-large';
+    } else if (req.body.story.length < 100) {
+      storyClass = 'large';
+    } else{
+      storyClass = '';
+    }
+
+    return reflix.generate(action.title_for_badge, uploadURL, req.body.story, redirect, title, description, storyClass)
       .then((reflixResponse) =>{
         return {
           reflix: reflixResponse,

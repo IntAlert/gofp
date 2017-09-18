@@ -2,14 +2,15 @@ const rp = require('request-promise');
 
 module.exports = {
 
-  generate: (action, profilePicURL, story, redirect, title, description) => {
+  generate: (action, profilePicURL, story, redirect, title, description, storyClass) => {
 
 
     const payload = { 
       "content": {
         "action": action,
         "story": story,
-        "image": profilePicURL
+        "image": profilePicURL,
+        "storyClass": storyClass
       },
       "opengraph": {
         "title": title,

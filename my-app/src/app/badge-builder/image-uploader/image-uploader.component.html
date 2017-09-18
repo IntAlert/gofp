@@ -16,7 +16,7 @@
         </div>
 
         <!-- If upload does not exist  -->
-        <div class="no-upload" *ngIf="!actionUserData.upload">
+        <div class="no-upload" *ngIf="!actionUserData.upload" (click)="fileInput.click()">
 
         </div>
         
