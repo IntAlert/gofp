@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const ExifImage = require('exif').ExifImage;
+// const ExifImage = require('exif').ExifImage;
 const path = require('path');
-const gm = require('gm');
+// const gm = require('gm');
 
 const names = [
 	'../public/iphone.JPG',
@@ -25,9 +25,9 @@ const names = [
 
 
 router.get('/', function(req, res){
-	gm(path.join(__dirname, names[1])).size(function(err, value){
-		res.json(value)
-	})
+	// gm(path.join(__dirname, names[1])).size(function(err, value){
+	// 	res.json(value)
+	// })
 	
 })
 
