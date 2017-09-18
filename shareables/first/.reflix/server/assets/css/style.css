@@ -85,3 +85,15 @@ h1 {
   text-align: center;
   /* NB: must have unquoted URL and font must be applied to individual elements */
 }
+
+#story-placeholder p.large {
+  font-size:2em;
+}
+
+#story-placeholder p.x-large {
+  font-size:3em;
+}
+
+#story-placeholder p.xx-large {
+  font-size:4em;
+}
