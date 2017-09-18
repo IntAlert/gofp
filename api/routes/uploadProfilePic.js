@@ -20,7 +20,6 @@ let upload_id
 /* GET home page. */
 router.post('/', upload.single('image'), function(req, res, next) {
 
-  
   // get uploaded template file
   const payload = req.file;
   

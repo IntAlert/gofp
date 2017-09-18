@@ -241,6 +241,7 @@ export class BadgeBuilderService {
 
     const req = new HttpRequest('GET', actionUserData.badge.image, null, {
       reportProgress: true,
+      responseType: 'blob',
     });
 
     this.registerBadgeDownloadStart();
@@ -254,7 +255,6 @@ export class BadgeBuilderService {
           // This is an upload progress event. Compute and show the % done:
           const percentDone = Math.round(100 * event.loaded / event.total);
           this.registerBadgeDownloadProgress(percentDone);
-          console.log(percentDone);
           console.log(`File is ${percentDone}% downloaded.`);
         } else if (event instanceof HttpResponse) {
           console.log('File is completely downloaded!');

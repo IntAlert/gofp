@@ -38,14 +38,10 @@ export class RecentActivityBlockComponent implements OnInit {
 
     // determine action bg image, tied to action id
     let badgeFilename = this.badge.Action.image;
-    // if (backgroundImageFilenames[this.badge.Action.id]) {
-    //   badgeFilename = '/assets/actions/' + backgroundImageFilenames[this.badge.Action.id];
-    // } else {
-    //   badgeFilename = '/assets/actions/default.png';
-    // }
 
-    if (this.badge.Upload) {
-      badgeFilename = this.badge.Upload.url
+    // show uploaded version if it exists
+    if (this.badge.Upload && this.badge.Upload.url) {
+      badgeFilename = this.badge.Upload.url;
     }
     this.backgroundImage = this.sanitizer.bypassSecurityTrustStyle("url(" + badgeFilename + ")");
   }
