@@ -7,7 +7,7 @@
 	z-index: -2;
 	background:no-repeat right center;
 	background-size:cover;
-	background-image: url("/assets/badge-builder/backgrounds/default.png");
+	background-image: url("/assets/badge-builder/backgrounds/default.jpg");
 }
 
 .container.prize .bg {
@@ -67,6 +67,10 @@ h2 {
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
 
+	.container .bg {
+		background-image: url("/assets/badge-builder/backgrounds/default-4x.jpg");
+	}
+
 	.card {
 		margin-left:125px;
 		width:460px;
@@ -74,6 +78,10 @@ h2 {
 }
 
 @media only screen and (min-device-width : 1024px) {
+
+	.container .bg {
+		background-image: url("/assets/badge-builder/backgrounds/default-4x.jpg");
+	}
 
 	.card {
 		margin-left:80px;

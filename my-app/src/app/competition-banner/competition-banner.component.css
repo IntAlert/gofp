@@ -5,8 +5,6 @@
 	background-image: url("/assets/competition-banner/header.jpg");
 }
 
-
-
 h2 {
   font-size: 27.9px;
   line-height: 1.16;
@@ -46,9 +44,14 @@ button {
 
 
 @media only screen and (min-device-width : 1025px) {
+
+
+	h2, p {
+		color:#fff;
+	}
   
 .competition-banner {
-  background-image: url("/assets/competition-banner/header-3x.jpg");
+  background-image: url("/assets/competition-banner/header-3x-alt.png");
 }
 .content {
   width:30%;

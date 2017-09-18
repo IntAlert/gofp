@@ -18,6 +18,10 @@ router.get('/:id', function(req, res, next) {
 			{
 				model: models.PrizeEntry,
 				attributes: ['name']
+			},
+			{
+				model: models.Upload,
+				attributes: ['url']
 			}
 		],
 		attributes: [
