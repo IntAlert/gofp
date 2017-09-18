@@ -17,6 +17,7 @@ const getBadgeCount = require('./routes/getBadgeCount');
 const getPromotedBadges = require('./routes/getPromotedBadges');
 const getRecentBadges = require('./routes/getRecentBadges');
 const getBadge = require('./routes/getBadge');
+const exif = require('./routes/exif');
 
 var app = express();
 
@@ -50,6 +51,7 @@ app.use('/api/getBadgeCount', getBadgeCount);
 app.use('/api/getPromotedBadges', getPromotedBadges);
 app.use('/api/getRecentBadges', getRecentBadges);
 app.use('/api/getBadge', getBadge);
+app.use('/api/exif', exif);
 
 // all unfound routes to be sent 
 if (app.get('env') !== 'development') {

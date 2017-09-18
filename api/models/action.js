@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     image: DataTypes.TEXT,
     title: DataTypes.TEXT,
     description: DataTypes.TEXT,
+    title_for_badge: DataTypes.TEXT,
     priority: DataTypes.INTEGER,
     promoted: DataTypes.BOOLEAN,
     promoted_priority: DataTypes.INTEGER

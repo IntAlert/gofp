@@ -4,7 +4,6 @@ const models  = require('../models');
 const reflix = require('../lib/reflix');
 const url = require('url');
 
-
 let action, upload;
 
 /* GET home page. */
@@ -16,7 +15,6 @@ router.post('/', function(req, res, next) {
     models.Action.findById(req.body.action_id),
   ])
   
-
   // create badge
   .then(records => {
 
@@ -51,7 +49,7 @@ router.post('/', function(req, res, next) {
 
     const uploadURL = upload ? upload.url : false;
 
-    return reflix.generate(action.title, uploadURL, req.body.story, redirect, title, description)
+    return reflix.generate(action.title_for_badge, uploadURL, req.body.story, redirect, title, description)
       .then((reflixResponse) =>{
         return {
           reflix: reflixResponse,
@@ -72,7 +70,6 @@ router.post('/', function(req, res, next) {
   .then(badge => {
     res.json(badge.get())
   })
-
 
 });
 

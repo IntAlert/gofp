@@ -3,7 +3,7 @@ h2 {
   font-size:32px;
   line-height: 0.9;
   font-weight: 600;
-  padding:35px;
+  padding:35px 0 10px;
   margin:0;
 }
 
@@ -92,6 +92,12 @@ a.more {
   text-align: center;
   background:#eee;
   padding:0 10px;
+}
+
+.promoted-actions p {
+  max-width:500px;
+  text-align: center;
+  margin:22px auto;
 }
 
 .promoted-actions .blocks {
