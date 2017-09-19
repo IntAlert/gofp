@@ -2,7 +2,10 @@
 let azure = require('azure-storage'),
     path = require('path'),
 		uuid = require('node-uuid'),
-		gm = require('gm').subClass({imageMagick: true});
+        Jimp = require('jimp'), 
+        fileType = require('file-type'),
+        Duplex = require('stream').Duplex;  
+
 
 let _requestsQueue = []
 
@@ -53,6 +56,7 @@ class MulterResizeAzureStorage {
     }
 
     _handleFile(req, file, cb) {
+
         if (this.containerError) {
             cb(new Error('Cannot use container. Check if provided options are correct.'))
         }
@@ -60,19 +64,48 @@ class MulterResizeAzureStorage {
         if (!this.containerCreated) {
             _requestsQueue.push({ req: req, file: file, cb: cb })
             return
-				}
+        }
 					
 
 					// resize and auto-orient
-				const resizedUpload = gm(file.stream)
-					.autoOrient()
-					.resize(850, 530, '>')
+				// const resizedUpload = gm(file.stream)
+				// 	.autoOrient()
+                // 	.resize(850, 530, '>')
+                
+
+
+        const blob = blobName(file);
+        const writeStream = this.getWriteStream(blob, cb);
+
+        // console.log(file.stream)
+
+        streamToBuffer(file.stream).then(uploadBuffer => {
+            Jimp.read(uploadBuffer, (err, image)=>{
+
+                let type = fileType(uploadBuffer);
+    
+                // Resize this image
+                image.resize(51, 51)
+                    //lower the quality by 90%
+                    .quality(10)
+                    .getBuffer(type.mime, (err, buffer)=>{
+                        bufferToStream(buffer).pipe(writeStream);
+                        // resizedUpload.stream().pipe(writeStream);
+                    });
+
+            });
+        })
+
+                
+
 				
+					
 
+    }
 
-				const blob = blobName(file);
+    getWriteStream(blob, cb) {
 
-				const writeStream = this.blobService.createWriteStreamToBlockBlob(this.containerName, blob, (err, azureBlob) => {
+        const writeStream = this.blobService.createWriteStreamToBlockBlob(this.containerName, blob, (err, azureBlob) => {
             if (err) {
                 return cb(err)
             }
@@ -93,11 +126,9 @@ class MulterResizeAzureStorage {
                     url: url
                 })
             })
-				});
+        });
 
-				resizedUpload.stream().pipe(writeStream);
-					
-
+        return writeStream;
     }
 
     _removeFile(req, file, cb) {
@@ -112,6 +143,24 @@ class MulterResizeAzureStorage {
         }
     }
 }
+
+
+
+function bufferToStream(buffer) {  
+  let stream = new Duplex();
+  stream.push(buffer);
+  stream.push(null);
+  return stream;
+}
+
+function streamToBuffer(stream) {  
+    return new Promise((resolve, reject) => {
+      let buffers = [];
+      stream.on('error', reject);
+      stream.on('data', (data) => buffers.push(data));
+      stream.on('end', () => resolve(Buffer.concat(buffers)))
+    })
+  }  
 
 /**
  * @param {object}      [opts]

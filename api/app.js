@@ -11,7 +11,7 @@ const getAction = require('./routes/getAction');
 const getActions = require('./routes/getActions');
 const uploadProfilePic = require('./routes/uploadProfilePic');
 // const uploadProfilePicNew = require('./routes/uploadProfilePicNew');
-// const uploadProfilePicSimple = require('./routes/uploadProfilePicSimple');
+const uploadProfilePicSimple = require('./routes/uploadProfilePicSimple');
 const generateBadge = require('./routes/generateBadge');
 const enterPrizeDraw = require('./routes/enterPrizeDraw');
 
@@ -48,7 +48,7 @@ app.use('/api/getAction', getAction);
 app.use('/api/getActions', getActions);
 app.use('/api/uploadProfilePic', uploadProfilePic);
 // app.use('/api/uploadProfilePicNew', uploadProfilePicNew);
-// app.use('/api/uploadProfilePicSimple', uploadProfilePicSimple);
+app.use('/api/uploadProfilePicSimple', uploadProfilePicSimple);
 app.use('/api/generateBadge', generateBadge);
 app.use('/api/enterPrizeDraw', enterPrizeDraw);
 app.use('/api/getBadgeCount', getBadgeCount);
