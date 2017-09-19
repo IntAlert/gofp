@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const models  = require('../models');
 const multer = require('multer');
-const MulterResizeAzureStorage = require('../lib/MulterResizeAzureStorage');
+const MulterAzureStorage = require('multer-azure-storage');
 const reflix = require('../lib/reflix');
 const azureStorageConfig = require('../config/azureStorage');
 
 const upload = multer({ 
-  storage: new MulterResizeAzureStorage(azureStorageConfig),
+  storage: new MulterAzureStorage(azureStorageConfig),
   // limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB
   onError : function(err, next) {
     console.log('error', err);

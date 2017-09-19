@@ -21,6 +21,8 @@ import { SocialPreviewComponent } from './badge-builder/social-preview/social-pr
 import { SocialActionsComponent } from './badge-builder/social-actions/social-actions.component';
 import { EmailCollectorComponent } from './badge-builder/email-collector/email-collector.component';
 import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-complete/badge-builder-complete.component';
+
+import { CompetitionTermsComponent } from './competition-terms/competition-terms.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 
@@ -33,6 +35,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
             { path: 'recent-activity',  component: RecentActivityComponent},
             { path: 'badgeBuilder/:action_id', component: BadgeBuilderComponent },
             { path: 'actions',     component: ActionsComponent },
+            { path: 'terms',     component: CompetitionTermsComponent },
 
 
             // badge landing page

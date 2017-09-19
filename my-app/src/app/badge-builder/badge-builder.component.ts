@@ -25,12 +25,12 @@ export class BadgeBuilderComponent implements OnInit {
     this.badgeBuilderService.setCurrentAction(this.action);
 
     // scroll to top, on nvaigate
-    this.router.events.subscribe((evt) => {
-        if (!(evt instanceof NavigationEnd)) {
-            return;
-        }
-        document.body.scrollTop = 0;
-    });
+    // this.router.events.subscribe((evt) => {
+    //     if (!(evt instanceof NavigationEnd)) {
+    //         return;
+    //     }
+    //     document.body.scrollTop = 0;
+    // });
 
   }
 

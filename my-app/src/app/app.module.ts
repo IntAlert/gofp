@@ -64,6 +64,7 @@ import { BadgeResolverModule } from './resolvers/badge-resolver/badge-resolver.m
 import { MomentModule } from 'angular2-moment';
 import { ButtonComponent } from './button/button.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CompetitionTermsComponent } from './competition-terms/competition-terms.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BadgeBuilderCompleteComponent,
     ButtonComponent,
     NotFoundComponent,
+    CompetitionTermsComponent,
   ],
   imports: [
     BrowserModule,

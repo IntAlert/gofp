@@ -10,6 +10,8 @@ var bodyParser = require('body-parser');
 const getAction = require('./routes/getAction');
 const getActions = require('./routes/getActions');
 const uploadProfilePic = require('./routes/uploadProfilePic');
+// const uploadProfilePicNew = require('./routes/uploadProfilePicNew');
+// const uploadProfilePicSimple = require('./routes/uploadProfilePicSimple');
 const generateBadge = require('./routes/generateBadge');
 const enterPrizeDraw = require('./routes/enterPrizeDraw');
 
@@ -17,7 +19,7 @@ const getBadgeCount = require('./routes/getBadgeCount');
 const getPromotedBadges = require('./routes/getPromotedBadges');
 const getRecentBadges = require('./routes/getRecentBadges');
 const getBadge = require('./routes/getBadge');
-const exif = require('./routes/exif');
+// const exif = require('./routes/exif');
 
 var app = express();
 
@@ -45,13 +47,15 @@ app.use(express.static(path.join(__dirname, 'public', 'build')));
 app.use('/api/getAction', getAction);
 app.use('/api/getActions', getActions);
 app.use('/api/uploadProfilePic', uploadProfilePic);
+// app.use('/api/uploadProfilePicNew', uploadProfilePicNew);
+// app.use('/api/uploadProfilePicSimple', uploadProfilePicSimple);
 app.use('/api/generateBadge', generateBadge);
 app.use('/api/enterPrizeDraw', enterPrizeDraw);
 app.use('/api/getBadgeCount', getBadgeCount);
 app.use('/api/getPromotedBadges', getPromotedBadges);
 app.use('/api/getRecentBadges', getRecentBadges);
 app.use('/api/getBadge', getBadge);
-app.use('/api/exif', exif);
+// app.use('/api/exif', exif);
 
 // all unfound routes to be sent 
 if (app.get('env') !== 'development') {

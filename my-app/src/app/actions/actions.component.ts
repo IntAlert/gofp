@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActionService } from '../action.service';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -7,24 +7,24 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './actions.component.html',
   styleUrls: ['./actions.component.css']
 })
-export class ActionsComponent implements OnInit {
+export class ActionsComponent {
 
-  actions: any;
+  // actions: any;
 
-  constructor(
-    private actionService: ActionService,
-    private router: Router
-  ) {}
+  // constructor(
+  //   private actionService: ActionService,
+  //   private router: Router
+  // ) {}
 
-  ngOnInit() {
-    // scroll to top, on nvaigate
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
-      }
-      document.body.scrollTop = 0;
-    });
-  }
+  // ngOnInit() {
+  //   // scroll to top, on nvaigate
+  //   this.router.events.subscribe((evt) => {
+  //     if (!(evt instanceof NavigationEnd)) {
+  //       return;
+  //     }
+  //     document.body.scrollTop = 0;
+  //   });
+  // }
   
 
 }

@@ -20,6 +20,7 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         ga('set', 'page', event.urlAfterRedirects);
         ga('send', 'pageview');
+        document.body.scrollTop = 0;
       }
     });
 

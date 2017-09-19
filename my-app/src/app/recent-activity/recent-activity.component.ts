@@ -17,12 +17,14 @@ export class RecentActivityComponent implements OnInit {
   ngOnInit() {
     this.badgeService.loadRecentBadges();
     // scroll to top, on nvaigate
-    this.router.events.subscribe((evt) => {
-        if (!(evt instanceof NavigationEnd)) {
-            return;
-        }
-        document.body.scrollTop = 0;
-    });
+    // console.log('yo');
+    // this.router.events.subscribe((evt) => {
+    //     if (!(evt instanceof NavigationEnd)) {
+    //         return;
+    //     }
+    //     console.log('yep');
+    //     document.body.scrollTop = 0;
+    // });
   }
 
 }
