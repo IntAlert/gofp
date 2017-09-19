@@ -67,17 +67,10 @@ class MulterResizeAzureStorage {
         }
 					
 
-					// resize and auto-orient
-				// const resizedUpload = gm(file.stream)
-				// 	.autoOrient()
-                // 	.resize(850, 530, '>')
-                
-
 
         const blob = blobName(file);
         const writeStream = this.getWriteStream(blob, cb);
 
-        // console.log(file.stream)
 
         streamToBuffer(file.stream).then(uploadBuffer => {
             Jimp.read(uploadBuffer, (err, image)=>{
@@ -85,12 +78,13 @@ class MulterResizeAzureStorage {
                 let type = fileType(uploadBuffer);
     
                 // Resize this image
-                image.resize(51, 51)
+                image
+                .exifRotate()
+                .scaleToFit(850, 530)
                     //lower the quality by 90%
-                    .quality(50)
+                    .quality(99)
                     .getBuffer(type.mime, (err, buffer)=>{
                         bufferToStream(buffer).pipe(writeStream);
-                        // resizedUpload.stream().pipe(writeStream);
                     });
 
             });

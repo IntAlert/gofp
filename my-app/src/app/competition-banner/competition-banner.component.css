@@ -34,6 +34,11 @@ button {
 
 /* non-mobile*/
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+  h2, p {
+		color:#fff;
+  }
+  
   .competition-banner {
     background-image: url("/assets/competition-banner/header-2x.jpg");
   }
