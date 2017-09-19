@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {GoogleAnalyticsEventsService} from "./google-analytics-events.service";
-import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import { GoogleAnalyticsEventsService } from './google-analytics-events.service';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,12 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   MdButtonModule,
   MdCheckboxModule,
-  MdCardModule,
   MdInputModule,
-  MdToolbarModule,
   MdProgressBarModule,
-  MdListModule,
-  MdTabsModule
 } from '@angular/material';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -106,14 +102,10 @@ import { CompetitionTermsComponent } from './competition-terms/competition-terms
     ReactiveFormsModule,
 
     // Angular Material
-    MdCardModule,
     MdButtonModule,
     MdCheckboxModule,
     MdInputModule,
-    MdToolbarModule,
     MdProgressBarModule,
-    MdListModule,
-    MdTabsModule,
 
     // Third Party
     MomentModule,

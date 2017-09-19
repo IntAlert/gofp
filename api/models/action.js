@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.TEXT,
     link: DataTypes.TEXT,
     description: DataTypes.TEXT,
+    description_2: DataTypes.TEXT,
     title_for_badge: DataTypes.TEXT,
     priority: DataTypes.INTEGER,
     promoted: DataTypes.BOOLEAN,

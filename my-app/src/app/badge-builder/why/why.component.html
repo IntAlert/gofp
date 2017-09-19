@@ -10,13 +10,14 @@
 
 	<h2>{{action.title}}</h2>
 
-	<p class="description">
+<p class="description">
+	{{action.description}}
+</p>
 
-		{{action.description}}
-
-		<a *ngIf="action.link" class="action-link" href="{{action.link}}">{{action.link}}</a>
-
-	</p>
+<p class="description">
+	{{action.description_2}}
+	<a *ngIf="action.link" class="action-link" href="{{action.link}}">{{action.link}}</a>
+</p>
 
 	<app-button 
 		routerLink="/badgeBuilder/{{action.id}}/upload"
