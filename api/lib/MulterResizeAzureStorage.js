@@ -87,7 +87,7 @@ class MulterResizeAzureStorage {
                 // Resize this image
                 image.resize(51, 51)
                     //lower the quality by 90%
-                    .quality(10)
+                    .quality(50)
                     .getBuffer(type.mime, (err, buffer)=>{
                         bufferToStream(buffer).pipe(writeStream);
                         // resizedUpload.stream().pipe(writeStream);
