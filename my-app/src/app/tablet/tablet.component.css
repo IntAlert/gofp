@@ -1,0 +1,47 @@
+.container {
+	position: absolute;
+	width:100%;
+	height: 100%;
+	background:url("/assets/tablet/bg.jpg") no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+
+.top {
+	color:white;
+  width: 500px;
+  height: 50px;
+  margin: auto;
+  padding: 20px;
+	background: rgba(54, 25, 25, .8);
+	font-size:2em;
+}
+
+.bottom {
+	color:white;
+	font-size:2em;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 500px;
+	height: 200px;
+	margin: auto;
+	background: rgba(54, 25, 25, .8);
+}
+
+form {
+	display: flex;
+	padding:0 1em;
+}
+input {
+	flex:1;
+	justify-content: space-around;	
+}
+
+input[type=email] {
+	font-size:1em;
+	flex:3;
+}
+

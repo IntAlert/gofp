@@ -61,6 +61,7 @@ import { MomentModule } from 'angular2-moment';
 import { ButtonComponent } from './button/button.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CompetitionTermsComponent } from './competition-terms/competition-terms.component';
+import { TabletComponent } from './tablet/tablet.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { CompetitionTermsComponent } from './competition-terms/competition-terms
     ButtonComponent,
     NotFoundComponent,
     CompetitionTermsComponent,
+    TabletComponent,
   ],
   imports: [
     BrowserModule,

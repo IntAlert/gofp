@@ -15,7 +15,7 @@ export class SocialActionsComponent implements OnInit {
 
   // social details
   actionUserData: any;
-  public tweetText: String = 'Here\'s my #everydaypeace! We can spread a little peace together with @intalert & @benandjerrysUK. Join me';
+  public tweetText: String = 'Here\'s my #EverydayPeace! We can spread a little peace together with @intalert & @benandjerrysUK. Join me';
   action: any;
   sanitizedWhatsappUrl: SafeUrl;
 

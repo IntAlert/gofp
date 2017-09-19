@@ -44,7 +44,7 @@ router.post('/', function(req, res, next) {
 			pathname: 'badge/' + badge.id
 		})
 
-    const title = "#Everydaypeace";
+    const title = "#EverydayPeace";
     const description = "Little actions can bring big change. Here's how I'm adding to peace. Join me by creating your own & we can spread a little peace together";
 
     const uploadURL = upload ? upload.url : false;

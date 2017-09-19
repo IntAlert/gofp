@@ -23,6 +23,7 @@ import { EmailCollectorComponent } from './badge-builder/email-collector/email-c
 import { BadgeBuilderCompleteComponent } from './badge-builder/badge-builder-complete/badge-builder-complete.component';
 
 import { CompetitionTermsComponent } from './competition-terms/competition-terms.component';
+import { TabletComponent } from './tablet/tablet.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 
@@ -36,6 +37,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
             { path: 'badgeBuilder/:action_id', component: BadgeBuilderComponent },
             { path: 'actions',     component: ActionsComponent },
             { path: 'terms',     component: CompetitionTermsComponent },
+            { path: 'tablet',     component: TabletComponent },
 
 
             // badge landing page
