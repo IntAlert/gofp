@@ -28,7 +28,7 @@ export class EmailCollectorComponent implements OnInit {
     // Here we are using the FormBuilder to build out our form.
     this.complexForm = fb.group({
       'name' : ['', Validators.compose([Validators.required])],
-      'email' : ['as.thomson@gmail.com', Validators.compose([
+      'email' : ['', Validators.compose([
         Validators.required, 
         Validators.pattern(EMAIL_REGEX),
       ])],
