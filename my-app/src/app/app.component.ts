@@ -21,6 +21,7 @@ export class AppComponent {
         ga('set', 'page', event.urlAfterRedirects);
         ga('send', 'pageview');
         document.body.scrollTop = 0;
+        console.log(123);
       }
     });
 
