@@ -21,6 +21,7 @@ export class SocialActionsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private service: BadgeBuilderService,
     private sanitizer: DomSanitizer,
     private GA: GoogleAnalyticsEventsService
@@ -42,21 +43,31 @@ export class SocialActionsComponent implements OnInit {
   startFacebookShare = () => {
     this.service.registerShare();
     this.GA.emitEvent("badge-share", "facebook", this.action.title, this.action.id);
+    this.nextStep();
   }
 
   startTwitterShare = () => {
     this.service.registerShare();
     this.GA.emitEvent("badge-share", "twitter", this.action.title, this.action.id);
+    this.nextStep();
   }
 
   startWhatsappShare = () => {
     this.service.registerShare();
     this.GA.emitEvent("badge-share", "whatsapp", this.action.title, this.action.id);
+    this.nextStep();
   }
 
   startLinkedInShare = () => {
     this.service.registerShare();
     this.GA.emitEvent("badge-share", "whatsapp", this.action.title, this.action.id);
+    this.nextStep();
+  }
+
+  nextStep = () => {
+    setTimeout(() => {
+      this.router.navigate(['/badgeBuilder/' + this.action.id + '/prize']);
+    }, 1000);
   }
 
 }
