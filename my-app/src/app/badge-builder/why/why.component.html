@@ -1,12 +1,12 @@
 <app-badge-builder-card>
 	
-	<!-- <div class="image">
+	<div class="image">
 		<img src="{{action.image}}" alt="Action showing {{action.title}}" class="full-width" /> 
-	</div> -->
+	</div>
 
-	<div class="logo">
+	<!-- <div class="logo">
     <img src="assets/logo.svg" alt="International Alert">
-  </div>
+  </div> -->
 
 	<h2>{{action.title}}</h2>
 
@@ -16,7 +16,9 @@
 
 <p class="description">
 	{{action.description_2}}
-	<a *ngIf="action.link" class="action-link" href="{{action.link}}">{{action.link}}</a>
+	<a *ngIf="action.link" class="action-link" href="{{action.link}}">
+		{{action.link_text}}
+	</a>
 </p>
 
 	<app-button 

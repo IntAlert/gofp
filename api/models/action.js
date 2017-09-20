@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     image: DataTypes.TEXT,
     title: DataTypes.TEXT,
     link: DataTypes.TEXT,
+    link_text: DataTypes.TEXT,
     description: DataTypes.TEXT,
     description_2: DataTypes.TEXT,
     title_for_badge: DataTypes.TEXT,

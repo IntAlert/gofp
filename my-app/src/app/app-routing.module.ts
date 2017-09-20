@@ -42,7 +42,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
             // badge landing page
             {
-                path: 'badge/:badge_id',
+                path: 'my/action/:badge_id',
                 component: BadgeComponent,
                 resolve: {
                     badge: BadgeResolverModule

@@ -9,22 +9,11 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class ActionsComponent {
 
-  // actions: any;
+  actions: any;
 
-  // constructor(
-  //   private actionService: ActionService,
-  //   private router: Router
-  // ) {}
-
-  // ngOnInit() {
-  //   // scroll to top, on nvaigate
-  //   this.router.events.subscribe((evt) => {
-  //     if (!(evt instanceof NavigationEnd)) {
-  //       return;
-  //     }
-  //     document.body.scrollTop = 0;
-  //   });
-  // }
-  
+  constructor(
+    private actionService: ActionService,
+    private router: Router
+  ) {}
 
 }

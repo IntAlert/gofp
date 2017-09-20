@@ -22,9 +22,6 @@ router.post('/', function(req, res, next) {
     upload = records[0];
     action = records[1];
 
-    // const redirect = 'http://gofp.azurewebsites.net/badges/' + upload.badge_id;
-    
-
     // create badge record
     return models.Badge.create({
       action_id: req.body.action_id,
@@ -41,7 +38,7 @@ router.post('/', function(req, res, next) {
 			protocol: req.protocol,
 			port: process.env.NODE_ENV == 'production' ? null:3000,
 			hostname: req.hostname,
-			pathname: 'badge/' + badge.id
+			pathname: 'my/action/' + badge.id
 		})
 
     const title = "#EverydayPeace";

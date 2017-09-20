@@ -13,11 +13,11 @@
     /> 
 
     <!-- If not upload  -->
-    <img 
+    <!-- <img 
       *ngIf="!actionUserData.upload"
       src="{{action.image}}" 
       alt="Action showing {{action.title}}" class="full-width" 
-    /> 
+    />  -->
 	</div>
 
   <form class="story" [formGroup]="storyInputForm" (ngSubmit)="submitForm(storyInputForm.value)">
@@ -34,7 +34,7 @@
           [formControl]="storyInputForm.controls['story']"
           minlength="10"
           maxlength="120"
-          placeholder="Tell us what you did"></textarea>
+          placeholder="Please enter text"></textarea>
       </div>
 
        <md-error *ngIf="storyInputForm.controls['story'].hasError('required')">

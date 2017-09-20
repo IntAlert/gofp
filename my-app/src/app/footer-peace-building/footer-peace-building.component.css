@@ -2,6 +2,7 @@
 /* Peacebuilding */
 .peace-building {
   background:#fdc300;
+  text-align: center;
 }
 
 .header img {
@@ -14,6 +15,8 @@
 
 .content {
   padding:47px 28px 18px;
+  max-width: 500px;
+  margin:0 auto;
 }
 
 h2 {
@@ -46,7 +49,7 @@ a.more {
 
 
 /* non-mobile*/
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
+/* @media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
 {
   .header {
     float:right;
@@ -80,5 +83,5 @@ a.more {
   }
 
 
-}
+} */
 
