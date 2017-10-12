@@ -2,13 +2,7 @@
 
 
 # TODO:
-- Facebook Share?
-- Badge Landing Page
-- Mobile view
-- Desktop view
-- Deploy
-
-
+- Share AOT
 
 # Development
 0. Clone this repo
